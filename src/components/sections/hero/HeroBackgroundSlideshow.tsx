@@ -57,11 +57,13 @@ export function HeroBackgroundSlideshow({ images }: HeroBackgroundSlideshowProps
         );
       })}
 
-      <div className="absolute inset-0 z-30 bg-gradient-to-r from-brand-orange/30 via-brand-dark/88 to-brand-dark/35" />
-      <div className="absolute inset-0 z-30 bg-gradient-to-r from-brand-dark/70 via-transparent to-transparent" />
-      <div className="absolute inset-0 z-30 bg-gradient-to-t from-brand-dark/85 via-transparent to-brand-dark/25" />
-      <div className="absolute inset-0 z-30 hero-dot-pattern opacity-[0.1] mix-blend-overlay" />
-      <div className="absolute left-0 top-0 z-30 h-full w-1.5 bg-brand-orange hidden lg:block" />
+      {/* Darker black tint — text readability */}
+      <div className="absolute inset-0 z-30 bg-black/60" />
+
+      <div className="absolute inset-0 z-30 bg-gradient-to-t from-brand-dark/70 via-transparent to-black/35" />
+
+      {/* Soft bottom fade into stats */}
+      <div className="absolute bottom-0 left-0 right-0 z-30 h-28 bg-gradient-to-t from-brand-dark to-transparent" />
     </div>
   );
 }
