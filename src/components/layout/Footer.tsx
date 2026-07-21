@@ -37,12 +37,12 @@ function FooterHeading({ children }: { children: React.ReactNode }) {
 
 export function Footer() {
   return (
-    <footer className="relative w-full min-h-0 sm:min-h-[50vh] lg:min-h-[60vh] flex flex-col bg-white border-t border-orange-100 text-brand-gray-text text-sm overflow-x-hidden">
+    <footer className="relative w-full bg-white border-t border-orange-100 text-brand-gray-text text-sm overflow-x-hidden">
       <div className="absolute inset-0 hero-dot-pattern opacity-30 pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-orange via-brand-orange-muted to-brand-orange" />
 
-      <div className="relative flex-1 px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-8 sm:pb-10">
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-x-8 lg:gap-y-12">
+      <div className="relative px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 pb-6 sm:pb-8">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-x-8 lg:gap-y-10">
           <div className="sm:col-span-2 lg:col-span-4 space-y-5">
             <Link href="#" className="inline-block">
               <Image
@@ -181,40 +181,22 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="relative mt-auto w-full">
-        <div
-          className="relative w-full overflow-hidden pt-6 sm:pt-8 pb-1 select-none pointer-events-none"
-          aria-hidden="true"
-        >
-          <div className="flex whitespace-nowrap animate-[ticker_40s_linear_infinite] motion-reduce:animate-none">
-            {Array.from({ length: 12 }, (_, i) => (
-              <span
-                key={i}
-                className="inline-flex shrink-0 items-center font-tech font-bold leading-none tracking-tighter text-[clamp(3.5rem,min(18vw,12rem),12rem)] text-orange-100 pr-[0.25em]"
+      <div className="relative w-full border-t border-orange-100 bg-white/80 backdrop-blur-sm px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+        <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-xs">
+          <p className="text-center sm:text-left">
+            © 2026 {siteConfig.name}.com. All international corporate
+            distribution rights reserved.
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            {footerLegalLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="hover:text-brand-orange transition-colors"
               >
-                SEATS CONNECT ·
-              </span>
+                {link.label}
+              </Link>
             ))}
-          </div>
-        </div>
-
-        <div className="relative border-t border-orange-100 bg-white/80 backdrop-blur-sm px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
-          <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
-            <p className="text-center sm:text-left">
-              © 2026 {siteConfig.name}.com. All international corporate
-              distribution rights reserved.
-            </p>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-              {footerLegalLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="hover:text-brand-orange transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
           </div>
         </div>
       </div>
