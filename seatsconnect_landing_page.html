@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeatsConnect - The Command Center of Live Entertainment</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=2">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=2">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#ff6b00',
+                            orangeHover: '#e65f00',
+                            orangeLight: '#fff4eb',
+                            orangeMuted: '#ff8533',
+                            dark: '#1a1a1a',
+                            grayText: '#64748b',
+                            glow: 'rgba(255, 107, 0, 0.12)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        tech: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40' fill='%23ff6b00' fill-opacity='0.04'/%3E%3Crect width='40' height='40' fill='none' stroke='%23ff6b00' stroke-opacity='0.06' stroke-width='1'/%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-border {
+            box-shadow: 0 4px 24px rgba(255, 107, 0, 0.12);
+            transition: all 0.3s ease;
+        }
+        .glow-border:hover {
+            box-shadow: 0 8px 32px rgba(255, 107, 0, 0.22);
+            border-color: rgba(255, 107, 0, 0.5);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #ff6b00; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e65f00; }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255,255,255,0.97) 0%, rgba(255,244,235,0.95) 50%, rgba(255,255,255,0.92) 100%);
+        }
+        .card-image-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%);
+        }
+    </style>
+</head>
+<body class="bg-white text-brand-dark font-sans antialiased overflow-x-hidden bg-grid-pattern">
+
+    <!-- Top accent bar -->
+    <div class="h-1 w-full bg-gradient-to-r from-brand-orange via-orange-400 to-brand-orange"></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-orange-100 shadow-sm px-4 lg:px-8 py-3.5 transition-all duration-300 overflow-visible">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center shrink-0 overflow-visible py-0.5">
+                <img src="assets/seatsconnect-logo-nav.png?v=2" alt="SeatsConnect" class="h-10 sm:h-11 w-auto block object-contain">
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-600">
+                <a href="#about" class="hover:text-brand-orange transition-colors">Platform</a>
+                <a href="#advantage" class="hover:text-brand-orange transition-colors">The Advantage</a>
+                <a href="#engine" class="hover:text-brand-orange transition-colors">EDGE Engine</a>
+                <a href="#coverage" class="hover:text-brand-orange transition-colors">Events Directory</a>
+                <a href="#calculator" class="hover:text-brand-orange transition-colors">Margin Calculator</a>
+                <a href="#reach" class="hover:text-brand-orange font-tech text-brand-orange font-semibold">Strategic Reach</a>
+            </div>
+
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="#contact" class="px-5 py-2.5 rounded-lg text-sm font-bold bg-brand-orange hover:bg-brand-orangeHover text-white transition-all duration-300 shadow-md shadow-brand-orange/25 hover:shadow-brand-orange/40 flex items-center gap-2 font-tech">
+                    Partner With Us <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <button onclick="toggleMobileMenu()" class="md:hidden text-brand-dark focus:outline-none p-2 rounded-lg hover:bg-orange-50">
+                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-orange-100 space-y-3 pb-2 text-center">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-gray-600 hover:text-brand-orange">Platform</a>
+            <a href="#advantage" onclick="toggleMobileMenu()" class="block py-2 text-gray-600 hover:text-brand-orange">The Advantage</a>
+            <a href="#engine" onclick="toggleMobileMenu()" class="block py-2 text-gray-600 hover:text-brand-orange">EDGE Engine</a>
+            <a href="#coverage" onclick="toggleMobileMenu()" class="block py-2 text-gray-600 hover:text-brand-orange">Events Directory</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-gray-600 hover:text-brand-orange">Margin Calculator</a>
+            <a href="#reach" onclick="toggleMobileMenu()" class="block py-2 text-brand-orange font-bold">Strategic Reach</a>
+            <div class="pt-2">
+                <a href="#contact" onclick="toggleMobileMenu()" class="inline-block w-full px-5 py-3 rounded-lg text-sm font-bold bg-brand-orange hover:bg-brand-orangeHover text-white">Partner With Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1470229728103-6f6ed9d48790?w=1920&q=80" alt="Live concert atmosphere" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 pt-10 pb-20 md:py-24 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-orangeLight border border-brand-orange/20 text-brand-orange text-xs font-semibold tracking-wider uppercase font-tech mb-6">
+                            <span class="flex h-2 w-2 relative">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-orange"></span>
+                            </span>
+                            The Premium Spin-Off of SeatsBrokers.com
+                        </div>
+
+                        <h1 class="font-tech text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-dark mb-6 leading-[1.1]">
+                            The Command Center <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-orange-500">of Live Entertainment</span>
+                        </h1>
+
+                        <p class="text-brand-grayText text-lg sm:text-xl font-light mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                            The global B2B ticket distribution engine powering scalable, risk-free inventory for the world's leading travel, hospitality, and concierge partners.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 mb-10">
+                            <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-brand-orange hover:bg-brand-orangeHover text-white transition-all shadow-lg shadow-brand-orange/30 hover:shadow-brand-orange/50 flex items-center justify-center gap-3 text-base">
+                                Become a Premium Partner <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#advantage" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-white hover:bg-orange-50 border-2 border-brand-orange/30 hover:border-brand-orange text-brand-orange transition-all flex items-center justify-center gap-2 text-base">
+                                View Advantage
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="relative hidden lg:block">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl shadow-brand-orange/15 border border-orange-100">
+                            <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=900&q=80" alt="Premium stadium experience" class="w-full h-[420px] object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 p-6 card-image-overlay">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-orange flex items-center justify-center">
+                                        <i data-lucide="ticket" class="w-5 h-5 text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-tech font-bold text-sm">Global Mega-Events</p>
+                                        <p class="text-white/80 text-xs">F1 • FIFA • Concerts • Grand Slams</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl border border-orange-100 flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-tech font-bold text-brand-dark text-sm">100% Verified</p>
+                                <p class="text-xs text-brand-grayText">Risk-Free Fulfillment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats bar -->
+                <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 p-6 rounded-2xl bg-white border border-orange-100 shadow-lg shadow-brand-orange/5">
+                    <div class="text-center border-r border-orange-100 last:border-0">
+                        <span class="block font-tech text-2xl sm:text-3xl font-bold text-brand-orange">Real-Time</span>
+                        <span class="text-xs text-brand-grayText uppercase tracking-widest mt-1 block">Ticket Distribution</span>
+                    </div>
+                    <div class="text-center border-r border-orange-100 last:border-0">
+                        <span class="block font-tech text-2xl sm:text-3xl font-bold text-brand-dark">Advanced <span class="text-brand-orange">API</span></span>
+                        <span class="text-xs text-brand-grayText uppercase tracking-widest mt-1 block">Instant Feeds</span>
+                    </div>
+                    <div class="text-center border-r border-orange-100 last:border-0">
+                        <span class="block font-tech text-2xl sm:text-3xl font-bold text-brand-orange">1,500+</span>
+                        <span class="text-xs text-brand-grayText uppercase tracking-widest mt-1 block">Local Suppliers</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block font-tech text-2xl sm:text-3xl font-bold text-brand-dark flex justify-center items-center gap-1.5"><i data-lucide="shield-check" class="w-6 h-6 text-green-600"></i> Trusted</span>
+                        <span class="text-xs text-brand-grayText uppercase tracking-widest mt-1 block">Risk-Free Fulfillment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trust strip -->
+    <section class="py-8 bg-brand-orangeLight border-y border-orange-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-center">
+                <div class="flex items-center gap-2 text-sm font-tech font-semibold text-brand-dark">
+                    <i data-lucide="globe" class="w-5 h-5 text-brand-orange"></i> 50+ Countries
+                </div>
+                <div class="flex items-center gap-2 text-sm font-tech font-semibold text-brand-dark">
+                    <i data-lucide="zap" class="w-5 h-5 text-brand-orange"></i> &lt;30ms API Latency
+                </div>
+                <div class="flex items-center gap-2 text-sm font-tech font-semibold text-brand-dark">
+                    <i data-lucide="building-2" class="w-5 h-5 text-brand-orange"></i> Enterprise B2B Ready
+                </div>
+                <div class="flex items-center gap-2 text-sm font-tech font-semibold text-brand-dark">
+                    <i data-lucide="clock" class="w-5 h-5 text-brand-orange"></i> 24/7 Support
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect Demand Section -->
+    <section id="about" class="py-20 bg-gray-50 border-t border-orange-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-brand-orange font-tech text-sm uppercase tracking-widest font-semibold block mb-2">Connecting Demand</span>
+                <h2 class="font-tech text-3xl sm:text-5xl font-bold text-brand-dark">Connecting international demand <br class="hidden sm:inline">with global mega-events</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-orange-100 mb-6">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80" alt="Premium travel and hospitality" class="w-full h-56 object-cover">
+                    </div>
+                    <p class="text-brand-grayText leading-relaxed text-lg">
+                        The modern consumer expects seamless, fully integrated travel and entertainment experiences.
+                    </p>
+                    <p class="text-brand-grayText leading-relaxed">
+                        For premium travel management companies, high-end concierges, and corporate hospitality partners, capturing this high-value demand requires moving beyond standard travel itineraries.
+                    </p>
+                    <div class="p-5 rounded-xl bg-brand-orangeLight border-l-4 border-brand-orange text-brand-dark">
+                        <span class="block font-semibold mb-1 text-brand-orange">Our Simple Focus:</span>
+                        Connect exclusive global ticket supply with international demand efficiently and at scale.
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-orange-100 shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-20 -bottom-20 w-60 h-60 bg-brand-orange/5 rounded-full blur-3xl"></div>
+                    
+                    <div class="relative flex flex-col md:flex-row items-center justify-between gap-6 py-6">
+                        <div class="w-full md:w-5/12 space-y-4 z-10">
+                            <div class="p-4 rounded-xl bg-gray-50 border border-orange-100 flex items-center gap-4 hover:border-brand-orange/50 transition-all hover:shadow-md">
+                                <div class="p-3 rounded-lg bg-brand-orangeLight text-brand-orange">
+                                    <i data-lucide="plane" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark font-tech tracking-wide">TRAVEL</h4>
+                                    <p class="text-xs text-brand-grayText">Premium Agency Distribution</p>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-gray-50 border border-orange-100 flex items-center gap-4 hover:border-brand-orange/50 transition-all hover:shadow-md">
+                                <div class="p-3 rounded-lg bg-brand-orangeLight text-brand-orange">
+                                    <i data-lucide="gem" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark font-tech tracking-wide">HOSPITALITY</h4>
+                                    <p class="text-xs text-brand-grayText">Corporate & Luxury Concierge</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex md:flex-col items-center justify-center py-4 z-10">
+                            <div class="w-12 h-12 rounded-full bg-brand-orange flex items-center justify-center animate-pulse shadow-lg shadow-brand-orange/30">
+                                <i data-lucide="infinity" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div class="h-0.5 w-12 md:w-0.5 md:h-12 bg-gradient-to-b from-brand-orange to-orange-400"></div>
+                        </div>
+
+                        <div class="w-full md:w-5/12 z-10">
+                            <div class="p-6 rounded-2xl bg-gradient-to-br from-brand-orange to-orange-600 text-white text-center shadow-xl relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400&q=80" alt="Live events" class="absolute inset-0 w-full h-full object-cover opacity-20">
+                                <div class="relative z-10">
+                                    <i data-lucide="ticket" class="w-10 h-10 mx-auto mb-3 text-white"></i>
+                                    <h4 class="font-tech text-lg font-bold uppercase tracking-wider">LIVE EVENTS</h4>
+                                    <p class="text-xs text-white/90 mt-1">Unified Global Marketplace</p>
+                                    <div class="mt-4 pt-4 border-t border-white/30 flex justify-center gap-2 text-[10px] uppercase tracking-widest font-mono">
+                                        <span>Formula 1</span> • <span>FIFA</span> • <span>Concerts</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Advantage Section -->
+    <section id="advantage" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-brand-orange font-tech text-sm uppercase tracking-widest font-semibold block mb-2">Unified Value Proposition</span>
+                <h2 class="font-tech text-3xl sm:text-5xl font-bold text-brand-dark">The Fragmented Supply vs. SeatsConnect</h2>
+                <p class="text-brand-grayText max-w-2xl mx-auto mt-4">Manual workflows and disconnected regional suppliers yield hidden structural costs. Explore why our unified system is a fundamental competitive upgrade.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+                <div class="p-8 rounded-3xl bg-gray-50 border border-red-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <h3 class="font-tech text-xl font-bold tracking-wider text-brand-dark">The Fragmented Supply (Old Way)</h3>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="p-2.5 rounded-lg bg-red-50 text-red-500 mt-1">
+                                    <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-dark">Severe Operational Inefficiencies</h4>
+                                    <p class="text-sm text-brand-grayText mt-1">Manual, slow, and error-prone backend ticketing operations. High reliance on static email sheets and disconnected regional databases.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="p-2.5 rounded-lg bg-red-50 text-red-500 mt-1">
+                                    <i data-lucide="trending-down" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-dark">Massive Lost Revenues</h4>
+                                    <p class="text-sm text-brand-grayText mt-1">Extremely limited cross-border reach for marquee global events. High-yield local supply remains localized and unavailable to global buyers.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="p-2.5 rounded-lg bg-red-50 text-red-500 mt-1">
+                                    <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-dark">Exorbitant Fulfillment Risks</h4>
+                                    <p class="text-sm text-brand-grayText mt-1">Zero supplier transparency for critical end-to-end B2B buyers, generating high cancellation frequencies and volatile delivery timelines.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-gray-200 text-xs text-brand-grayText">
+                        Result: Constrained margins, operational bottlenecks, frustrated premium clients.
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-white border-2 border-brand-orange/30 flex flex-col justify-between glow-border relative">
+                    <div class="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-brand-orange text-white font-tech text-[10px] uppercase font-extrabold tracking-wider">
+                        Recommended
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="w-3 h-3 rounded-full bg-brand-orange animate-ping"></span>
+                            <h3 class="font-tech text-xl font-bold tracking-wider text-brand-orange">The SeatsConnect Way (Unified)</h3>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="p-2.5 rounded-lg bg-brand-orangeLight text-brand-orange mt-1">
+                                    <i data-lucide="zap" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-dark">Instant Connections (Eliminated Friction)</h4>
+                                    <p class="text-sm text-brand-grayText mt-1">Our unified marketplace automates manual friction at scale with milliseconds latency API requests and standardized dynamic feeds.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="p-2.5 rounded-lg bg-brand-orangeLight text-brand-orange mt-1">
+                                    <i data-lucide="globe" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-dark">Global Scalable Reach</h4>
+                                    <p class="text-sm text-brand-grayText mt-1">Instantly access verified global ticketing inventory from 1,500+ local providers with market-responsive algorithmic dynamic pricing.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="p-2.5 rounded-lg bg-brand-orangeLight text-brand-orange mt-1">
+                                    <i data-lucide="check-circle" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-dark">Guaranteed, Secure Delivery</h4>
+                                    <p class="text-sm text-brand-grayText mt-1">100% verified source guarantee. Our real-time procurement model safeguards final customer handoffs, ensuring predictable fulfillment.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-orange-100 text-xs text-brand-orange font-tech flex items-center gap-2">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i> Result: Scalable global expansion, pristine brand reputation, and doubled margins.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDGE Engine Section -->
+    <section id="engine" class="py-20 bg-gray-50 border-y border-orange-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-brand-orange font-tech text-sm uppercase tracking-widest font-semibold block mb-2">System Architecture</span>
+                <h2 class="font-tech text-3xl sm:text-5xl font-bold text-brand-dark">The Seamless Engine: Patented EDGE Technology</h2>
+                <p class="text-brand-grayText max-w-2xl mx-auto mt-4">Our proprietary pipeline powers clean data ingestion all the way through to zero-intervention automated fulfillment.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-4 space-y-4">
+                    <button onclick="setActiveStep(1)" id="step-btn-1" class="w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-white border-brand-orange/50 glow-border">
+                        <div class="flex items-center gap-4">
+                            <span class="font-tech text-lg font-bold px-3 py-1 rounded bg-brand-orangeLight text-brand-orange" id="step-badge-1">01</span>
+                            <div>
+                                <h4 class="font-bold text-brand-dark font-tech">INGEST</h4>
+                                <p class="text-xs text-brand-grayText">Real-time inventory sourcing</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-brand-orange"></i>
+                    </button>
+                    <button onclick="setActiveStep(2)" id="step-btn-2" class="w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-white/60 border-orange-100 hover:border-brand-orange/30">
+                        <div class="flex items-center gap-4">
+                            <span class="font-tech text-lg font-bold px-3 py-1 rounded bg-gray-100 text-brand-grayText" id="step-badge-2">02</span>
+                            <div>
+                                <h4 class="font-bold text-brand-dark font-tech">PRICE</h4>
+                                <p class="text-xs text-brand-grayText">Algorithmic rate alignment</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-brand-grayText"></i>
+                    </button>
+                    <button onclick="setActiveStep(3)" id="step-btn-3" class="w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-white/60 border-orange-100 hover:border-brand-orange/30">
+                        <div class="flex items-center gap-4">
+                            <span class="font-tech text-lg font-bold px-3 py-1 rounded bg-gray-100 text-brand-grayText" id="step-badge-3">03</span>
+                            <div>
+                                <h4 class="font-bold text-brand-dark font-tech">DEPLOY</h4>
+                                <p class="text-xs text-brand-grayText">Scalable API router delivery</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-brand-grayText"></i>
+                    </button>
+                    <button onclick="setActiveStep(4)" id="step-btn-4" class="w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-white/60 border-orange-100 hover:border-brand-orange/30">
+                        <div class="flex items-center gap-4">
+                            <span class="font-tech text-lg font-bold px-3 py-1 rounded bg-gray-100 text-brand-grayText" id="step-badge-4">04</span>
+                            <div>
+                                <h4 class="font-bold text-brand-dark font-tech">FULFILL</h4>
+                                <p class="text-xs text-brand-grayText">Instant delivery protocols</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-brand-grayText"></i>
+                    </button>
+                </div>
+
+                <div class="lg:col-span-8 bg-white p-8 rounded-3xl border border-orange-100 min-h-[400px] flex flex-col justify-between shadow-xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-grid-pattern opacity-50"></div>
+                    
+                    <div class="relative z-10">
+                        <span class="text-brand-orange uppercase text-xs tracking-widest font-tech font-bold block mb-1" id="display-step-num">Step 01 / Patented Pipeline</span>
+                        <h3 class="font-tech text-3xl font-bold mb-4 text-brand-dark" id="display-step-title">Ingest Engine Protocols</h3>
+                        <p class="text-brand-grayText leading-relaxed" id="display-step-desc">
+                            Aggregates inventory from 1,500+ verified global ticket sources, consolidating multi-regional database formats. Real-time availability monitoring cleans, authenticates, and validates live listings instantly across every major event category.
+                        </p>
+                    </div>
+
+                    <div class="relative z-10 my-8 py-4 bg-gray-50 border border-orange-100 rounded-xl p-4 flex flex-col items-center justify-center">
+                        <div class="w-full flex justify-between items-center px-4 text-xs font-mono text-brand-grayText mb-4">
+                            <span>INPUT STATUS: <span class="text-green-600">ACTIVE</span></span>
+                            <span>latency: <span class="text-brand-orange" id="display-step-latency">12ms</span></span>
+                        </div>
+                        <div class="w-full flex items-center justify-around py-4 flex-wrap gap-4" id="display-step-diagram">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-full bg-brand-orangeLight border border-brand-orange flex items-center justify-center text-brand-orange animate-pulse">
+                                    <i data-lucide="filter" class="w-7 h-7"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-brand-grayText block">Active Pools</span>
+                                    <span class="font-tech font-bold text-brand-dark">450+ Sources / min</span>
+                                </div>
+                            </div>
+                            <div class="h-0.5 w-1/3 bg-brand-orange"></div>
+                            <div class="w-12 h-12 rounded-lg bg-white border border-orange-200 flex items-center justify-center text-brand-dark font-mono text-xs">
+                                EDGE
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 pt-4 border-t border-orange-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                        <div class="flex items-center gap-2 text-xs text-brand-grayText">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-brand-orange"></i>
+                            <span>White-Label API Ready Integration</span>
+                        </div>
+                        <span class="text-xs bg-brand-orangeLight text-brand-orange px-3 py-1 rounded font-tech">Patented EDGE Framework</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Catalog -->
+    <section id="coverage" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+                <div>
+                    <span class="text-brand-orange font-tech text-sm uppercase tracking-widest font-semibold block mb-2">Live Catalog</span>
+                    <h2 class="font-tech text-3xl sm:text-5xl font-bold text-brand-dark">One Platform. <br>Thousands of Mega-Events</h2>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0 bg-gray-50 p-1.5 rounded-xl border border-orange-100">
+                    <button onclick="filterEvents('all')" id="filter-btn-all" class="px-4 py-2 text-xs font-bold font-tech rounded-lg bg-brand-orange text-white transition-all">All Events</button>
+                    <button onclick="filterEvents('sports')" id="filter-btn-sports" class="px-4 py-2 text-xs font-bold font-tech rounded-lg text-brand-grayText hover:text-brand-orange transition-all">Sports</button>
+                    <button onclick="filterEvents('concerts')" id="filter-btn-concerts" class="px-4 py-2 text-xs font-bold font-tech rounded-lg text-brand-grayText hover:text-brand-orange transition-all">Live Tours</button>
+                    <button onclick="filterEvents('mega')" id="filter-btn-mega" class="px-4 py-2 text-xs font-bold font-tech rounded-lg text-brand-grayText hover:text-brand-orange transition-all">Tournaments</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="events-grid-container">
+                <div class="group bg-white rounded-2xl border border-orange-100 overflow-hidden transition-all duration-300 hover:border-brand-orange/40 hover:shadow-xl hover:shadow-brand-orange/10 flex flex-col" data-category="mega">
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80" alt="FIFA World Cup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 text-[10px] font-bold font-tech tracking-wider uppercase bg-brand-orange text-white rounded">Tournament</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-tech text-xl font-bold group-hover:text-brand-orange transition-colors text-brand-dark">FIFA World Cup Matches</h4>
+                            <span class="text-xs text-brand-grayText">2026/2027</span>
+                        </div>
+                        <p class="text-xs text-brand-grayText leading-relaxed">Full premium package listings, VIP boxes, and hospitality allocations across all stadiums.</p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-orange-50 flex justify-between items-center text-xs">
+                        <span class="text-brand-grayText flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> Global Venues</span>
+                        <span class="font-tech text-brand-orange font-semibold">Instant API Feed</span>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl border border-orange-100 overflow-hidden transition-all duration-300 hover:border-brand-orange/40 hover:shadow-xl hover:shadow-brand-orange/10 flex flex-col" data-category="sports">
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541443131876-44b370661557?w=600&q=80" alt="Formula 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 text-[10px] font-bold font-tech tracking-wider uppercase bg-brand-orange text-white rounded">Motorsport</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-tech text-xl font-bold group-hover:text-brand-orange transition-colors text-brand-dark">Formula 1 Grand Prix</h4>
+                            <span class="text-xs text-brand-grayText">Full Calendar</span>
+                        </div>
+                        <p class="text-xs text-brand-grayText leading-relaxed">Paddock Club hospitality, premium grandstand seats, and suite-only track options.</p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-orange-50 flex justify-between items-center text-xs">
+                        <span class="text-brand-grayText flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> Monaco, Singapore, ME</span>
+                        <span class="font-tech text-brand-orange font-semibold">Dynamic Pricing</span>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl border border-orange-100 overflow-hidden transition-all duration-300 hover:border-brand-orange/40 hover:shadow-xl hover:shadow-brand-orange/10 flex flex-col" data-category="concerts">
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80" alt="Global stadium tours" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 text-[10px] font-bold font-tech tracking-wider uppercase bg-brand-orange text-white rounded">Live Tours</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-tech text-xl font-bold group-hover:text-brand-orange transition-colors text-brand-dark">Global Stadium Tours</h4>
+                            <span class="text-xs text-brand-grayText">2026/2027</span>
+                        </div>
+                        <p class="text-xs text-brand-grayText leading-relaxed">Top tier shows: Coldplay, Ed Sheeran, Taylor Swift, Lady Gaga, and prestigious stadium tours.</p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-orange-50 flex justify-between items-center text-xs">
+                        <span class="text-brand-grayText flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> Global Cities</span>
+                        <span class="font-tech text-brand-orange font-semibold">High Demand</span>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl border border-orange-100 overflow-hidden transition-all duration-300 hover:border-brand-orange/40 hover:shadow-xl hover:shadow-brand-orange/10 flex flex-col" data-category="mega">
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560272564-c83b66b1bd44?w=600&q=80" alt="Rugby World Cup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 text-[10px] font-bold font-tech tracking-wider uppercase bg-brand-orange text-white rounded">Tournament</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-tech text-xl font-bold group-hover:text-brand-orange transition-colors text-brand-dark">Rugby World Cup Finals</h4>
+                            <span class="text-xs text-brand-grayText">Elite Access</span>
+                        </div>
+                        <p class="text-xs text-brand-grayText leading-relaxed">Official lounge passes, primary category tickets, and verified corporate block packages.</p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-orange-50 flex justify-between items-center text-xs">
+                        <span class="text-brand-grayText flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> Strategic Venues</span>
+                        <span class="font-tech text-brand-orange font-semibold">Pre-booking Active</span>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl border border-orange-100 overflow-hidden transition-all duration-300 hover:border-brand-orange/40 hover:shadow-xl hover:shadow-brand-orange/10 flex flex-col" data-category="sports">
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1622164853716-987973597a45?w=600&q=80" alt="Wimbledon and Grand Slams" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 text-[10px] font-bold font-tech tracking-wider uppercase bg-brand-orange text-white rounded">Tennis Majors</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-tech text-xl font-bold group-hover:text-brand-orange transition-colors text-brand-dark">Wimbledon & Grand Slams</h4>
+                            <span class="text-xs text-brand-grayText">Grand Slam</span>
+                        </div>
+                        <p class="text-xs text-brand-grayText leading-relaxed">Debenture court access, premium hospitality pathways, and center court boxes.</p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-orange-50 flex justify-between items-center text-xs">
+                        <span class="text-brand-grayText flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> London, New York, Paris</span>
+                        <span class="font-tech text-brand-orange font-semibold">Guaranteed Delivery</span>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl border border-orange-100 overflow-hidden transition-all duration-300 hover:border-brand-orange/40 hover:shadow-xl hover:shadow-brand-orange/10 flex flex-col" data-category="sports">
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=600&q=80" alt="EPL and Champions League" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 text-[10px] font-bold font-tech tracking-wider uppercase bg-brand-orange text-white rounded">Football</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-tech text-xl font-bold group-hover:text-brand-orange transition-colors text-brand-dark">EPL & Champions League</h4>
+                            <span class="text-xs text-brand-grayText">EPL, La Liga, UCL</span>
+                        </div>
+                        <p class="text-xs text-brand-grayText leading-relaxed">Regular club packages, elite executive boxes, and high-security ticket fulfillment channels.</p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-orange-50 flex justify-between items-center text-xs">
+                        <span class="text-brand-grayText flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> European Stadiums</span>
+                        <span class="font-tech text-brand-orange font-semibold">SaaS API Router</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Reach -->
+    <section id="reach" class="py-20 bg-gray-50 border-y border-orange-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-brand-orange font-tech text-sm uppercase tracking-widest font-semibold block mb-2">Global Coverage Strongholds</span>
+                <h2 class="font-tech text-3xl sm:text-5xl font-bold text-brand-dark">Deep Local Sourcing. <br class="hidden sm:inline">Global Distribution Scale.</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-4 space-y-8">
+                    <div class="p-6 rounded-2xl bg-white border border-orange-100 hover:border-brand-orange/30 transition-all glow-border">
+                        <div class="text-brand-orange font-tech text-4xl font-bold mb-1">1,500+</div>
+                        <h4 class="font-tech font-bold text-lg mb-2 text-brand-dark">Unmatched Reach Network</h4>
+                        <p class="text-xs text-brand-grayText leading-relaxed">A hyper-connected, secure pipeline of local offline and primary ticket partners supplying hard-to-source mega-event inventory.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white border border-orange-100">
+                        <h4 class="font-tech font-bold text-lg mb-4 text-brand-dark flex items-center gap-2">
+                            <i data-lucide="map" class="w-5 h-5 text-brand-orange"></i>
+                            Strategic Strongholds
+                        </h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-center justify-between border-b border-orange-50 pb-2">
+                                <span class="font-semibold text-brand-grayText">Middle East</span>
+                                <span class="text-brand-dark font-tech">Dubai, Riyadh</span>
+                            </div>
+                            <div class="flex items-center justify-between border-b border-orange-50 pb-2">
+                                <span class="font-semibold text-brand-grayText">Indian Subcontinent</span>
+                                <span class="text-brand-dark font-tech">Mumbai, New Delhi</span>
+                            </div>
+                            <div class="flex items-center justify-between pb-1">
+                                <span class="font-semibold text-brand-grayText">Southeast Asia</span>
+                                <span class="text-brand-dark font-tech">Singapore, Jakarta</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 bg-white p-6 rounded-3xl border border-orange-100 relative flex items-center justify-center min-h-[400px] shadow-lg">
+                    <div class="absolute inset-0 bg-grid-pattern opacity-30 rounded-3xl"></div>
+                    <div class="relative w-full max-w-[650px] aspect-[16/9] select-none">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=900&q=80" alt="Global coverage map" class="w-full h-full object-cover rounded-2xl opacity-90">
+                        <div class="absolute top-4 left-4 bg-white/95 border border-orange-100 p-3 rounded-lg text-[11px] font-mono shadow-md">
+                            <span class="text-brand-orange font-semibold">● Live Hub Link</span>
+                            <div class="text-brand-grayText mt-1">Sourcing Sub-continent to ME / SEA Scale</div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 flex gap-2">
+                            <span class="bg-brand-orange text-white text-[10px] font-tech px-2 py-1 rounded">Dubai</span>
+                            <span class="bg-brand-orange text-white text-[10px] font-tech px-2 py-1 rounded">Mumbai</span>
+                            <span class="bg-brand-orange text-white text-[10px] font-tech px-2 py-1 rounded">Singapore</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Margin Calculator -->
+    <section id="calculator" class="py-20 bg-white relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-brand-orange font-tech text-sm uppercase tracking-widest font-semibold block mb-2">Multiply Your Profit Margins</span>
+                <h2 class="font-tech text-3xl sm:text-5xl font-bold text-brand-dark">Base Bookings + Premium Tickets = VIP Yields</h2>
+                <p class="text-brand-grayText max-w-2xl mx-auto mt-4">See how integrating guaranteed event tickets directly into your basic travel/accommodation bookings multiplies package margins effortlessly.</p>
+            </div>
+
+            <div class="bg-gray-50 rounded-3xl border border-orange-100 p-8 lg:p-12 shadow-xl relative">
+                <div class="absolute -top-12 -left-12 w-48 h-48 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <h3 class="font-tech text-2xl font-bold text-brand-dark flex items-center gap-2">
+                            <i data-lucide="sliders" class="w-6 h-6 text-brand-orange"></i>
+                            Pricing Inputs
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-medium">
+                                <span class="text-brand-grayText">Base Travel Booking (Flight + Hotel)</span>
+                                <span class="text-brand-dark font-tech font-bold" id="base-travel-val">$1,200</span>
+                            </div>
+                            <input type="range" min="200" max="5000" step="100" value="1200" class="w-full h-2 bg-orange-100 rounded-lg appearance-none cursor-pointer accent-brand-orange" id="base-travel-slider" oninput="calculateVIPMargins()">
+                            <span class="text-[10px] text-brand-grayText block">Estimated B2B travel margin: <strong>8% ($96)</strong></span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-medium">
+                                <span class="text-brand-grayText">Premium API Event Ticket (F1, FIFA, Concerts)</span>
+                                <span class="text-brand-dark font-tech font-bold" id="premium-ticket-val">$600</span>
+                            </div>
+                            <input type="range" min="100" max="3000" step="50" value="600" class="w-full h-2 bg-orange-100 rounded-lg appearance-none cursor-pointer accent-brand-orange" id="premium-ticket-slider" oninput="calculateVIPMargins()">
+                            <span class="text-[10px] text-brand-grayText block">Estimated standalone ticket markup margin: <strong>12% ($72)</strong></span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-orangeLight border border-orange-100 text-xs text-brand-grayText leading-relaxed">
+                            <i data-lucide="info" class="w-4 h-4 text-brand-orange inline mr-1"></i>
+                            <strong>High-Margin Packaging Power:</strong> By bundling these two components directly into one custom "High-Yield VIP Package," your corporate hospitality program gains premium leverage to price with an added <strong>25% to 35% margin premium</strong> because of exclusive sourcing.
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 lg:p-8 border border-orange-100 flex flex-col justify-between shadow-md">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brand-grayText font-tech">Your High-Yield Target VIP Package</span>
+                            <div class="mt-4 flex items-baseline gap-2">
+                                <span class="text-brand-orange font-tech text-5xl font-extrabold" id="total-vip-value">$2,430</span>
+                                <span class="text-xs text-brand-grayText">Est. Market Retail Value</span>
+                            </div>
+                            <div class="mt-8 space-y-4">
+                                <div>
+                                    <div class="flex justify-between text-xs text-brand-grayText mb-1">
+                                        <span>Traditional Separate Bookings Profit</span>
+                                        <span class="font-mono text-brand-dark" id="trad-margin">$168 (9%)</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                                        <div class="h-full bg-gray-400 rounded-full" id="trad-bar" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs text-brand-orange mb-1">
+                                        <span>SeatsConnect VIP Package Profit</span>
+                                        <span class="font-tech font-bold text-brand-orange" id="vip-margin">$630 (26%)</span>
+                                    </div>
+                                    <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-brand-orange to-orange-400 rounded-full animate-pulse" id="vip-bar" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-orange-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase text-brand-grayText block">Margin Increase Factor</span>
+                                <span class="font-tech text-2xl font-bold text-green-600" id="factor-output">3.7x Profit Increase</span>
+                            </div>
+                            <a href="#contact" class="px-5 py-3 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-tech font-extrabold text-sm transition-all shadow-md shadow-brand-orange/25">
+                                Settle Sourcing API
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-24 bg-brand-orangeLight border-t border-orange-100 relative">
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-12">
+                <img src="assets/seatsconnect-logo.png" alt="SeatsConnect" class="h-14 mx-auto mb-6 object-contain">
+                <span class="text-brand-orange font-tech text-sm uppercase tracking-widest font-semibold block mb-2">B2B Integration</span>
+                <h2 class="font-tech text-4xl sm:text-5xl font-bold text-brand-dark">Let's Scale Together.</h2>
+                <p class="text-brand-grayText max-w-xl mx-auto mt-4">Join the industry's premier high-end supply line today. Connect with our enterprise integration engineers.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-orange-100 p-8 shadow-2xl relative" id="form-container">
+                <form onsubmit="handlePartnerSubmit(event)" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-brand-grayText font-tech mb-2 font-medium">Contact Name</label>
+                            <input type="text" required placeholder="e.g. Michael Chen" class="w-full bg-gray-50 border border-orange-100 focus:border-brand-orange rounded-xl px-4 py-3.5 text-sm text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-orange/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-brand-grayText font-tech mb-2 font-medium">Work Email Address</label>
+                            <input type="email" required placeholder="e.g. m.chen@hospitality-group.com" class="w-full bg-gray-50 border border-orange-100 focus:border-brand-orange rounded-xl px-4 py-3.5 text-sm text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-orange/20 transition-all">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-brand-grayText font-tech mb-2 font-medium">Company Name</label>
+                            <input type="text" required placeholder="e.g. Vertex Premium Concierge" class="w-full bg-gray-50 border border-orange-100 focus:border-brand-orange rounded-xl px-4 py-3.5 text-sm text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-orange/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-brand-grayText font-tech mb-2 font-medium">Your Primary Focus</label>
+                            <select class="w-full bg-gray-50 border border-orange-100 focus:border-brand-orange rounded-xl px-4 py-3.5 text-sm text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-orange/20 transition-all cursor-pointer">
+                                <option value="travel">Travel Agency Distribution</option>
+                                <option value="concierge">Corporate & Premium Hospitality</option>
+                                <option value="venue">Venue Operations & Ticketing</option>
+                                <option value="supplier">Offline Ticketing Supplier Partner</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-brand-grayText font-tech mb-2 font-medium">Estimated Annual Ticket Volume Range</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                            <label class="p-3 bg-gray-50 border border-orange-100 hover:border-brand-orange/50 rounded-xl flex items-center justify-center gap-2 cursor-pointer text-xs transition-all">
+                                <input type="radio" name="volume" value="small" class="accent-brand-orange" checked> &lt; 500 tickets
+                            </label>
+                            <label class="p-3 bg-gray-50 border border-orange-100 hover:border-brand-orange/50 rounded-xl flex items-center justify-center gap-2 cursor-pointer text-xs transition-all">
+                                <input type="radio" name="volume" value="mid" class="accent-brand-orange"> 500 - 2,500
+                            </label>
+                            <label class="p-3 bg-gray-50 border border-orange-100 hover:border-brand-orange/50 rounded-xl flex items-center justify-center gap-2 cursor-pointer text-xs transition-all">
+                                <input type="radio" name="volume" value="high" class="accent-brand-orange"> 2,500 - 10k
+                            </label>
+                            <label class="p-3 bg-gray-50 border border-orange-100 hover:border-brand-orange/50 rounded-xl flex items-center justify-center gap-2 cursor-pointer text-xs transition-all">
+                                <input type="radio" name="volume" value="ent" class="accent-brand-orange"> 10k+ Tickets
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-brand-grayText font-tech mb-2 font-medium">Key Integration Requirements</label>
+                        <textarea rows="3" placeholder="Tell us about your technical stack, CRM, or any specific high-value events you are targetting immediately..." class="w-full bg-gray-50 border border-orange-100 focus:border-brand-orange rounded-xl px-4 py-3.5 text-sm text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-orange/20 transition-all"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-xl font-bold bg-brand-orange hover:bg-brand-orangeHover text-white transition-all shadow-lg shadow-brand-orange/30 flex items-center justify-center gap-2 text-base font-tech">
+                        Submit Integration Request <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-orange-100 pt-16 pb-8 px-4 lg:px-8 text-brand-grayText text-sm">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            <div class="space-y-4">
+                <a href="#" class="inline-block">
+                    <img src="assets/seatsconnect-logo.png" alt="SeatsConnect" class="h-10 w-auto object-contain">
+                </a>
+                <p class="text-xs text-brand-grayText leading-relaxed">
+                    Connecting premium global ticket supply with modern, international live entertainment demand through our robust B2B API distribution engine.
+                </p>
+                <div class="flex items-center gap-4 pt-2">
+                    <span class="text-xs bg-brand-orangeLight px-2.5 py-1 rounded text-brand-orange border border-orange-100">Parent: seatsbrokers.com</span>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-tech text-brand-dark font-bold tracking-wide text-xs uppercase">Platform Infrastructure</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#about" class="hover:text-brand-orange transition-colors">Unified B2B Routing</a></li>
+                    <li><a href="#engine" class="hover:text-brand-orange transition-colors">Patented EDGE Engine</a></li>
+                    <li><a href="#coverage" class="hover:text-brand-orange transition-colors">Global Inventory Sync</a></li>
+                    <li><a href="#reach" class="hover:text-brand-orange transition-colors">Strategic Sourcing Hubs</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-tech text-brand-dark font-bold tracking-wide text-xs uppercase">API Documentation</h4>
+                <div class="bg-gray-50 p-3.5 rounded-lg border border-orange-100 space-y-2 text-[11px] font-mono">
+                    <span class="text-green-600">GET</span> <span class="text-brand-dark">/v1/live/inventory</span>
+                    <span class="text-brand-orange block">Authorization: Bearer sc_live_***</span>
+                </div>
+                <p class="text-[10px] text-brand-grayText leading-normal">
+                    REST API endpoints built for instantaneous inventory query and robust whitelabel checkout.
+                </p>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-tech text-brand-dark font-bold tracking-wide text-xs uppercase">Strategic Office Coordinates</h4>
+                <ul class="space-y-2 text-xs leading-relaxed">
+                    <li><span class="text-brand-dark font-medium">HQ Operations:</span> Dubai Multi Commodities Centre (DMCC), UAE</li>
+                    <li><span class="text-brand-dark font-medium">Engineering Hub:</span> New Delhi, India</li>
+                    <li><span class="text-brand-dark font-medium">B2B Sales desk:</span> London & Singapore offices</li>
+                    <li class="pt-1"><span class="text-brand-orange font-tech font-semibold">connect@seatsconnect.com</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-orange-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+            <p>© 2026 SeatsConnect.com. All international corporate distribution rights reserved.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-brand-orange transition-colors">B2B Terms of Service</a>
+                <a href="#" class="hover:text-brand-orange transition-colors">Data Privacy Charter</a>
+                <a href="#" class="hover:text-brand-orange transition-colors">API Compliance SLA</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        const stepsData = {
+            1: {
+                num: "Step 01 / Patented Pipeline",
+                title: "Ingest Engine Protocols",
+                desc: "Aggregates inventory from 1,500+ verified global ticket sources, consolidating multi-regional database formats. Real-time availability monitoring cleans, authenticates, and validates live listings instantly across every major event category.",
+                latency: "12ms",
+                diagram: `<div class="flex items-center gap-4"><div class="w-14 h-14 rounded-full bg-brand-orangeLight border border-brand-orange flex items-center justify-center text-brand-orange animate-pulse"><i data-lucide="filter" class="w-7 h-7"></i></div><div><span class="text-xs text-brand-grayText block">Active Pools</span><span class="font-tech font-bold text-brand-dark">450+ Sources / min</span></div></div><div class="h-0.5 w-1/3 bg-brand-orange/50"></div><div class="w-14 h-14 rounded-lg bg-white border border-orange-200 flex items-center justify-center text-brand-dark font-mono text-xs">EDGE</div>`
+            },
+            2: {
+                num: "Step 02 / Patented Pipeline",
+                title: "Algorithmic Smart Pricing",
+                desc: "Calculates optimized real-time pricing models. Analyzes market volatility, ticket demand surge parameters, currency conversions, and supply scarcity indexes to return secure, fair corporate market rates instantly.",
+                latency: "28ms",
+                diagram: `<div class="flex items-center gap-4"><div class="w-14 h-14 rounded-full bg-yellow-50 border border-yellow-500 flex items-center justify-center text-yellow-600"><i data-lucide="trending-up" class="w-7 h-7"></i></div><div><span class="text-xs text-brand-grayText block">Dynamic Markup</span><span class="font-tech font-bold text-brand-dark">Algorithmic Balance</span></div></div><div class="h-0.5 w-1/3 bg-yellow-500/50"></div><div class="w-14 h-14 rounded-lg bg-white border border-orange-200 flex items-center justify-center text-brand-dark font-mono text-xs">PRICER</div>`
+            },
+            3: {
+                num: "Step 03 / Patented Pipeline",
+                title: "High-Scale API SaaS Routing",
+                desc: "Deploys verified ticket stock endpoints smoothly into external partner CMS channels, travel itinerary aggregators, and corporate CRM systems. Multi-channel synchronization prevents dual-allocation errors.",
+                latency: "8ms",
+                diagram: `<div class="flex items-center gap-4"><div class="w-14 h-14 rounded-full bg-blue-50 border border-blue-500 flex items-center justify-center text-blue-600"><i data-lucide="network" class="w-7 h-7"></i></div><div><span class="text-xs text-brand-grayText block">API Gateways</span><span class="font-tech font-bold text-brand-dark">Scalable REST SDK</span></div></div><div class="h-0.5 w-1/3 bg-blue-500/50"></div><div class="w-14 h-14 rounded-lg bg-white border border-orange-200 flex items-center justify-center text-brand-dark font-mono text-xs">ROUTER</div>`
+            },
+            4: {
+                num: "Step 04 / Patented Pipeline",
+                title: "Instant Digital Fulfillment",
+                desc: "Completes bookings without manual backend touchpoints. Secure automated payment handshakes activate the primary source systems, delivering verified digital barcode tickets to the customer with absolute safety.",
+                latency: "19ms",
+                diagram: `<div class="flex items-center gap-4"><div class="w-14 h-14 rounded-full bg-green-50 border border-green-500 flex items-center justify-center text-green-600"><i data-lucide="shield-check" class="w-7 h-7"></i></div><div><span class="text-xs text-brand-grayText block">Delivery Status</span><span class="font-tech font-bold text-brand-dark">100% Guaranteed</span></div></div><div class="h-0.5 w-1/3 bg-green-500/50"></div><div class="w-14 h-14 rounded-lg bg-white border border-orange-200 flex items-center justify-center text-brand-dark font-mono text-xs">SECURE</div>`
+            }
+        };
+
+        function setActiveStep(stepNum) {
+            for (let i = 1; i <= 4; i++) {
+                const btn = document.getElementById(`step-btn-${i}`);
+                const badge = document.getElementById(`step-badge-${i}`);
+                if (i === stepNum) {
+                    btn.className = "w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-white border-brand-orange/50 glow-border";
+                    badge.className = "font-tech text-lg font-bold px-3 py-1 rounded bg-brand-orangeLight text-brand-orange";
+                    btn.querySelector('i').className = "w-5 h-5 text-brand-orange";
+                } else {
+                    btn.className = "w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-white/60 border-orange-100 hover:border-brand-orange/30";
+                    badge.className = "font-tech text-lg font-bold px-3 py-1 rounded bg-gray-100 text-brand-grayText";
+                    btn.querySelector('i').className = "w-5 h-5 text-brand-grayText";
+                }
+            }
+            const target = stepsData[stepNum];
+            document.getElementById('display-step-num').textContent = target.num;
+            document.getElementById('display-step-title').textContent = target.title;
+            document.getElementById('display-step-desc').textContent = target.desc;
+            document.getElementById('display-step-latency').textContent = target.latency;
+            document.getElementById('display-step-diagram').innerHTML = target.diagram;
+            lucide.createIcons();
+        }
+
+        function calculateVIPMargins() {
+            const baseTravel = parseFloat(document.getElementById('base-travel-slider').value);
+            const premiumTicket = parseFloat(document.getElementById('premium-ticket-slider').value);
+            document.getElementById('base-travel-val').textContent = `$${baseTravel.toLocaleString()}`;
+            document.getElementById('premium-ticket-val').textContent = `$${premiumTicket.toLocaleString()}`;
+            const tradProfit = Math.round((baseTravel * 0.08) + (premiumTicket * 0.12));
+            const baseSum = baseTravel + premiumTicket;
+            const seatsConnectProfit = Math.round(baseSum * 0.26);
+            const totalVIPValue = baseSum + (seatsConnectProfit - tradProfit);
+            document.getElementById('total-vip-value').textContent = `$${totalVIPValue.toLocaleString()}`;
+            document.getElementById('trad-margin').textContent = `$${tradProfit.toLocaleString()} (9%)`;
+            document.getElementById('vip-margin').textContent = `$${seatsConnectProfit.toLocaleString()} (26%)`;
+            const tradBarWidthPercent = Math.max(10, Math.min(100, Math.round((tradProfit / seatsConnectProfit) * 75)));
+            document.getElementById('trad-bar').style.width = `${tradBarWidthPercent}%`;
+            document.getElementById('vip-bar').style.width = '100%';
+            document.getElementById('factor-output').textContent = `${(seatsConnectProfit / tradProfit).toFixed(1)}x Profit Multiplier`;
+        }
+        calculateVIPMargins();
+
+        function filterEvents(category) {
+            const cards = document.getElementById('events-grid-container').querySelectorAll('[data-category]');
+            ['all', 'sports', 'concerts', 'mega'].forEach(btnType => {
+                const button = document.getElementById(`filter-btn-${btnType}`);
+                button.className = btnType === category
+                    ? "px-4 py-2 text-xs font-bold font-tech rounded-lg bg-brand-orange text-white transition-all"
+                    : "px-4 py-2 text-xs font-bold font-tech rounded-lg text-brand-grayText hover:text-brand-orange transition-all";
+            });
+            cards.forEach(card => {
+                const itemCats = card.getAttribute('data-category');
+                if (category === 'all' || itemCats.includes(category)) {
+                    card.classList.remove('hidden');
+                    card.classList.add('flex');
+                } else {
+                    card.classList.remove('flex');
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        function handlePartnerSubmit(event) {
+            event.preventDefault();
+            document.getElementById('form-container').innerHTML = `
+                <div class="text-center py-12 px-4 space-y-6">
+                    <div class="w-16 h-16 rounded-full bg-brand-orangeLight border border-brand-orange flex items-center justify-center text-brand-orange mx-auto animate-bounce">
+                        <i data-lucide="check-check" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-tech text-3xl font-bold text-brand-dark mb-2">Integration Request Received</h3>
+                        <p class="text-brand-grayText max-w-md mx-auto leading-relaxed text-sm">
+                            Thank you for reaching out. A Senior Solutions Integration Specialist has been assigned to your profile. We will email your temporary API Developer key credentials to your corporate address shortly.
+                        </p>
+                    </div>
+                    <div class="text-xs text-brand-orange font-mono bg-brand-orangeLight py-2 px-4 rounded-full inline-block border border-orange-100">
+                        Ticket assigned reference: SC-2026-T-${Math.floor(Math.random()*90000) + 10000}
+                    </div>
+                </div>`;
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
