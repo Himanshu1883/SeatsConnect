@@ -49,8 +49,8 @@ export function ContactSection() {
           <Image
             src="/seatsconnect-logo.png"
             alt={siteConfig.name}
-            width={591}
-            height={108}
+            width={918}
+            height={156}
             className="h-12 sm:h-14 mx-auto mb-5 sm:mb-6 object-contain w-auto max-w-[85vw]"
           />
           <span className="text-brand-orange font-tech text-xs sm:text-sm uppercase tracking-widest font-semibold block mb-2">

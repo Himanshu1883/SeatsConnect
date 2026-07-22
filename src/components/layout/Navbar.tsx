@@ -15,12 +15,12 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="#" className="flex items-center shrink-0 overflow-visible py-0.5">
           <Image
-            src="/seatsconnect-logo-nav.png"
+            src="/seatsconnect-logo.png"
             alt="SeatsConnect"
-            width={614}
-            height={137}
+            width={918}
+            height={156}
             priority
-            className="h-10 sm:h-11 w-auto block object-contain"
+            className="h-9 sm:h-10 w-auto block object-contain"
           />
         </Link>
 

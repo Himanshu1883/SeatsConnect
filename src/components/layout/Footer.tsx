@@ -48,8 +48,8 @@ export function Footer() {
               <Image
                 src="/seatsconnect-logo.png"
                 alt={siteConfig.name}
-                width={591}
-                height={108}
+                width={918}
+                height={156}
                 className="h-14 sm:h-16 w-auto object-contain"
               />
             </Link>
