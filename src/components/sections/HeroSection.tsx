@@ -45,7 +45,7 @@ export function HeroSection() {
                 className="group relative flex items-center justify-center gap-2 overflow-hidden rounded-2xl border border-white/15 bg-white/[0.04] px-8 py-4 text-sm font-bold text-white backdrop-blur-xl transition-all duration-300 hover:border-brand-orange/50 hover:bg-white/[0.08] sm:text-base"
               >
                 <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-brand-orange/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <span className="relative">View Advantage</span>
+                <span className="relative">View Advantages</span>
                 <ArrowUpRight className="relative h-4 w-4 text-white/50 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-brand-orange" />
               </Link>
             </div>

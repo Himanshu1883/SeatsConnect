@@ -152,21 +152,21 @@ export function Footer() {
             <ul className="space-y-3 text-xs leading-relaxed">
               <li>
                 <span className="text-brand-dark font-medium block">
-                  HQ Operations
+                Dubai
                 </span>
-                Dubai Multi Commodities Centre (DMCC), UAE
+                {/* Dubai Multi Commodities Centre (DMCC), UAE */}
               </li>
               <li>
                 <span className="text-brand-dark font-medium block">
-                  Engineering Hub
+                New Delhi
                 </span>
-                New Delhi, India
+                {/* New Delhi, India */}
               </li>
               <li>
                 <span className="text-brand-dark font-medium block">
-                  B2B Sales Desk
+                Bangalore
                 </span>
-                London & Singapore offices
+                {/* London & Singapore offices */}
               </li>
               <li className="pt-1">
                 <Link

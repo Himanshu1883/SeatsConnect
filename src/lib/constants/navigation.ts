@@ -6,7 +6,7 @@ export type NavLink = {
 
 export const navLinks: NavLink[] = [
   { label: "Platform", href: "#about" },
-  { label: "The Advantage", href: "#advantage" },
+  { label: "The Advantages", href: "#advantage" },
   { label: "EDGE Engine", href: "#engine" },
   { label: "Events Directory", href: "#coverage" },
   { label: "Margin Calculator", href: "#calculator" },

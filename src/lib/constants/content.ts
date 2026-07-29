@@ -58,8 +58,9 @@ export const seatsConnectPoints: ComparisonPoint[] = [
 
 export const strategicStrongholds = [
   { region: "Middle East", cities: "Dubai, Riyadh" },
-  { region: "Indian Subcontinent", cities: "Mumbai, New Delhi" },
-  { region: "Southeast Asia", cities: "Singapore, Jakarta" },
+  { region: "Indian Subcontinent", cities: "India, Sri Lanka, Pakistan, Nepal, Bangladesh" },
+  // { region: "Indian Subcontinent", cities: "Mumbai, New Delhi" },
+  { region: "South East Asia", cities: "Singapore, Malaysia, Indonesia" },
 ] as const;
 
 export const hubBadges = ["Dubai", "Mumbai", "Singapore"] as const;

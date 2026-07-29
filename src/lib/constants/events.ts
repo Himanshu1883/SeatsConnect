@@ -16,14 +16,14 @@ export type EventItem = {
 export const eventFilters: { id: EventCategory; label: string }[] = [
   { id: "all", label: "All Events" },
   { id: "sports", label: "Sports" },
-  { id: "concerts", label: "Live Tours" },
-  { id: "mega", label: "Tournaments" },
+  { id: "concerts", label: "Music & Entertainment" },
+  // { id: "mega", label: "Tournaments" },
 ];
 
 export const events: EventItem[] = [
   {
     id: "fifa",
-    title: "FIFA World Cup Matches",
+    title: "Football tournaments",
     category: "mega",
     badge: "Tournament",
     period: "2026/2027",
@@ -36,7 +36,7 @@ export const events: EventItem[] = [
   },
   {
     id: "f1",
-    title: "Formula 1 Grand Prix",
+    title: "Motorsport events",
     category: "sports",
     badge: "Motorsport",
     period: "Full Calendar",
@@ -49,7 +49,7 @@ export const events: EventItem[] = [
   },
   {
     id: "concerts",
-    title: "Global Stadium Tours",
+    title: "Global musical concerts",
     category: "concerts",
     badge: "Live Tours",
     period: "2026/2027",
@@ -62,7 +62,7 @@ export const events: EventItem[] = [
   },
   {
     id: "rugby",
-    title: "Rugby World Cup Finals",
+    title: "Rugby tournaments",
     category: "mega",
     badge: "Tournament",
     period: "Elite Access",
@@ -75,7 +75,7 @@ export const events: EventItem[] = [
   },
   {
     id: "tennis",
-    title: "Wimbledon & Grand Slams",
+    title: "Tennis grand slams & top ATP tour events",
     category: "sports",
     badge: "Tennis Majors",
     period: "Grand Slam",
