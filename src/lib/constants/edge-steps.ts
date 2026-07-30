@@ -31,7 +31,7 @@ export const edgeSteps: EdgeStep[] = [
     subtitle: "Real-time inventory sourcing",
     stepLabel: "Step 01 / Patented Pipeline",
     description:
-      "Aggregates inventory from 1,500+ verified global ticket sources, consolidating multi-regional database formats. Real-time availability monitoring cleans, authenticates, and validates live listings instantly across every major event category.",
+      "Aggregates inventory from a large pool of verified global ticket sources, consolidating multi-regional database formats. Real-time availability monitoring cleans, authenticates, and validates live listings instantly across every major event category.",
     latency: "12ms",
     diagramLabel: "Active Pools",
     diagramValue: "450+ Sources / min",
