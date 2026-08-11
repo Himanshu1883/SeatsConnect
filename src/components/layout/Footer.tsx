@@ -70,9 +70,9 @@ export function Footer() {
               ))}
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-1">
-              <span className="text-xs bg-brand-orange-light px-2.5 py-1 rounded text-brand-orange border border-orange-100 w-fit">
+              {/* <span className="text-xs bg-brand-orange-light px-2.5 py-1 rounded text-brand-orange border border-orange-100 w-fit">
                 Parent: {siteConfig.parentBrand}
-              </span>
+              </span> */}
               <div className="flex items-center gap-2">
                 <a
                   href={`mailto:${siteConfig.email}`}
@@ -184,7 +184,7 @@ export function Footer() {
       <div className="relative w-full border-t border-orange-100 bg-white/80 backdrop-blur-sm px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
         <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-xs">
           <p className="text-center sm:text-left">
-            © 2026 {siteConfig.name}.com. All international corporate
+            © 2026 {siteConfig.name}. All international corporate
             distribution rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
