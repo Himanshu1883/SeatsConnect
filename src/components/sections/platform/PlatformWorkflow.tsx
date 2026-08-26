@@ -204,7 +204,7 @@ export function PlatformWorkflow() {
     <HomeFrame
       id="workflow"
       tinted
-      variant=""
+      variant="plain"
       className="!py-10 sm:!py-12 lg:!py-14"
     >
       <div className="flex w-full flex-col gap-7 lg:gap-9">

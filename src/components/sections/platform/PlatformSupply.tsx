@@ -123,7 +123,7 @@ export function PlatformSupply() {
     <HomeFrame
       id="supply"
       tinted
-      variant=""
+      variant="plain"
       className="!py-10 sm:!py-12 lg:!py-14"
     >
       <div className="flex w-full flex-col gap-8 lg:gap-10">

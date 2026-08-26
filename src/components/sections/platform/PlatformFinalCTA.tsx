@@ -18,7 +18,7 @@ const strip = [
 
 export function PlatformFinalCTA() {
   return (
-    <HomeFrame tinted variant="">
+    <HomeFrame tinted variant="plain">
       <Reveal>
         <div className="relative overflow-hidden rounded-[2rem] p-px">
           <div className="pointer-events-none absolute -inset-20 home-border-spin opacity-70 bg-[conic-gradient(from_90deg,transparent_0%,#ff6b00_20%,transparent_40%)]" />

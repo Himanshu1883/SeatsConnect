@@ -166,7 +166,7 @@ const layers: {
 
 export function HomeWhiteLabel() {
   return (
-    <HomeFrame tinted variant="">
+    <HomeFrame tinted variant="plain">
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14 xl:gap-16">
         <Reveal>
           <HomeKicker>White Label</HomeKicker>

@@ -190,7 +190,7 @@ function TopoPattern() {
 
 export function HomeExperience() {
   return (
-    <HomeFrame tinted variant="" className="py-10 lg:py-10">
+    <HomeFrame tinted variant="plain" className="py-10 lg:py-10">
       <Reveal>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 lg:mb-20">
           <div>
