@@ -1,8 +1,14 @@
 export const siteConfig = {
   name: "SeatsConnect",
-  title: "SeatsConnect - The Command Center of Live Entertainment",
+  trademark: "SeatsConnect™",
+  title: "SeatsConnect™ — Connect Once. Distribute Globally.",
   description:
-    "The global B2B ticket distribution engine powering scalable, risk-free inventory for the world's leading travel, hospitality, and concierge partners.",
+    "API-powered B2B distribution infrastructure for tickets, hospitality and live experiences.",
+  tagline: "Connect Once. Distribute Globally.",
+  brandStatement: "Connecting Global Supply to Global Demand.",
   email: "sales@seatsconnect.com",
-  parentBrand: "seatsbrokers.com",
+  parentBrand: "SeatsGroup",
+  url: "https://seatsconnect.com",
+  portalUrl: "https://app.seatsconnect.com",
+  developersUrl: "https://developers.seatsconnect.com",
 } as const;

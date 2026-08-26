@@ -1,13 +1,46 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-export type SectionTint = "white" | "orange" | "soft";
+export type SectionTint = "white" | "orange" | "soft" | "cream";
+export type SurfacePatternName = "grid" | "grid-lg" | "plain";
 
 const tintClasses: Record<SectionTint, string> = {
-  white: "bg-white/88",
-  orange: "bg-brand-orange-light/90",
-  soft: "bg-white/94",
+  white: "bg-white/72",
+  orange: "bg-brand-orange-light/78",
+  soft: "bg-white/80",
+  cream: "bg-gradient-to-br from-white/82 via-brand-orange-light/70 to-white/78",
 };
+
+const tintPattern: Record<SectionTint, SurfacePatternName> = {
+  white: "plain",
+  soft: "plain",
+  orange: "grid",
+  cream: "grid",
+};
+
+const patternClass: Record<Exclude<SurfacePatternName, "plain">, string> = {
+  grid: "surface-grid",
+  "grid-lg": "surface-grid-lg",
+};
+
+export function SurfacePattern({
+  variant,
+  wash = false,
+}: {
+  variant: SurfacePatternName;
+  wash?: boolean;
+}) {
+  if (variant === "plain" && !wash) return null;
+
+  return (
+    <div className="pointer-events-none absolute inset-0" aria-hidden>
+      {variant !== "plain" ? (
+        <div className={cn("absolute inset-0", patternClass[variant])} />
+      ) : null}
+      {wash ? <div className="absolute inset-0 section-wash" /> : null}
+    </div>
+  );
+}
 
 type SectionBackgroundProps = {
   id?: string;
@@ -31,7 +64,7 @@ export function SectionBackground({
   children,
 }: SectionBackgroundProps) {
   return (
-    <section id={id} className={cn("relative overflow-hidden", className)}>
+    <section id={id} className={cn("section-band", className)}>
       <div className="absolute inset-0 z-0" aria-hidden>
         <div className="relative size-full">
           <Image
@@ -44,6 +77,7 @@ export function SectionBackground({
           />
         </div>
         <div className={cn("absolute inset-0", tintClasses[tint])} />
+        <SurfacePattern variant={tintPattern[tint]} />
       </div>
       <div className={cn("relative z-10", contentClassName)}>{children}</div>
     </section>

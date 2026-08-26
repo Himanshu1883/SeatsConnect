@@ -1,5 +1,5 @@
 type SectionHeaderProps = {
-  eyebrow: string;
+  eyebrow?: string;
   title: React.ReactNode;
   description?: string;
   align?: "center" | "left";
@@ -18,10 +18,12 @@ export function SectionHeader({
 
   return (
     <div className={`mb-10 sm:mb-14 md:mb-16 ${alignment} ${className}`}>
-      <span className="text-brand-orange font-tech text-xs sm:text-sm uppercase tracking-widest font-semibold block mb-2">
-        {eyebrow}
-      </span>
-      <h2 className="font-tech text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark leading-tight">
+      {eyebrow ? (
+        <span className="eyebrow text-brand-orange block mb-2">
+          {eyebrow}
+        </span>
+      ) : null}
+      <h2 className="heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-tight">
         {title}
       </h2>
       {description ? (

@@ -1,26 +1,37 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { TopAccentBar } from "@/components/layout/TopAccentBar";
 import { siteConfig } from "@/lib/constants/site";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-plus-jakarta",
+  variable: "--font-inter",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
+const monaSans = localFont({
+  src: "./fonts/MonaSansVF.woff2",
+  variable: "--font-mona",
   display: "swap",
+  weight: "200 900",
+  declarations: [{ prop: "font-stretch", value: "75% 125%" }],
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: siteConfig.title,
   description: siteConfig.description,
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    type: "website",
+    url: siteConfig.url,
+  },
   icons: {
     icon: [
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
@@ -38,12 +49,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth ${plusJakarta.variable} ${spaceGrotesk.variable}`}
+      className={`scroll-smooth ${inter.variable} ${monaSans.variable}`}
     >
       <body>
-        <TopAccentBar />
-        <Navbar />
-        <main>{children}</main>
+        <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+          <TopAccentBar />
+          <Navbar />
+        </header>
+        <main className="pt-[var(--site-header-height)]">{children}</main>
         <Footer />
       </body>
     </html>
