@@ -68,7 +68,7 @@ function InfraArt() {
     <svg viewBox="0 0 132 92" className="wl-infra" aria-hidden>
       <g
         fill="none"
-        stroke="#d4a574"
+        stroke="#ff6b00"
         strokeWidth="1.2"
         strokeLinecap="round"
         className="wl-infra-line"
@@ -78,15 +78,15 @@ function InfraArt() {
         <path d="M36 72 58 56" />
         <path d="M96 72 74 56" />
       </g>
-      <g fill="#faf6f2" stroke="#d4a574" strokeWidth="1.25">
+      <g fill="#faf6f2" stroke="#ff6b00" strokeWidth="1.25">
         <rect x="16" y="10" width="22" height="14" rx="2.5" />
-        <path d="M20 14h8M20 17.5h5" stroke="#d4a574" strokeWidth="1" />
+        <path d="M20 14h8M20 17.5h5" stroke="#ff6b00" strokeWidth="1" />
         <rect x="94" y="8" width="20" height="18" rx="2.5" />
-        <path d="M98 14h12M98 18h8" stroke="#d4a574" strokeWidth="1" />
+        <path d="M98 14h12M98 18h8" stroke="#ff6b00" strokeWidth="1" />
         <rect x="16" y="68" width="20" height="16" rx="2.5" />
-        <path d="M20 74h12M20 78h8" stroke="#d4a574" strokeWidth="1" />
+        <path d="M20 74h12M20 78h8" stroke="#ff6b00" strokeWidth="1" />
         <rect x="96" y="68" width="18" height="16" rx="2" />
-        <path d="M100 73h10M100 77h7" stroke="#d4a574" strokeWidth="1" />
+        <path d="M100 73h10M100 77h7" stroke="#ff6b00" strokeWidth="1" />
       </g>
       <ellipse
         cx="66"
@@ -94,13 +94,13 @@ function InfraArt() {
         rx="16"
         ry="6"
         fill="#faf6f2"
-        stroke="#d4a574"
+        stroke="#ff6b00"
         strokeWidth="1.3"
       />
       <path
         d="M50 38v18c0 3.4 7.2 6 16 6s16-2.6 16-6V38"
         fill="#f3e6d6"
-        stroke="#d4a574"
+        stroke="#ff6b00"
         strokeWidth="1.3"
       />
       <ellipse
@@ -108,8 +108,8 @@ function InfraArt() {
         cy="38"
         rx="16"
         ry="6"
-        fill="#e8c9a8"
-        stroke="#d4a574"
+        fill="#ffb380"
+        stroke="#ff6b00"
         strokeWidth="1.3"
       />
       <ellipse
@@ -118,7 +118,7 @@ function InfraArt() {
         rx="11"
         ry="3.2"
         fill="none"
-        stroke="#c49262"
+        stroke="#e55f00"
         strokeWidth="0.9"
       />
     </svg>
@@ -166,7 +166,7 @@ const layers: {
 
 export function HomeWhiteLabel() {
   return (
-    <HomeFrame tinted variant="grid">
+    <HomeFrame tinted variant="">
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14 xl:gap-16">
         <Reveal>
           <HomeKicker>White Label</HomeKicker>

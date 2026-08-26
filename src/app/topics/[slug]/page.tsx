@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Button, ButtonGroup } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { LiveConsole } from "@/components/ui/LiveConsole";
 import { PageHero, PageSection, FinalCTA } from "@/components/ui/PageLayout";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteImages } from "@/lib/constants/images";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
 import { routes } from "@/lib/constants/routes";
 import { getTopicBySlug, topicPages } from "@/lib/constants/topics";
 
@@ -38,17 +43,16 @@ export default async function TopicPage({ params }: TopicRouteProps) {
   return (
     <>
       <PageHero
+        eyebrow="Topics"
+        icon={heroIcons.topics}
         image={siteImages.pages.topics}
         title={topic.headline}
         description={topic.description}
-      >
-        <ButtonGroup className="justify-center">
-          <Button href={routes.join}>Join SeatsConnect</Button>
-          <Button href={routes.contact} variant="outline">
-            Talk to Our Team
-          </Button>
-        </ButtonGroup>
-      </PageHero>
+        primaryCta={{ label: "Join SeatsConnect", href: routes.join }}
+        secondaryCta={{ label: "Talk to Our Team", href: routes.contact }}
+        steps={heroWorkflow}
+        features={[...heroFeatures.infrastructure]}
+      />
 
       <PageSection>
         <SectionHeader title={topic.title} description={topic.summary} align="center" />

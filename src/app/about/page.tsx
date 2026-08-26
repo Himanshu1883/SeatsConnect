@@ -3,8 +3,13 @@ import { Button } from "@/components/ui/Button";
 import { LogoWall } from "@/components/ui/LogoWall";
 import { PageHero, PageSection } from "@/components/ui/PageLayout";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { routes } from "@/lib/constants/routes";
 import { siteImages } from "@/lib/constants/images";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
+import { routes } from "@/lib/constants/routes";
 
 export const metadata: Metadata = {
   title: "About — SeatsConnect™",
@@ -16,9 +21,16 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
+        eyebrow="About SeatsConnect"
+        icon={heroIcons.about}
         image={siteImages.pages.about}
-        title="Building the Connections Behind Global Event Distribution."
-        description="SeatsConnect was created around a simple challenge. Global event supply exists. Professional global demand exists. But the technology and relationships connecting the two remain fragmented. SeatsConnect provides the infrastructure layer that brings them together."
+        title="Building the Connections Behind"
+        titleAccent="Global Event Distribution."
+        description="Global event supply exists. Professional global demand exists. SeatsConnect provides the infrastructure layer that brings them together."
+        primaryCta={{ label: "Talk to Our Team", href: routes.contact }}
+        secondaryCta={{ label: "Join Our Network", href: routes.join }}
+        steps={heroWorkflow}
+        features={[...heroFeatures.about]}
       />
 
       <PageSection>

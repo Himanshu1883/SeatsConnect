@@ -6,8 +6,14 @@ import { CardMedia } from "@/components/ui/CardMedia";
 import { PageHero, PageSection } from "@/components/ui/PageLayout";
 import { Reveal } from "@/components/ui/Reveal";
 import { SwipeableCards, SwipeCard } from "@/components/ui/SwipeableCards";
-import { solutionCards } from "@/lib/constants/solutions";
 import { siteImages } from "@/lib/constants/images";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
+import { routes } from "@/lib/constants/routes";
+import { solutionCards } from "@/lib/constants/solutions";
 
 export const metadata: Metadata = {
   title: "Solutions — SeatsConnect™",
@@ -19,9 +25,16 @@ export default function SolutionsPage() {
   return (
     <>
       <PageHero
+        eyebrow="Solutions"
+        icon={heroIcons.solutions}
         image={siteImages.pages.solutions}
-        title="Built Around Your Business."
-        description="SeatsConnect connects global event supply to businesses serving different types of customers around the world. Whether you operate in travel, concierge, hospitality, corporate events or digital distribution, SeatsConnect can become the connectivity layer behind your event offering."
+        title="Built Around"
+        titleAccent="Your Business."
+        description="SeatsConnect connects global event supply to businesses serving different types of customers around the world — travel, concierge, hospitality, corporate events and digital distribution."
+        primaryCta={{ label: "Join Our Network", href: routes.joinPartner }}
+        secondaryCta={{ label: "Talk to Our Team", href: routes.contact }}
+        steps={heroWorkflow}
+        features={[...heroFeatures.solutions]}
       />
 
       <PageSection>

@@ -15,10 +15,10 @@
 
 | Token | Hex | Role |
 |---|---|---|
-| `--color-brand-orange` | `#d4a574` | Primary accent |
-| `--color-brand-orange-hover` | `#c49262` | Hover |
+| `--color-brand-orange` | `#ff6b00` | Primary accent |
+| `--color-brand-orange-hover` | `#e55f00` | Hover |
 | `--color-brand-orange-light` | `#faf6f2` | Cream surfaces |
-| `--color-brand-orange-muted` | `#e8c9a8` | Soft accent |
+| `--color-brand-orange-muted` | `#ffb380` | Soft accent |
 | `--color-brand-dark` | `#1a1a1a` | Text |
 | `--color-brand-gray-text` | `#64748b` | Body copy |
 

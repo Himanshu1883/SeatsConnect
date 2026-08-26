@@ -3,8 +3,13 @@ import { Button } from "@/components/ui/Button";
 import { LiveConsole } from "@/components/ui/LiveConsole";
 import { PageHero, PageSection } from "@/components/ui/PageLayout";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { routes } from "@/lib/constants/routes";
 import { siteImages } from "@/lib/constants/images";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
+import { routes } from "@/lib/constants/routes";
 
 export const metadata: Metadata = {
   title: "API — SeatsConnect™",
@@ -28,15 +33,17 @@ export default function ApiPage() {
   return (
     <>
       <PageHero
+        eyebrow="API Infrastructure"
+        icon={heroIcons.api}
         image={siteImages.pages.api}
-        title="Connect Your Platform to SeatsConnect."
-        description="One API infrastructure connecting global event supply with professional distribution. SeatsConnect allows approved suppliers and distribution partners to connect their existing technology directly into the network."
-      >
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button href={routes.contact}>Request API Access</Button>
-          <Button href={routes.contact} variant="outline">Talk to Our Integration Team</Button>
-        </div>
-      </PageHero>
+        title="Connect Your Platform to"
+        titleAccent="SeatsConnect."
+        description="One API infrastructure connecting global event supply with professional distribution. Approved suppliers and partners connect existing technology directly into the network."
+        primaryCta={{ label: "Request API Access", href: routes.contact }}
+        secondaryCta={{ label: "Talk to Our Integration Team", href: routes.contact }}
+        steps={heroWorkflow}
+        features={[...heroFeatures.api]}
+      />
 
       <PageSection>
         <SectionHeader

@@ -11,7 +11,7 @@ Guidance for AI agents working in this repo.
 
 ## Theme
 
-- Muted orange: `#d4a574` (not saturated `#ff6b00`).
+- Accent orange: `#ff6b00` (hover `#e55f00`).
 - Cream / light surfaces; avoid purple-on-white and default AI dark themes.
 - Live console on homepage **hero only** (light cream console, not dark terminal).
 - Banner images on **heroes only** — not on every homepage section.

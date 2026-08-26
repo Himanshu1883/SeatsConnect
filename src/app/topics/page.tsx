@@ -3,6 +3,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PageHero, PageSection } from "@/components/ui/PageLayout";
 import { siteImages } from "@/lib/constants/images";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
 import { routes } from "@/lib/constants/routes";
 import { topicPages } from "@/lib/constants/topics";
 
@@ -16,9 +21,16 @@ export default function TopicsPage() {
   return (
     <>
       <PageHero
+        eyebrow="Topics"
+        icon={heroIcons.topics}
         image={siteImages.pages.topics}
-        title="Distribution Infrastructure Topics."
-        description="SeatsConnect pages covering B2B ticket distribution, APIs, hospitality, concierge, sports travel and white-label connectivity. Written for professional supply and distribution businesses, not consumer ticket search."
+        title="Distribution Infrastructure"
+        titleAccent="Topics."
+        description="SeatsConnect pages covering B2B ticket distribution, APIs, hospitality, concierge, sports travel and white-label connectivity — written for professional supply and distribution businesses."
+        primaryCta={{ label: "Join SeatsConnect", href: routes.join }}
+        secondaryCta={{ label: "Talk to Our Team", href: routes.contact }}
+        steps={heroWorkflow}
+        features={[...heroFeatures.infrastructure]}
       />
       <PageSection>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">

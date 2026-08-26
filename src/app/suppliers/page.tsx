@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { PageHero, PageSection, FeatureGrid, FinalCTA } from "@/components/ui/PageLayout";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { routes } from "@/lib/constants/routes";
 import { siteImages } from "@/lib/constants/images";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
+import { routes } from "@/lib/constants/routes";
 
 export const metadata: Metadata = {
   title: "For Suppliers — SeatsConnect™",
@@ -65,15 +70,17 @@ export default function SuppliersPage() {
   return (
     <>
       <PageHero
+        eyebrow="For Suppliers"
+        icon={heroIcons.supply}
         image={siteImages.pages.suppliers}
-        title="Turn Event Inventory Into Global B2B Distribution."
-        description="Connect once and make your inventory available through approved professional channels. SeatsConnect helps venues, promoters, hospitality providers and approved suppliers connect their inventory with professional B2B demand across international markets."
-      >
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button href={routes.joinSupplier}>Connect Your Inventory</Button>
-          <Button href={routes.contact} variant="outline">Talk to Our Supply Team</Button>
-        </div>
-      </PageHero>
+        title="Turn Event Inventory Into"
+        titleAccent="Global B2B Distribution."
+        description="Connect once and make your inventory available through approved professional channels. SeatsConnect helps venues, promoters, hospitality providers and approved suppliers connect inventory with professional B2B demand."
+        primaryCta={{ label: "Connect Your Inventory", href: routes.joinSupplier }}
+        secondaryCta={{ label: "Talk to Our Supply Team", href: routes.contact }}
+        steps={heroWorkflow}
+        features={[...heroFeatures.supply]}
+      />
 
       <PageSection>
         <SectionHeader

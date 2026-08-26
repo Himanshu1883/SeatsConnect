@@ -13,10 +13,13 @@ export default function TravelSolutionPage() {
   return (
     <SolutionPageTemplate
       hero={{
-        title: "Add Global Events to Your Travel Offering.",
+        eyebrow: "Travel & Tour Operators",
+        title: "Add Global Events to Your",
+        titleAccent: "Travel Offering.",
         description:
           "Give your customers access to tickets and hospitality alongside flights, hotels and travel services. SeatsConnect gives travel agencies and tour operators one B2B connection to event inventory across multiple markets.",
         cta: { label: "Join SeatsConnect", href: routes.joinPartner },
+        secondaryCta: { label: "Book a Demo", href: routes.contact },
         image: siteImages.pages.travel,
       }}
       sections={[

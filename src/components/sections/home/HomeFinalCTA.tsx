@@ -20,20 +20,23 @@ export function HomeFinalCTA() {
     <HomeFrame variant="plain">
       <Reveal>
         <div className="relative overflow-hidden rounded-[2rem] p-px">
-          <div className="pointer-events-none absolute -inset-20 home-border-spin opacity-70 bg-[conic-gradient(from_90deg,transparent_0%,#d4a574_20%,transparent_40%)]" />
-          <div className="relative rounded-[1.95rem] bg-white px-6 py-14 sm:px-12 text-center border border-orange-100">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-brand-orange mb-4">
+          <div className="pointer-events-none absolute -inset-20 home-border-spin opacity-70 bg-[conic-gradient(from_90deg,transparent_0%,#ff6b00_20%,transparent_40%)]" />
+          <div className="relative rounded-[1.95rem] border border-orange-100 bg-white px-6 py-14 text-center sm:px-12">
+            <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.22em] text-brand-orange">
               next step
             </p>
-            <h2 className="font-tech text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark mb-4">
+            <h2 className="mb-4 font-tech text-3xl font-bold text-brand-dark sm:text-4xl lg:text-5xl">
               One Connection. Global Opportunity.
             </h2>
-            <p className="text-brand-gray-text max-w-2xl mx-auto mb-8">
+            <p className="mx-auto mb-8 max-w-2xl text-brand-gray-text">
               Whether you supply event inventory or distribute experiences to
               customers, SeatsConnect provides the infrastructure to connect both
               sides. Connect supply. Expand distribution. Reach new markets.
             </p>
-            <ExperienceStrip items={ctaStrip} className="max-w-3xl mx-auto mb-10 text-left" />
+            <ExperienceStrip
+              items={ctaStrip}
+              className="mx-auto mb-10 max-w-3xl text-left"
+            />
             <ButtonGroup className="justify-center">
               <Button href={routes.joinSupplier}>Connect Your Inventory</Button>
               <Button href={routes.joinPartner} variant="outline">
@@ -43,28 +46,20 @@ export function HomeFinalCTA() {
                 Talk to Our Team
               </Button>
             </ButtonGroup>
+            <p className="mt-8 text-sm text-brand-gray-text">
+              Already a Partner?{" "}
+              <a
+                href={siteConfig.portalUrl}
+                className="font-semibold text-brand-orange hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Login
+              </a>
+            </p>
           </div>
         </div>
       </Reveal>
     </HomeFrame>
-  );
-}
-
-export function HomeLoginNote() {
-  return (
-    <div className="section-band bg-brand-orange-light text-center pt-14 pb-8">
-      <div className="pointer-events-none absolute inset-0 surface-grid" />
-      <p className="relative z-10 text-sm text-brand-gray-text">
-        Already a Partner?{" "}
-        <a
-          href={siteConfig.portalUrl}
-          className="text-brand-orange font-semibold hover:underline"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Login
-        </a>
-      </p>
-    </div>
   );
 }

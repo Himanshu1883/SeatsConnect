@@ -13,10 +13,13 @@ export default function CorporateSolutionPage() {
   return (
     <SolutionPageTemplate
       hero={{
-        title: "Event Access for Corporate Customers.",
+        eyebrow: "Corporate & Events",
+        title: "Event Access for",
+        titleAccent: "Corporate Customers.",
         description:
           "Source tickets and hospitality for client entertainment, incentives and corporate events. SeatsConnect gives corporate travel and event businesses access to professional event supply through one connected platform.",
         cta: { label: "Join SeatsConnect", href: routes.joinPartner },
+        secondaryCta: { label: "Talk to Our Team", href: routes.contact },
         image: siteImages.pages.corporate,
       }}
       sections={[

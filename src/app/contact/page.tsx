@@ -6,6 +6,11 @@ import { FormField, FormGrid } from "@/components/ui/FormFields";
 import { PageHero, PageSection } from "@/components/ui/PageLayout";
 import { SubmitButton } from "@/components/ui/SubmitButton";
 import { siteImages } from "@/lib/constants/images";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
 import { routes } from "@/lib/constants/routes";
 
 const enquiryTypes = [
@@ -26,9 +31,16 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
+        eyebrow="Contact"
+        icon={heroIcons.contact}
         image={siteImages.pages.contact}
-        title="Talk to SeatsConnect."
+        title="Talk to"
+        titleAccent="SeatsConnect."
         description="Whether you want to connect inventory, join our distribution network or discuss an integration, our team can help."
+        primaryCta={{ label: "Connect Your Inventory", href: routes.joinSupplier }}
+        secondaryCta={{ label: "Join Our Network", href: routes.joinPartner }}
+        steps={heroWorkflow}
+        features={[...heroFeatures.contact]}
       />
 
       <PageSection>

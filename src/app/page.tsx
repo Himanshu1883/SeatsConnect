@@ -10,7 +10,7 @@ import { HomeB2BTools } from "@/components/sections/home/HomeB2BTools";
 import { HomeWhiteLabel } from "@/components/sections/home/HomeWhiteLabel";
 import { HomeInternational } from "@/components/sections/home/HomeInternational";
 import { HomeExperience } from "@/components/sections/home/HomeExperience";
-import { HomeFinalCTA, HomeLoginNote } from "@/components/sections/home/HomeFinalCTA";
+import { HomeFinalCTA } from "@/components/sections/home/HomeFinalCTA";
 
 export default function HomePage() {
   return (
@@ -28,7 +28,6 @@ export default function HomePage() {
       <HomeInternational />
       <HomeExperience />
       <HomeFinalCTA />
-      <HomeLoginNote />
     </>
   );
 }

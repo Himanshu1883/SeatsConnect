@@ -1,65 +1,74 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
+import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import {
   Bell,
   Briefcase,
   Building2,
-  Check,
   ConciergeBell,
   Globe2,
   Layers,
+  Megaphone,
   Plane,
   Share2,
   ShieldCheck,
-  Signal,
   Target,
-  Ticket,
-  X,
   Zap,
 } from "lucide-react";
 import { HomeFrame, HomeKicker } from "@/components/sections/home/HomeFrame";
 import { Reveal } from "@/components/ui/Reveal";
+import { siteImages } from "@/lib/constants/images";
 import { cn } from "@/lib/utils";
+
+const { experiences: exp } = siteImages;
 
 const features: { icon: LucideIcon; title: string; text: string }[] = [
   { icon: Globe2, title: "1 Network", text: "Unified infrastructure" },
   { icon: ShieldCheck, title: "100% Approved", text: "Trusted partners" },
   { icon: Zap, title: "Real-time", text: "Inventory access" },
-  { icon: Signal, title: "Global", text: "Distribution reach" },
 ];
 
 const supplyNodes: { label: string; icon: LucideIcon }[] = [
   { label: "Venues", icon: Building2 },
-  { label: "Promoters", icon: Ticket },
-  { label: "Hospitality", icon: ConciergeBell },
+  { label: "Promoters", icon: Megaphone },
+  { label: "Hospitality Providers", icon: ConciergeBell },
 ];
 
-const demandNodes: { label: string; icon: LucideIcon }[] = [
+const channelNodes: { label: string; icon: LucideIcon }[] = [
   { label: "Travel", icon: Plane },
   { label: "Concierge", icon: Bell },
   { label: "Corporate", icon: Briefcase },
 ];
 
+const gallery = [
+  { src: exp.football, alt: "Stadium" },
+  { src: exp.concert, alt: "Concert" },
+  { src: exp.hospitality, alt: "Hospitality" },
+  { src: exp.formula1, alt: "Motorsport" },
+  { src: exp.suite, alt: "Resort" },
+  { src: exp.corporate, alt: "Corporate" },
+] as const;
+
 export function HomeProblem() {
   const [connected, setConnected] = useState(false);
 
   return (
-    <HomeFrame tinted variant="grid">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <HomeFrame tinted variant="plain" className="overflow-hidden">
+      <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-12 xl:gap-16">
         <Reveal>
           <HomeKicker>The Challenge</HomeKicker>
-          <h2 className="font-tech text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-brand-dark leading-[1.12] tracking-tight mt-3 mb-5">
+          <h2 className="mt-3 mb-5 font-tech text-3xl font-bold leading-[1.12] tracking-tight text-brand-dark sm:text-4xl lg:text-[2.75rem]">
             Global Event{" "}
             <span className="text-brand-orange">Distribution</span> Is Still
             Fragmented.
           </h2>
-          <p className="text-brand-gray-text leading-relaxed mb-3">
+          <p className="mb-3 leading-relaxed text-brand-gray-text">
             Event inventory is often distributed through disconnected systems,
             individual commercial relationships and manual processes.
           </p>
-          <p className="text-brand-gray-text leading-relaxed mb-6">
+          <p className="mb-6 leading-relaxed text-brand-gray-text">
             Professional businesses still need tickets, hospitality and live
             experiences for their customers. SeatsConnect provides unified B2B
             distribution infrastructure between supply and approved partners.
@@ -68,14 +77,14 @@ export function HomeProblem() {
           <div
             role="group"
             aria-label="Distribution graph state"
-            className="inline-flex rounded-full border border-orange-100 bg-white p-1 mb-7 shadow-[0_1px_0_rgba(255,255,255,0.8)]"
+            className="inline-flex rounded-full border border-orange-100 bg-white p-1 shadow-[0_1px_0_rgba(255,255,255,0.8)]"
           >
             <button
               type="button"
               aria-pressed={!connected}
               onClick={() => setConnected(false)}
               className={cn(
-                "rounded-full px-4 py-1.5 text-xs font-tech font-semibold transition-all",
+                "rounded-full px-4 py-1.5 font-tech text-xs font-semibold transition-all",
                 !connected
                   ? "bg-brand-dark text-white shadow-sm"
                   : "text-brand-gray-text hover:text-brand-dark"
@@ -88,7 +97,7 @@ export function HomeProblem() {
               aria-pressed={connected}
               onClick={() => setConnected(true)}
               className={cn(
-                "rounded-full px-4 py-1.5 text-xs font-tech font-semibold transition-all",
+                "rounded-full px-4 py-1.5 font-tech text-xs font-semibold transition-all",
                 connected
                   ? "bg-brand-dark text-white shadow-sm"
                   : "text-brand-gray-text hover:text-brand-dark"
@@ -97,27 +106,36 @@ export function HomeProblem() {
               Connected
             </button>
           </div>
+        </Reveal>
 
-          <div className="grid grid-cols-2 gap-x-6 gap-y-5 mb-6">
-            {features.map((feature) => (
-              <div key={feature.title} className="flex items-start gap-3">
-                <feature.icon
-                  className="mt-0.5 h-[18px] w-[18px] shrink-0 text-brand-orange"
-                  strokeWidth={1.5}
-                />
-                <div>
-                  <p className="font-tech text-sm font-bold text-brand-dark leading-tight">
-                    {feature.title}
-                  </p>
-                  <p className="text-xs text-brand-gray-text mt-0.5 leading-snug">
-                    {feature.text}
-                  </p>
-                </div>
+        <Reveal delay={100}>
+          <ChallengeNetwork />
+        </Reveal>
+      </div>
+
+      <Reveal delay={140}>
+        <div className="mt-10 grid gap-6 sm:grid-cols-3 lg:mt-12 lg:max-w-3xl">
+          {features.map((feature) => (
+            <div key={feature.title} className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand-orange/25 bg-brand-orange/10 text-brand-orange">
+                <feature.icon className="h-4 w-4" strokeWidth={1.6} />
+              </span>
+              <div>
+                <p className="font-tech text-sm font-bold leading-tight text-brand-dark">
+                  {feature.title}
+                </p>
+                <p className="mt-0.5 text-xs leading-snug text-brand-gray-text">
+                  {feature.text}
+                </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
 
-          <div className="flex items-center gap-3 rounded-2xl border border-orange-100 bg-brand-orange-light px-4 py-3.5">
+      <Reveal delay={180}>
+        <div className="mt-6 grid items-stretch gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+          <div className="flex items-center gap-3 rounded-2xl border border-orange-100/90 bg-white px-4 py-3.5 shadow-[0_10px_28px_rgba(40,30,20,0.05)] sm:px-5 sm:py-4">
             <Share2
               className="h-5 w-5 shrink-0 text-brand-orange"
               strokeWidth={1.5}
@@ -131,187 +149,169 @@ export function HomeProblem() {
               </span>
             </p>
           </div>
-        </Reveal>
 
-        <Reveal delay={120} className="lg:py-4">
-          <div className="problem-console-scene">
-            <ProblemGraph connected={connected} />
+          <div className="flex items-start gap-3 rounded-2xl border border-orange-100/90 bg-white p-4 shadow-[0_10px_28px_rgba(40,30,20,0.05)] sm:p-4">
+            <Target
+              className="mt-0.5 h-5 w-5 shrink-0 text-brand-orange"
+              strokeWidth={1.5}
+            />
+            <div>
+              <p className="font-tech text-sm font-bold leading-snug text-brand-dark">
+                {connected
+                  ? "Connected today. Controlled distribution."
+                  : "Disconnected today. Connected tomorrow."}
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-brand-gray-text">
+                {connected
+                  ? "Approved partners search, quote, book and fulfil through one infrastructure layer and multiple approved channels."
+                  : "SeatsConnect unifies supply and distribution with one infrastructure layer and multiple approved channels."}
+              </p>
+            </div>
           </div>
-        </Reveal>
-      </div>
+        </div>
+      </Reveal>
+
+      <Reveal delay={220}>
+        <div className="problem-slant-strip mt-10 lg:mt-12">
+          {gallery.map((item) => (
+            <figure key={item.alt} className="problem-slant-card group">
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                sizes="(max-width: 768px) 45vw, 18vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+            </figure>
+          ))}
+        </div>
+      </Reveal>
     </HomeFrame>
   );
 }
 
-function ProblemGraph({ connected }: { connected: boolean }) {
-  return (
-    <div
-      className={cn(
-        "problem-console-3d relative rounded-[1.6rem] border border-orange-100/90 bg-white p-5 sm:p-6",
-        "shadow-[0_8px_18px_rgba(166,122,70,0.08),0_24px_56px_rgba(166,122,70,0.14)]"
-      )}
-    >
-      <div className="mb-5 flex items-center justify-between gap-3">
-        <div className="flex min-w-0 items-center gap-2">
-          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange" />
-          <p className="truncate font-mono text-[10px] uppercase tracking-[0.2em] text-brand-dark/70">
-            {connected ? "Connected. Graph" : "Disconnected. Graph"}
-          </p>
-        </div>
-        <div className="flex shrink-0 items-center gap-2">
-          <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-brand-gray-text">
-            Status
-          </span>
-          <span
-            className={cn(
-              "rounded-full px-2.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-[0.14em]",
-              connected
-                ? "bg-emerald-50 text-emerald-700"
-                : "bg-brand-orange/20 text-brand-orange-hover"
-            )}
-          >
-            {connected ? "Connected" : "Fragmented"}
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-3 gap-2 sm:gap-3">
-        {supplyNodes.map((node) => (
-          <GraphNode key={node.label} {...node} />
-        ))}
-      </div>
-
-      <GraphLinks connected={connected} direction="in" />
-
-      <div
-        className={cn(
-          "relative z-10 mx-auto flex w-[92%] items-center gap-3 rounded-2xl px-4 py-3.5 text-white transition-shadow duration-500",
-          "bg-brand-dark",
-          connected && "shadow-[0_0_0_1px_rgba(212,165,116,0.45),0_0_24px_rgba(212,165,116,0.18)]"
-        )}
-      >
-        <Layers
-          className="h-5 w-5 shrink-0 text-brand-orange"
-          strokeWidth={1.5}
-        />
-        <div className="min-w-0">
-          <p className="font-tech text-sm font-bold leading-tight">
-            {connected ? "SeatsConnect layer" : "No common layer"}
-          </p>
-          <p className="mt-0.5 text-[10px] leading-snug text-white/65">
-            {connected
-              ? "Search → Quote → Book → Fulfil"
-              : "Manual routes · Separate deals"}
-          </p>
-        </div>
-      </div>
-
-      <GraphLinks connected={connected} direction="out" showMarkers />
-
-      <div className="grid grid-cols-3 gap-2 sm:gap-3">
-        {demandNodes.map((node) => (
-          <GraphNode key={node.label} {...node} />
-        ))}
-      </div>
-
-      <div className="mt-5 flex items-start gap-3 rounded-xl border border-orange-100 bg-brand-orange-light/70 p-4">
-        <Target
-          className="mt-0.5 h-5 w-5 shrink-0 text-brand-orange"
-          strokeWidth={1.5}
-        />
-        <div>
-          <p className="font-tech text-sm font-bold text-brand-dark leading-snug">
-            {connected
-              ? "Connected today. Controlled distribution."
-              : "Disconnected today. Connected tomorrow."}
-          </p>
-          <p className="mt-1 text-xs leading-relaxed text-brand-gray-text">
-            {connected
-              ? "Approved partners search, quote, book and fulfil through one infrastructure layer and multiple approved channels."
-              : "SeatsConnect unifies supply and distribution with one infrastructure layer and multiple approved channels."}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function GraphNode({ label, icon: Icon }: { label: string; icon: LucideIcon }) {
-  return (
-    <div className="flex flex-col items-center gap-1.5 rounded-xl border border-orange-100 bg-white px-2 py-3 shadow-[0_1px_0_rgba(255,255,255,0.9)]">
-      <Icon className="h-4 w-4 text-brand-dark/70" strokeWidth={1.5} />
-      <span className="font-tech text-[11px] font-semibold text-brand-dark">
-        {label}
-      </span>
-    </div>
-  );
-}
-
-function GraphLinks({
-  connected,
-  direction,
-  showMarkers = false,
-}: {
-  connected: boolean;
-  direction: "in" | "out";
-  showMarkers?: boolean;
-}) {
-  const stroke = connected ? "#d4a574" : "#c4bbb3";
-  const paths =
-    direction === "in"
-      ? [
-          "M 100 4 C 100 40, 300 28, 300 76",
-          "M 300 4 C 300 28, 300 52, 300 76",
-          "M 500 4 C 500 40, 300 28, 300 76",
-        ]
-      : [
-          "M 300 4 C 300 28, 100 36, 100 76",
-          "M 300 4 C 300 28, 300 52, 300 76",
-          "M 300 4 C 300 28, 500 36, 500 76",
-        ];
+function ChallengeNetwork() {
+  const uid = useId();
 
   return (
-    <div className="relative h-16 sm:h-[4.5rem]">
+    <div className="relative min-h-[300px] overflow-hidden rounded-3xl sm:min-h-[340px] lg:min-h-[380px]">
+      {/* Static map backdrop — no motion */}
       <svg
-        className="absolute inset-0 h-full w-full"
-        viewBox="0 0 600 80"
-        preserveAspectRatio="none"
-        fill="none"
+        viewBox="0 0 720 400"
+        className="pointer-events-none absolute inset-0 h-full w-full"
+        preserveAspectRatio="xMidYMid slice"
         aria-hidden
       >
-        {paths.map((d) => (
+        <defs>
+          <pattern
+            id={`${uid}-dots`}
+            width="13"
+            height="13"
+            patternUnits="userSpaceOnUse"
+          >
+            <circle cx="1" cy="1" r="0.95" fill="#c5bbb0" />
+          </pattern>
+        </defs>
+        <g fill={`url(#${uid}-dots)`} opacity="0.5">
+          <ellipse cx="160" cy="175" rx="140" ry="105" />
+          <ellipse cx="340" cy="150" rx="125" ry="95" />
+          <ellipse cx="520" cy="185" rx="135" ry="100" />
+          <ellipse cx="380" cy="270" rx="150" ry="80" />
+        </g>
+        {[
+          "M90 210 C 200 110, 380 95, 580 185",
+          "M110 260 C 250 170, 420 155, 610 230",
+          "M140 130 C 280 155, 450 230, 600 250",
+          "M180 290 C 300 220, 480 180, 640 160",
+        ].map((d, i) => (
           <path
             key={d}
             d={d}
-            stroke={stroke}
-            strokeWidth={connected ? 1.7 : 1.4}
-            strokeLinecap="round"
-            strokeDasharray={connected ? undefined : "6 5"}
-            className={cn(!connected && "problem-graph-dash")}
-            vectorEffect="non-scaling-stroke"
+            fill="none"
+            stroke="#ff6b00"
+            strokeWidth="1.15"
+            opacity={0.22 + (i % 3) * 0.06}
+            strokeDasharray="4 7"
+          />
+        ))}
+        {[
+          [130, 195],
+          [250, 140],
+          [380, 175],
+          [500, 150],
+          [580, 210],
+          [320, 250],
+          [460, 240],
+        ].map(([cx, cy], i) => (
+          <circle
+            key={`${cx}-${cy}`}
+            cx={cx}
+            cy={cy}
+            r={i % 2 === 0 ? 3.4 : 2.5}
+            fill="#ff6b00"
+            opacity={0.5}
           />
         ))}
       </svg>
-      {showMarkers
-        ? ["left-[16.5%]", "left-1/2 -translate-x-1/2", "right-[16.5%]"].map(
-            (pos) => (
-              <span
-                key={pos}
-                className={cn(
-                  "absolute top-[42%] z-10 flex h-5 w-5 items-center justify-center rounded-full bg-brand-orange",
-                  pos
-                )}
-                aria-hidden
-              >
-                {connected ? (
-                  <Check className="h-3 w-3 text-white" strokeWidth={2.5} />
-                ) : (
-                  <X className="h-3 w-3 text-white" strokeWidth={2.5} />
-                )}
-              </span>
-            )
-          )
-        : null}
+
+      <div className="relative z-10 flex h-full min-h-[300px] flex-col items-stretch justify-center gap-5 px-2 py-6 sm:min-h-[340px] sm:flex-row sm:items-center sm:gap-0 sm:px-3 lg:min-h-[380px] lg:px-4">
+        <SideCard title="Supply" items={supplyNodes} />
+
+        {/* Static dashed connectors + hub */}
+        <div className="relative z-20 flex flex-1 items-center justify-center px-1 sm:px-2">
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 right-0 hidden items-center sm:flex"
+            aria-hidden
+          >
+            <div className="mx-1 h-px w-full border-t border-dashed border-brand-orange/55" />
+          </div>
+
+          <div className="problem-hub relative flex h-[10rem] w-[10rem] flex-col items-center justify-center rounded-full border border-white bg-white px-5 text-center shadow-[0_0_0_10px_rgba(255,107,0,0.06),0_18px_42px_rgba(40,30,20,0.1)] sm:h-[11rem] sm:w-[11rem] lg:h-[12.5rem] lg:w-[12.5rem]">
+            <span className="mb-2.5 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-orange text-white sm:h-11 sm:w-11">
+              <Layers className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.5} />
+            </span>
+            <p className="font-tech text-xs font-bold tracking-[0.04em] text-brand-dark sm:text-sm">
+              SEATSCONNECT
+            </p>
+            <p className="mt-1.5 max-w-[8.5rem] text-[10px] leading-snug text-brand-gray-text sm:text-[11px]">
+              One Infrastructure.
+              <br />
+              Infinite Possibilities.
+            </p>
+          </div>
+        </div>
+
+        <SideCard title="Professional B2B Channels" items={channelNodes} />
+      </div>
     </div>
+  );
+}
+
+function SideCard({
+  title,
+  items,
+}: {
+  title: string;
+  items: { label: string; icon: LucideIcon }[];
+}) {
+  return (
+    <article className="relative z-10 w-full shrink-0 rounded-2xl border border-orange-100/80 bg-white p-4 shadow-[0_14px_34px_rgba(40,30,20,0.07)] sm:w-[11.5rem] sm:p-4 lg:w-[13rem] lg:p-[1.1rem]">
+      <p className="mb-3 font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-brand-orange sm:text-[10px]">
+        {title}
+      </p>
+      <ul className="space-y-2.5">
+        {items.map((item) => (
+          <li key={item.label} className="flex items-center gap-2.5">
+            <item.icon
+              className="h-4 w-4 shrink-0 text-brand-dark/70"
+              strokeWidth={1.6}
+            />
+            <span className="font-tech text-xs font-semibold text-brand-dark sm:text-[13px]">
+              {item.label}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </article>
   );
 }

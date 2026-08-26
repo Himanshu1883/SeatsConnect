@@ -18,10 +18,10 @@ const strip = [
 
 export function PlatformFinalCTA() {
   return (
-    <HomeFrame tinted variant="grid">
+    <HomeFrame tinted variant="">
       <Reveal>
         <div className="relative overflow-hidden rounded-[2rem] p-px">
-          <div className="pointer-events-none absolute -inset-20 home-border-spin opacity-70 bg-[conic-gradient(from_90deg,transparent_0%,#d4a574_20%,transparent_40%)]" />
+          <div className="pointer-events-none absolute -inset-20 home-border-spin opacity-70 bg-[conic-gradient(from_90deg,transparent_0%,#ff6b00_20%,transparent_40%)]" />
           <div className="relative rounded-[1.95rem] border border-orange-100 bg-white px-6 py-14 text-center sm:px-12">
             <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.22em] text-brand-orange">
               next step

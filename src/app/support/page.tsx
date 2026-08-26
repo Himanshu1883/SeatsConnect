@@ -4,6 +4,11 @@ import { Button } from "@/components/ui/Button";
 import { PageHero, PageSection } from "@/components/ui/PageLayout";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteImages } from "@/lib/constants/images";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
 import { routes } from "@/lib/constants/routes";
 import { siteConfig } from "@/lib/constants/site";
 
@@ -84,9 +89,16 @@ export default function SupportPage() {
   return (
     <>
       <PageHero
+        eyebrow="Support"
+        icon={heroIcons.support}
         image={siteImages.pages.support}
-        title="Support."
+        title="Support for"
+        titleAccent="Partners & Suppliers."
         description="Guidance for businesses connecting supply, joining the distribution network or integrating with SeatsConnect."
+        primaryCta={{ label: "Talk to Our Team", href: routes.contact }}
+        secondaryCta={{ label: "Join SeatsConnect", href: routes.join }}
+        steps={heroWorkflow}
+        features={[...heroFeatures.support]}
       />
 
       <PageSection>

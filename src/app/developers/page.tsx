@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Button, ButtonGroup } from "@/components/ui/Button";
 import { DeveloperAccessForm } from "@/components/forms/DeveloperAccessForm";
 import { LiveConsole } from "@/components/ui/LiveConsole";
 import { PageHero, PageSection, FeatureGrid } from "@/components/ui/PageLayout";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { launchFlags } from "@/lib/constants/features";
 import { siteImages } from "@/lib/constants/images";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
 import { routes } from "@/lib/constants/routes";
 import { siteConfig } from "@/lib/constants/site";
 
@@ -28,23 +32,25 @@ export default function DevelopersPage() {
   return (
     <>
       <PageHero
+        eyebrow="Developers"
+        icon={heroIcons.developers}
         image={siteImages.pages.developers}
-        title="Connect Your Systems to SeatsConnect."
+        title="Connect Your Systems to"
+        titleAccent="SeatsConnect."
         description="Detailed API documentation, authentication, endpoints, schemas and sandbox information sit in a separate developer portal. The public website explains the infrastructure. The portal is where approved teams build."
-      >
-        <ButtonGroup className="justify-center">
-          {launchFlags.developerPortal ? (
-            <Button href={siteConfig.developersUrl} external>
-              Open Developer Portal
-            </Button>
-          ) : (
-            <Button href="#access">Request Developer Access</Button>
-          )}
-          <Button href={routes.api} variant="outline">
-            View API Overview
-          </Button>
-        </ButtonGroup>
-      </PageHero>
+        primaryCta={
+          launchFlags.developerPortal
+            ? {
+                label: "Open Developer Portal",
+                href: siteConfig.developersUrl,
+                external: true,
+              }
+            : { label: "Request Developer Access", href: "#access" }
+        }
+        secondaryCta={{ label: "View API Overview", href: routes.api }}
+        steps={heroWorkflow}
+        features={[...heroFeatures.api]}
+      />
 
       <PageSection>
         <div className="grid lg:grid-cols-2 gap-10 items-center">

@@ -13,10 +13,13 @@ export default function ConciergeSolutionPage() {
   return (
     <SolutionPageTemplate
       hero={{
-        title: "Global Event Access for Your Clients.",
+        eyebrow: "Concierge & Lifestyle",
+        title: "Global Event Access for",
+        titleAccent: "Your Clients.",
         description:
           "Respond faster to ticket and hospitality requests through one professional B2B connection. SeatsConnect helps concierge and lifestyle management businesses access global event supply for their clients.",
         cta: { label: "Join SeatsConnect", href: routes.joinPartner },
+        secondaryCta: { label: "Talk to Our Team", href: routes.contact },
         image: siteImages.pages.concierge,
       }}
       sections={[

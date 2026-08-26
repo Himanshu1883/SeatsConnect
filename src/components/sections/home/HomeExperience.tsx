@@ -121,7 +121,7 @@ function ExperienceMap() {
           height="7"
           patternUnits="userSpaceOnUse"
         >
-          <circle cx="1.35" cy="1.35" r="1.05" fill="#d4a574" />
+          <circle cx="1.35" cy="1.35" r="1.05" fill="#ff6b00" />
         </pattern>
       </defs>
       <g fill="url(#exp-map-dots)" opacity="0.55">
@@ -141,7 +141,7 @@ function ExperienceMap() {
       <g
         className="exp-map-arcs"
         fill="none"
-        stroke="#d4a574"
+        stroke="#ff6b00"
         strokeWidth="1.05"
         strokeLinecap="round"
       >
@@ -152,7 +152,7 @@ function ExperienceMap() {
         <path d="M352 72 C 372 118, 388 142, 404 170" />
         <path d="M118 92 C 210 18, 300 22, 352 72" />
       </g>
-      <g fill="#d4a574">
+      <g fill="#ff6b00">
         <circle cx="118" cy="92" r="2.4" />
         <circle cx="238" cy="68" r="2.4" />
         <circle cx="352" cy="72" r="2.4" />
@@ -190,7 +190,7 @@ function TopoPattern() {
 
 export function HomeExperience() {
   return (
-    <HomeFrame tinted variant="grid" className="py-16 lg:py-24">
+    <HomeFrame tinted variant="" className="py-10 lg:py-10">
       <Reveal>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 lg:mb-20">
           <div>

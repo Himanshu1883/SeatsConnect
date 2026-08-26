@@ -1,4 +1,4 @@
-import { Button, ButtonGroup } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import {
   LiveConsole,
   FlowDiagram,
@@ -7,6 +7,11 @@ import {
 } from "@/components/ui/LiveConsole";
 import { PageHero, PageSection, FinalCTA } from "@/components/ui/PageLayout";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
 
 export type SolutionSection = {
   title?: string;
@@ -21,10 +26,13 @@ export type SolutionSection = {
 
 type SolutionPageTemplateProps = {
   hero: {
+    eyebrow?: string;
     title: string;
+    titleAccent?: string;
     description: string;
     cta?: { label: string; href: string };
     secondaryCta?: { label: string; href: string };
+    tertiaryCta?: { label: string; href: string };
     image?: string;
   };
   sections: SolutionSection[];
@@ -43,24 +51,25 @@ export function SolutionPageTemplate({
 }: SolutionPageTemplateProps) {
   return (
     <>
-      <PageHero title={hero.title} description={hero.description} image={hero.image}>
-        {hero.cta || hero.secondaryCta ? (
-          <ButtonGroup className="justify-center">
-            {hero.cta ? <Button href={hero.cta.href}>{hero.cta.label}</Button> : null}
-            {hero.secondaryCta ? (
-              <Button href={hero.secondaryCta.href} variant="outline">
-                {hero.secondaryCta.label}
-              </Button>
-            ) : null}
-          </ButtonGroup>
-        ) : null}
-      </PageHero>
+      <PageHero
+        eyebrow={hero.eyebrow ?? "Solutions"}
+        icon={heroIcons.solutions}
+        title={hero.title}
+        titleAccent={hero.titleAccent}
+        description={hero.description}
+        image={hero.image}
+        primaryCta={hero.cta}
+        secondaryCta={hero.secondaryCta}
+        tertiaryCta={hero.tertiaryCta}
+        steps={heroWorkflow}
+        features={[...heroFeatures.solutions]}
+      />
 
       {sections.map((section, index) => (
         <PageSection
-            key={`${section.title ?? "section"}-${index}`}
-            tinted={index % 2 === 1}
-          >
+          key={`${section.title ?? "section"}-${index}`}
+          tinted={index % 2 === 1}
+        >
           {section.title ? (
             <SectionHeader
               title={section.title}

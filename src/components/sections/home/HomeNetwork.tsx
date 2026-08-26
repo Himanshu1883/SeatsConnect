@@ -51,7 +51,7 @@ export function HomeNetwork() {
   const [active, setActive] = useCycle(channels.length, 2400);
 
   return (
-    <HomeFrame tinted variant="grid">
+    <HomeFrame tinted variant="plain">
       <Reveal>
         <div className="max-w-3xl mb-12">
           <HomeKicker>Network</HomeKicker>

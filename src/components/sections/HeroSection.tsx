@@ -9,7 +9,7 @@ import { heroStats } from "@/lib/constants/stats";
 export function HeroSection() {
   return (
     <header className="relative overflow-hidden bg-brand-dark">
-      <div className="relative flex h-[75vh] min-h-[75vh] flex-col overflow-hidden">
+      <div className="relative flex h-[70vh] max-h-[70vh] min-h-[18rem] flex-col overflow-hidden">
         <HeroBackgroundSlideshow images={siteImages.hero.backgrounds} />
 
         <div className="relative z-10 flex flex-1 items-center px-4 py-16 sm:px-6 sm:py-20 md:py-24 lg:py-28">

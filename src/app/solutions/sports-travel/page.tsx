@@ -13,10 +13,13 @@ export default function SportsTravelSolutionPage() {
   return (
     <SolutionPageTemplate
       hero={{
-        title: "Build Complete Sporting Event Experiences.",
+        eyebrow: "Sports Travel",
+        title: "Build Complete Sporting",
+        titleAccent: "Event Experiences.",
         description:
           "Connect event tickets and hospitality with your existing sports travel operation. SeatsConnect gives sports travel businesses access to event inventory through one B2B connection.",
         cta: { label: "Join SeatsConnect", href: routes.joinPartner },
+        secondaryCta: { label: "Talk to Our Team", href: routes.contact },
         image: siteImages.pages.sportsTravel,
       }}
       sections={[

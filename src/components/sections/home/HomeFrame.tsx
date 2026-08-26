@@ -34,13 +34,15 @@ export function HomeFrame({
     <section
       id={id}
       className={cn(
-        "section-band px-4 sm:px-6 lg:px-8 py-20 lg:py-28",
+        "section-band px-4 sm:px-6 lg:px-8 py-10 lg:py-10",
         tinted ? "bg-brand-orange-light" : "bg-white",
         className
       )}
     >
       <SurfacePattern variant={variant} wash={tinted} />
-      <div className="relative z-10 mx-auto max-w-7xl">{children}</div>
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl min-h-0 flex-1 flex-col">
+        {children}
+      </div>
     </section>
   );
 }

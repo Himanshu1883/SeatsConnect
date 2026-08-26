@@ -328,7 +328,7 @@ export function HomeHowItWorks() {
                     className={cn(
                       "group flex w-full items-center gap-3 rounded-2xl border px-3 py-3 text-left transition-all duration-300 sm:gap-3.5 sm:px-3.5",
                       isActive
-                        ? "border-brand-orange/45 bg-white/80 shadow-[0_8px_28px_rgba(212,165,116,0.12)]"
+                        ? "border-brand-orange/45 bg-white/80 shadow-[0_8px_28px_rgba(255,107,0,0.12)]"
                         : "border-transparent hover:border-orange-100/80 hover:bg-white/50"
                     )}
                   >
@@ -475,7 +475,7 @@ function HowQuoteGraphic() {
       aria-hidden
     >
       <div className="relative w-full max-w-[17.5rem]">
-        <div className="overflow-hidden rounded-2xl border border-orange-100 bg-[#f3ebe3] shadow-[0_12px_32px_rgba(212,165,116,0.14)]">
+        <div className="overflow-hidden rounded-2xl border border-orange-100 bg-[#f3ebe3] shadow-[0_12px_32px_rgba(255,107,0,0.14)]">
           <div className="flex items-center gap-1.5 border-b border-orange-100/80 bg-white/70 px-3 py-2.5">
             <span className="h-2 w-2 rounded-full bg-brand-orange/35" />
             <span className="h-2 w-2 rounded-full bg-brand-orange/25" />

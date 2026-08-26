@@ -13,10 +13,13 @@ export default function HotelsSolutionPage() {
   return (
     <SolutionPageTemplate
       hero={{
-        title: "Extend the Guest Experience Beyond the Hotel.",
+        eyebrow: "Hotels & Hospitality",
+        title: "Extend the Guest Experience",
+        titleAccent: "Beyond the Hotel.",
         description:
           "Give your concierge and guest-service teams access to global events through one B2B platform. SeatsConnect helps hotels respond to guest requests for tickets, hospitality and live experiences.",
         cta: { label: "Talk to Our Team", href: routes.contact },
+        secondaryCta: { label: "Join Our Network", href: routes.joinPartner },
         image: siteImages.pages.hotels,
       }}
       sections={[

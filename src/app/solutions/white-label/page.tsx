@@ -12,10 +12,13 @@ export default function WhiteLabelSolutionPage() {
   return (
     <SolutionPageTemplate
       hero={{
-        title: "Global Event Supply. Your Customer Experience.",
+        eyebrow: "White Label",
+        title: "Global Event Supply.",
+        titleAccent: "Your Customer Experience.",
         description:
           "Connect SeatsConnect inventory and booking infrastructure into your own brand. SeatsConnect supports approved partners that want event products integrated directly into their existing customer environment.",
         cta: { label: "Discuss White Label", href: routes.contact },
+        secondaryCta: { label: "Join Our Network", href: routes.joinPartner },
         image: siteImages.pages.whiteLabel,
       }}
       sections={[

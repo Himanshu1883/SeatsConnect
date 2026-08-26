@@ -61,6 +61,19 @@ export const siteImages = {
       "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=900&q=80",
     network:
       "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=900&q=80",
+    /** Landmark photos for international region cards */
+    regionEurope:
+      "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&q=80",
+    regionMiddleEast:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900&q=80",
+    regionAsia:
+      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=900&q=80",
+    regionAmericas:
+      "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=900&q=80",
+    regionAfrica:
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=900&q=80",
+    regionAustralasia:
+      "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=900&q=80",
   },
 
   sections: {

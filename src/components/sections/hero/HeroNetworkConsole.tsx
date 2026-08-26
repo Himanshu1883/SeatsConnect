@@ -117,8 +117,8 @@ export function HeroNetworkConsole() {
           strokeDasharray="4 5"
           strokeWidth="1.2"
         />
-        <circle cx="116" cy="18" r="5" fill="#d4a574" className="node-pulse" />
-        <circle cx="8" cy="84" r="3" fill="#d4a574" />
+        <circle cx="116" cy="18" r="5" fill="#ff6b00" className="node-pulse" />
+        <circle cx="8" cy="84" r="3" fill="#ff6b00" />
       </svg>
       <svg
         className="pointer-events-none absolute -bottom-6 -left-8 z-20 hidden h-20 w-28 text-brand-orange/35 xl:block"
@@ -132,12 +132,12 @@ export function HeroNetworkConsole() {
           strokeDasharray="4 5"
           strokeWidth="1.2"
         />
-        <circle cx="10" cy="68" r="4" fill="#d4a574" className="node-pulse" />
+        <circle cx="10" cy="68" r="4" fill="#ff6b00" className="node-pulse" />
       </svg>
 
       <div
         aria-hidden
-        className="hero-console-glow pointer-events-none absolute -inset-8 -z-10 rounded-[2.4rem] bg-[radial-gradient(ellipse_at_center,rgba(212,165,116,0.38),transparent_68%)] blur-2xl"
+        className="hero-console-glow pointer-events-none absolute -inset-8 -z-10 rounded-[2.4rem] bg-[radial-gradient(ellipse_at_center,rgba(255,107,0,0.38),transparent_68%)] blur-2xl"
       />
 
       <div className="hero-console-3d relative">
@@ -203,7 +203,7 @@ export function HeroNetworkConsole() {
             </div>
 
             <div className="relative mb-2 pt-1 xl:mb-3 xl:pt-2">
-              <div className="home-card-lift absolute left-0 top-0 z-20 hidden w-[158px] rounded-xl border border-orange-100 bg-white/95 p-3 shadow-[0_16px_40px_rgba(212,165,116,0.28),0_1px_0_rgba(255,255,255,0.9)_inset] xl:block">
+              <div className="home-card-lift absolute left-0 top-0 z-20 hidden w-[158px] rounded-xl border border-orange-100 bg-white/95 p-3 shadow-[0_16px_40px_rgba(255,107,0,0.28),0_1px_0_rgba(255,255,255,0.9)_inset] xl:block">
                 <div className="mb-1 flex h-6 w-6 items-center justify-center rounded-lg bg-brand-orange/15 text-brand-orange">
                   <Globe2 className="h-3.5 w-3.5" />
                 </div>
@@ -228,7 +228,7 @@ export function HeroNetworkConsole() {
                         className={cn(
                           "hero-bar-grow flex-1 rounded-t-md bg-gradient-to-t from-brand-orange/30 to-brand-orange",
                           i === step % bars.length &&
-                            "shadow-[0_0_14px_rgba(212,165,116,0.55)]"
+                            "shadow-[0_0_14px_rgba(255,107,0,0.55)]"
                         )}
                         style={{
                           height: `${height}%`,
@@ -246,8 +246,8 @@ export function HeroNetworkConsole() {
                   <svg viewBox="0 0 160 72" className="h-12 w-full xl:h-16" aria-hidden>
                     <defs>
                       <linearGradient id={`${svgId}-fill`} x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#d4a574" stopOpacity="0.45" />
-                        <stop offset="100%" stopColor="#d4a574" stopOpacity="0" />
+                        <stop offset="0%" stopColor="#ff6b00" stopOpacity="0.45" />
+                        <stop offset="100%" stopColor="#ff6b00" stopOpacity="0" />
                       </linearGradient>
                     </defs>
                     <path
@@ -258,7 +258,7 @@ export function HeroNetworkConsole() {
                       className="hero-area-draw"
                       d="M0 52 C 20 48, 28 22, 46 28 C 64 34, 72 12, 90 18 C 108 24, 118 40, 136 28 C 148 20, 154 30, 160 24"
                       fill="none"
-                      stroke="#d4a574"
+                      stroke="#ff6b00"
                       strokeWidth="2.2"
                       strokeLinecap="round"
                     />

@@ -3,6 +3,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PageHero, PageSection } from "@/components/ui/PageLayout";
 import { siteImages } from "@/lib/constants/images";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
 import { routes } from "@/lib/constants/routes";
 
 export const metadata: Metadata = {
@@ -36,9 +41,17 @@ export default function JoinPage() {
   return (
     <>
       <PageHero
+        eyebrow="Join the Network"
+        icon={heroIcons.join}
         image={siteImages.pages.join}
-        title="Join SeatsConnect."
+        title="Join"
+        titleAccent="SeatsConnect."
         description="SeatsConnect brings professional event supply and professional distribution together through one connected B2B infrastructure. Choose the option that best describes your business."
+        primaryCta={{ label: "Connect Your Inventory", href: routes.joinSupplier }}
+        secondaryCta={{ label: "Join Our Network", href: routes.joinPartner }}
+        tertiaryCta={{ label: "Talk to Our Team", href: routes.contact }}
+        steps={heroWorkflow}
+        features={[...heroFeatures.join]}
       />
 
       <PageSection>

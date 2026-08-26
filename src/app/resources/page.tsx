@@ -4,6 +4,11 @@ import { ArrowRight } from "lucide-react";
 import { PageHero, PageSection } from "@/components/ui/PageLayout";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteImages } from "@/lib/constants/images";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
 import { routes } from "@/lib/constants/routes";
 import { siteConfig } from "@/lib/constants/site";
 import { topicPages } from "@/lib/constants/topics";
@@ -61,9 +66,16 @@ export default function ResourcesPage() {
   return (
     <>
       <PageHero
+        eyebrow="Resources"
+        icon={heroIcons.resources}
         image={siteImages.pages.resources}
-        title="Partner Resources."
+        title="Partner"
+        titleAccent="Resources."
         description="Reference pages for businesses connecting supply or distributing event inventory through SeatsConnect. Operational tools sit in the partner platform after access is approved."
+        primaryCta={{ label: "Explore Platform", href: routes.platform }}
+        secondaryCta={{ label: "View API Overview", href: routes.api }}
+        steps={heroWorkflow}
+        features={[...heroFeatures.resources]}
       />
 
       <PageSection>

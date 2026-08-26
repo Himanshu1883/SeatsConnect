@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { PageHero, PageSection, FeatureGrid, FinalCTA } from "@/components/ui/PageLayout";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { routes } from "@/lib/constants/routes";
 import { siteImages } from "@/lib/constants/images";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
+import { routes } from "@/lib/constants/routes";
 
 export const metadata: Metadata = {
   title: "For Partners — SeatsConnect™",
@@ -49,15 +54,17 @@ export default function PartnersPage() {
   return (
     <>
       <PageHero
+        eyebrow="For Partners"
+        icon={heroIcons.partner}
         image={siteImages.pages.partners}
-        title="One Connection to Global Event Supply."
-        description="Access tickets, hospitality and live experiences through one professional B2B platform. SeatsConnect gives approved businesses access to event supply without requiring separate relationships and integrations with every individual supplier."
-      >
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button href={routes.joinPartner}>Apply for Partner Access</Button>
-          <Button href={routes.contact} variant="outline">Book a Demo</Button>
-        </div>
-      </PageHero>
+        title="One Connection to"
+        titleAccent="Global Event Supply."
+        description="Access tickets, hospitality and live experiences through one professional B2B platform. Approved businesses access event supply without separate relationships with every supplier."
+        primaryCta={{ label: "Apply for Partner Access", href: routes.joinPartner }}
+        secondaryCta={{ label: "Book a Demo", href: routes.contact }}
+        steps={heroWorkflow}
+        features={[...heroFeatures.partner]}
+      />
 
       <PageSection>
         <SectionHeader

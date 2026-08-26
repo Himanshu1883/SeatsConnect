@@ -130,7 +130,7 @@ export function LiveConsole({
   return (
     <div
       className={cn(
-        "relative rounded-2xl border border-orange-100/90 bg-white/92 backdrop-blur-md text-left overflow-hidden shadow-[0_22px_60px_rgba(212,165,116,0.18)]",
+        "relative rounded-2xl border border-orange-100/90 bg-white/92 backdrop-blur-md text-left overflow-hidden shadow-[0_22px_60px_rgba(255,107,0,0.18)]",
         className
       )}
     >
