@@ -886,6 +886,26 @@ main {
   filter: drop-shadow(0 0 3px rgba(212, 165, 116, 0.55));
 }
 
+.supplier-cap-module {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.supplier-cap-module:hover {
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .supplier-cap-module,
+  .supplier-cap-module:hover {
+    transform: none;
+    transition: none;
+  }
+}
+
 @keyframes problem-graph-dash {
   to {
     stroke-dashoffset: -20;
