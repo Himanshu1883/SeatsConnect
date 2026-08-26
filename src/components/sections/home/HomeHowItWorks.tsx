@@ -374,28 +374,32 @@ export function HomeHowItWorks() {
           </ol>
         </Reveal>
 
-        <Reveal delay={100}>
-          <article className="how-detail-card relative overflow-hidden rounded-[1.75rem] border border-orange-100/80 bg-white shadow-[0_16px_48px_rgba(26,26,26,0.06)] lg:min-h-[34rem]">
+        <Reveal delay={100} className="min-w-0">
+          <article className="how-detail-card relative flex h-[36rem] flex-col overflow-hidden rounded-[1.75rem] border border-orange-100/80 bg-white shadow-[0_16px_48px_rgba(26,26,26,0.06)] sm:h-[38rem] lg:h-[40rem]">
             <CardMedia
               src={current.image}
               alt={current.title}
-              heightClass="h-36 sm:h-40"
+              heightClass="h-32 shrink-0 sm:h-36"
               className="rounded-none"
             />
-            <div className="relative z-10 grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_0.88fr] lg:gap-6">
-              <div>
-                <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-orange">
+            <div className="relative z-10 grid min-h-0 flex-1 gap-5 p-5 sm:gap-6 sm:p-7 lg:grid-cols-[1fr_0.88fr] lg:gap-6 lg:p-8">
+              <div className="flex h-full min-h-0 flex-col">
+                <p className="shrink-0 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-orange">
                   STEP {current.num}
                 </p>
-                <h3 className="mt-2 font-tech text-2xl font-bold leading-tight text-brand-dark sm:text-3xl">
-                  {current.title}
-                </h3>
-                <p className="mt-3 max-w-md text-sm leading-relaxed text-brand-gray-text sm:text-[15px]">
-                  {current.detail}
-                </p>
+
+                {/* Reserved block: keeps title→detail gap tight; absorbs 1 vs 2-line titles below the copy */}
+                <div className="mt-2 flex min-h-[7.75rem] shrink-0 flex-col sm:min-h-[8.5rem]">
+                  <h3 className="font-tech text-2xl font-bold leading-snug text-brand-dark sm:text-3xl">
+                    {current.title}
+                  </h3>
+                  <p className="mt-2.5 max-w-md text-sm leading-relaxed text-brand-gray-text line-clamp-3 sm:text-[15px]">
+                    {current.detail}
+                  </p>
+                </div>
 
                 <div
-                  className="mt-6 flex gap-1.5"
+                  className="mt-4 flex shrink-0 gap-1.5 sm:mt-5"
                   role="progressbar"
                   aria-valuenow={active + 1}
                   aria-valuemin={1}
@@ -413,20 +417,20 @@ export function HomeHowItWorks() {
                   ))}
                 </div>
 
-                <div className="mt-7 grid gap-5 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6">
+                <div className="mt-auto grid shrink-0 gap-3 pt-5 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-4 sm:pt-6">
                   {current.features.map((feature) => (
-                    <div key={feature.title} className="flex items-start gap-3">
+                    <div key={feature.title} className="flex min-h-[3.25rem] items-start gap-3">
                       <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand-orange/50 bg-brand-orange-light/60 text-brand-orange">
                         <feature.icon
                           className="h-4 w-4"
                           strokeWidth={1.75}
                         />
                       </span>
-                      <div>
+                      <div className="min-w-0">
                         <p className="font-tech text-sm font-bold leading-snug text-brand-dark">
                           {feature.title}
                         </p>
-                        <p className="mt-0.5 text-xs leading-snug text-brand-gray-text">
+                        <p className="mt-0.5 line-clamp-2 text-xs leading-snug text-brand-gray-text">
                           {feature.description}
                         </p>
                       </div>
@@ -435,7 +439,7 @@ export function HomeHowItWorks() {
                 </div>
               </div>
 
-              <div className="relative hidden min-h-[17rem] lg:block">
+              <div className="relative hidden min-h-0 lg:block">
                 <HowQuoteGraphic />
               </div>
             </div>

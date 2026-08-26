@@ -1,10 +1,10 @@
 "use client";
 
-import { useId } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
+  ArrowDown,
   ArrowRight,
   BadgeCheck,
   Bell,
@@ -22,9 +22,6 @@ import {
 import { siteConfig } from "@/lib/constants/site";
 import { siteImages } from "@/lib/constants/images";
 import { routes } from "@/lib/constants/routes";
-import { cn } from "@/lib/utils";
-
-const { experiences: exp } = siteImages;
 
 const supplyItems: { label: string; icon: LucideIcon }[] = [
   { label: "Venues", icon: Building2 },
@@ -68,45 +65,98 @@ const featureBar: {
   },
 ];
 
-const leftPanels = [exp.stadium, exp.hospitality, exp.concert] as const;
-const rightPanels = [exp.hotel, exp.suite, exp.formula1] as const;
+const heroBanner = siteImages.hero.background;
+const heroBannerRight = "/hero/stadium-night.jpg";
 
 export function HomeHero() {
   return (
-    <section className="hero-band hero-light relative flex h-auto min-h-0 flex-col overflow-hidden lg:h-[calc(100dvh-var(--site-header-height))] lg:max-h-[calc(100dvh-var(--site-header-height))]">
-      <HeroLightBackdrop />
+    <section className="hero-band relative flex h-[calc(100dvh-var(--site-header-height))] max-h-[calc(100dvh-var(--site-header-height))] min-h-0 flex-col overflow-hidden bg-[#1a1512] [@media(max-height:700px)]:h-[calc(100dvh-var(--site-header-height))]">
+      <HeroBannerBackdrop />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-4 py-7 sm:px-6 sm:py-8 lg:max-w-6xl lg:px-8 lg:py-4 xl:py-5">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="hero-fade-up mb-2 inline-flex items-center gap-2 font-tech text-[11px] font-semibold tracking-tight text-brand-dark sm:mb-2.5 sm:text-sm">
-            <span className="flex h-5 w-5 items-center justify-center rounded-md bg-brand-orange text-white sm:h-6 sm:w-6">
-              <Layers className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={2} />
+      <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-5xl flex-1 flex-col justify-center px-4 py-3 sm:px-6 sm:py-5 lg:max-w-6xl lg:px-8 lg:py-4 xl:py-5">
+        {/* ── Mobile hero — fits one screen ── */}
+        <div className="mx-auto flex w-full max-w-md min-h-0 flex-1 flex-col justify-between text-center lg:hidden">
+          <div className="shrink-0 pt-1">
+            <p className="hero-fade-up mb-2 inline-flex items-center gap-1.5 font-tech text-[12px] font-semibold tracking-tight text-white">
+              <span className="flex h-6 w-6 items-center justify-center rounded-md bg-brand-orange text-white shadow-[0_6px_14px_rgba(255,107,0,0.28)]">
+                <Layers className="h-3 w-3" strokeWidth={2} />
+              </span>
+              <span>
+                Seats<span className="text-brand-orange">Connect</span>™
+              </span>
+            </p>
+
+            <h1 className="hero-fade-up hero-fade-up-delay-1 font-tech text-[1.65rem] font-bold leading-[1.08] tracking-tight text-white sm:text-[1.85rem]">
+              Connect Once.
+              <br />
+              <span className="text-brand-orange">Distribute Globally.</span>
+            </h1>
+
+            <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-1.5 max-w-[18.5rem] text-[11px] leading-snug text-white/75 sm:text-[12px]">
+              {siteConfig.description}
+            </p>
+
+            <div className="hero-fade-up hero-fade-up-delay-3 mt-3 flex w-full flex-col gap-1.5">
+              <Link
+                href={routes.joinSupplier}
+                className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-brand-orange px-4 py-2.5 font-tech text-[13px] font-semibold text-white shadow-[0_10px_22px_rgba(255,107,0,0.3)] transition hover:bg-brand-orange-hover"
+              >
+                Connect Your Inventory
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+              <Link
+                href={routes.joinPartner}
+                className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-brand-orange/50 bg-white px-4 py-2.5 font-tech text-[13px] font-semibold text-brand-orange transition hover:border-brand-orange hover:bg-brand-orange/5"
+              >
+                Join Our Network
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+              <Link
+                href={routes.contact}
+                className="inline-flex items-center justify-center gap-1 py-0.5 font-tech text-[12px] font-semibold text-brand-orange transition hover:text-brand-orange-hover"
+              >
+                Talk to Our Team
+                <ArrowRight className="h-3 w-3" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="hero-fade-up hero-fade-up-delay-5 mt-3 min-h-0 shrink">
+            <MobileArchitectureFlow />
+          </div>
+        </div>
+
+        {/* ── Desktop / tablet hero composition ── */}
+        <div className="mx-auto hidden max-w-3xl text-center lg:block">
+          <p className="hero-fade-up mb-2.5 inline-flex items-center gap-2 font-tech text-sm font-semibold tracking-tight text-white">
+            <span className="flex h-6 w-6 items-center justify-center rounded-md bg-brand-orange text-white">
+              <Layers className="h-3.5 w-3.5" strokeWidth={2} />
             </span>
             <span>
               Seats<span className="text-brand-orange">Connect</span>™
             </span>
           </p>
 
-          <h1 className="hero-fade-up hero-fade-up-delay-1 font-tech text-[1.75rem] font-bold leading-[1.08] tracking-tight text-brand-dark sm:text-4xl md:text-[2.6rem] lg:text-[2.75rem] xl:text-[3.15rem] lg:leading-[1.05]">
+          <h1 className="hero-fade-up hero-fade-up-delay-1 font-tech text-[2.75rem] font-bold leading-[1.05] tracking-tight text-white xl:text-[3.15rem]">
             Connect Once.
             <br />
             <span className="text-brand-orange">Distribute Globally.</span>
           </h1>
 
-          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-2.5 max-w-2xl text-[13px] leading-snug text-brand-gray-text sm:mt-3 sm:text-sm md:text-[15px] md:leading-relaxed">
+          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-white/90">
             {siteConfig.description}
           </p>
-          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-1.5 hidden max-w-2xl text-[13px] leading-snug text-brand-gray-text/90 sm:mt-2 sm:block sm:text-sm md:text-[15px] md:leading-relaxed">
+          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-2 max-w-2xl text-[15px] leading-relaxed text-white/80">
             SeatsConnect connects venues, promoters, hospitality providers and
             approved suppliers with a global network of professional B2B
             distribution partners.
           </p>
-          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-1.5 hidden max-w-2xl text-[13px] leading-snug text-brand-gray-text/80 sm:mt-1.5 sm:block sm:text-sm md:text-[15px] md:leading-relaxed">
-            Expand your reach while maintaining control over how and where
-            your inventory is distributed.
+          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-1.5 max-w-2xl text-[15px] leading-relaxed text-white/70">
+            Expand your reach while maintaining control over how and where your
+            inventory is distributed.
           </p>
 
-          <div className="hero-fade-up hero-fade-up-delay-3 mt-4 flex flex-col items-center gap-2.5 sm:mt-5 sm:flex-row sm:justify-center sm:gap-3">
+          <div className="hero-fade-up hero-fade-up-delay-3 mt-5 flex flex-row justify-center gap-3">
             <Link
               href={routes.joinSupplier}
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-orange px-5 py-2.5 font-tech text-sm font-semibold text-white shadow-[0_10px_28px_rgba(255,107,0,0.28)] transition hover:bg-brand-orange-hover"
@@ -124,37 +174,54 @@ export function HomeHero() {
           </div>
           <Link
             href={routes.contact}
-            className="hero-fade-up hero-fade-up-delay-4 mt-2.5 inline-flex items-center gap-1.5 font-tech text-xs font-semibold text-brand-orange transition hover:text-brand-orange-hover sm:mt-3 sm:text-sm"
+            className="hero-fade-up hero-fade-up-delay-4 mt-3 inline-flex items-center gap-1.5 font-tech text-sm font-semibold text-brand-orange transition hover:text-brand-orange-hover"
           >
             Talk to Our Team
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
 
-        <div className="hero-fade-up hero-fade-up-delay-5 mt-5 sm:mt-6 lg:mt-4 xl:mt-5">
-          <ArchitectureFlow />
+        <div className="hero-fade-up hero-fade-up-delay-5 mt-5 hidden lg:mt-4 lg:block xl:mt-5">
+          <DesktopArchitectureFlow />
         </div>
       </div>
 
-      <div className="relative z-10 shrink-0 border-t border-brand-dark/8 bg-white/75 backdrop-blur-md">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-0 sm:grid-cols-4">
+      {/* Feature strip */}
+      <div className="relative z-10 shrink-0 border-t border-white/10 bg-[#1a1512]/92 backdrop-blur-md">
+        <div className="mx-auto hidden max-w-6xl grid-cols-4 gap-0 lg:grid">
           {featureBar.map((item) => (
             <div
               key={item.label}
-              className="flex items-start gap-2 border-brand-dark/6 px-3 py-2.5 sm:gap-2.5 sm:px-4 sm:py-3 lg:py-2.5 xl:px-5"
+              className="flex items-start gap-2.5 px-4 py-2.5 xl:px-5"
             >
               <item.icon
-                className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-orange sm:h-4 sm:w-4"
+                className="mt-0.5 h-4 w-4 shrink-0 text-brand-orange"
                 strokeWidth={1.7}
               />
               <div className="min-w-0">
-                <p className="font-tech text-[11px] font-semibold text-brand-dark sm:text-xs">
+                <p className="font-tech text-xs font-semibold text-white">
                   {item.label}
                 </p>
-                <p className="hero-feature-desc mt-0.5 text-[10px] leading-snug text-brand-gray-text sm:text-[11px]">
+                <p className="hero-feature-desc mt-0.5 text-[11px] leading-snug text-white/75">
                   {item.description}
                 </p>
               </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mx-auto flex max-w-md gap-1.5 overflow-x-auto px-3 py-2 [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden [@media(max-height:680px)]:hidden">
+          {featureBar.map((item) => (
+            <div
+              key={item.label}
+              className="flex min-w-0 shrink-0 items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-2.5 py-1.5"
+            >
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-orange/20 text-brand-orange">
+                <item.icon className="h-3 w-3" strokeWidth={1.8} />
+              </span>
+              <p className="whitespace-nowrap font-tech text-[10px] font-semibold leading-tight text-white">
+                {item.label}
+              </p>
             </div>
           ))}
         </div>
@@ -163,167 +230,132 @@ export function HomeHero() {
   );
 }
 
-function HeroLightBackdrop() {
-  const uid = useId();
-
+function MobileArchitectureFlow() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-      <div className="absolute inset-0 bg-[#f7f4f0]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,rgba(255,255,255,0.9),transparent_58%)]" />
-
-      {/* World-map dots + connecting arcs */}
-      <svg
-        viewBox="0 0 1200 700"
-        className="absolute inset-0 h-full w-full opacity-80"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <defs>
-          <pattern id={`${uid}-dots`} width="16" height="16" patternUnits="userSpaceOnUse">
-            <circle cx="1.2" cy="1.2" r="1.05" fill="#c4b8ae" />
-          </pattern>
-        </defs>
-        <g fill={`url(#${uid}-dots)`} opacity="0.5">
-          <ellipse cx="600" cy="270" rx="260" ry="150" />
-          <ellipse cx="600" cy="470" rx="220" ry="110" />
-        </g>
-        <g fill="none" stroke="#FF6B00" strokeWidth="1.1" opacity="0.28">
-          <path d="M 380 90 Q 600 20 820 100" />
-          <path d="M 350 260 Q 600 340 850 250" />
-        </g>
-        <g fill="#FF6B00">
-          <circle cx="380" cy="90" r="3" opacity="0.5" />
-          <circle cx="820" cy="100" r="3" opacity="0.5" />
-          <circle cx="350" cy="260" r="3" opacity="0.45" />
-          <circle cx="850" cy="250" r="3" opacity="0.45" />
-        </g>
-      </svg>
-
-      {/* Left diagonal image column — fixed narrow width, no overflow into center */}
-      <div className="absolute inset-y-0 left-0 hidden w-[19%] lg:block xl:w-[20%]">
-        <div className="relative flex h-full flex-col">
-          {leftPanels.map((src, i) => (
-            <div
-              key={src}
-              className="relative min-h-0 flex-1"
-              style={{
-                clipPath:
-                  i === 0
-                    ? "polygon(0 0, 100% 0, 100% 88%, 0 100%)"
-                    : i === leftPanels.length - 1
-                      ? "polygon(0 0, 100% 12%, 100% 100%, 0 100%)"
-                      : "polygon(0 0, 100% 12%, 100% 88%, 0 100%)",
-              }}
+    <div className="relative mx-auto flex w-full flex-col items-stretch gap-2">
+      <div className="text-left">
+        <p className="mb-1.5 font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-brand-orange">
+          Supply
+        </p>
+        <ul className="grid grid-cols-2 gap-1.5">
+          {supplyItems.map((item) => (
+            <li
+              key={item.label}
+              className="flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/15 px-2 py-1.5 backdrop-blur-md"
             >
-              <Image
-                src={src}
-                alt=""
-                fill
-                priority={i === 0}
-                className="object-cover"
-                sizes="20vw"
-              />
-              <div className="absolute inset-0 bg-black/10" />
-            </div>
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-brand-orange/20 text-brand-orange">
+                <item.icon className="h-2.5 w-2.5" strokeWidth={1.8} />
+              </span>
+              <span className="truncate font-tech text-[10px] font-semibold text-white">
+                {item.label}
+              </span>
+            </li>
           ))}
-        </div>
-        {/* soft fade toward center so it doesn't fight the text */}
-        <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-r from-transparent to-[#f7f4f0]" />
+        </ul>
       </div>
 
-      {/* Right diagonal image column */}
-      <div className="absolute inset-y-0 right-0 hidden w-[19%] lg:block xl:w-[20%]">
-        <div className="relative flex h-full flex-col">
-          {rightPanels.map((src, i) => (
-            <div
-              key={src}
-              className="relative min-h-0 flex-1"
-              style={{
-                clipPath:
-                  i === 0
-                    ? "polygon(0 0, 100% 0, 100% 100%, 0 88%)"
-                    : i === rightPanels.length - 1
-                      ? "polygon(0 12%, 100% 0, 100% 100%, 0 100%)"
-                      : "polygon(0 12%, 100% 0, 100% 100%, 0 88%)",
-              }}
-            >
-              <Image
-                src={src}
-                alt=""
-                fill
-                priority={i === 0}
-                className="object-cover"
-                sizes="20vw"
-              />
-              <div className="absolute inset-0 bg-black/10" />
-            </div>
-          ))}
-        </div>
-        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-l from-transparent to-[#f7f4f0]" />
+      <div className="flex flex-col items-center gap-1">
+        <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/25 bg-white/15 text-brand-orange backdrop-blur-md">
+          <Layers className="h-3.5 w-3.5" strokeWidth={1.8} />
+        </span>
+        <p className="font-tech text-[10px] font-bold tracking-wide text-white">
+          SEATSCONNECT
+        </p>
+        <p className="text-[9px] leading-tight text-white/70">
+          One Connection. Total Control.
+        </p>
+        <ArrowDown className="h-3 w-3 text-brand-orange/70" strokeWidth={2.4} />
       </div>
 
-      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#f7f4f0] to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#f7f4f0] to-transparent" />
+      <div className="text-left">
+        <p className="mb-1.5 font-mono text-[8px] font-semibold uppercase tracking-[0.14em] text-brand-orange">
+          Global B2B Distribution
+        </p>
+        <ul className="flex flex-wrap gap-1.5">
+          {channelItems.map((item) => (
+            <li
+              key={item.label}
+              className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/15 px-2 py-1 backdrop-blur-md"
+            >
+              <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded bg-brand-orange/20 text-brand-orange">
+                <item.icon className="h-2.5 w-2.5" strokeWidth={1.8} />
+              </span>
+              <span className="font-tech text-[9px] font-semibold text-white">
+                {item.label}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
 
-function ArchitectureFlow() {
+function DesktopArchitectureFlow() {
   return (
     <div className="relative mx-auto max-w-5xl">
-      <div className="flex flex-col items-stretch gap-3 sm:gap-4 lg:flex-row lg:items-center lg:gap-0">
-        <article className="hero-arch-card relative flex-1 rounded-2xl border border-brand-dark/8 bg-white/95 p-3 text-left shadow-[0_12px_32px_rgba(40,30,20,0.06)] sm:p-3.5 lg:p-3">
-          <p className="mb-2 font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-orange sm:mb-2.5 sm:text-[10px]">
+      <div className="flex flex-row items-center gap-0">
+        <div className="relative flex-1 text-left">
+          <p className="mb-2.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-orange">
             Supply
           </p>
-          <ul className="space-y-1.5 sm:space-y-2">
+          <ul className="space-y-2">
             {supplyItems.map((item) => (
-              <li key={item.label} className="flex items-center gap-2">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-brand-orange/10 text-brand-orange sm:h-7 sm:w-7">
-                  <item.icon className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={1.7} />
+              <li
+                key={item.label}
+                className="flex items-center gap-2 rounded-xl border border-white/20 bg-white/12 px-2.5 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-md"
+              >
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand-orange/25 text-brand-orange">
+                  <item.icon className="h-3.5 w-3.5" strokeWidth={1.7} />
                 </span>
-                <span className="font-tech text-[11px] font-semibold text-brand-dark sm:text-xs">
+                <span className="font-tech text-xs font-semibold text-white">
                   {item.label}
                 </span>
               </li>
             ))}
           </ul>
-        </article>
+        </div>
 
         <FlowConnector icon={Layers} />
 
-        <article className="hero-arch-hub relative z-10 mx-auto flex w-full max-w-[14rem] flex-col items-center justify-center rounded-2xl border border-brand-orange/35 bg-white px-4 py-4 text-center shadow-[0_14px_36px_rgba(255,107,0,0.12)] sm:px-5 sm:py-5 lg:mx-0 lg:min-w-[11.5rem] lg:max-w-[12.5rem] lg:py-4">
-          <span className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-orange text-white sm:mb-2.5 sm:h-11 sm:w-11 sm:rounded-2xl">
-            <Layers className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.5} />
+        <div className="relative z-10 flex min-w-[11.5rem] max-w-[12.5rem] flex-col items-center justify-center px-3 py-2 text-center">
+          <span className="mb-2.5 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/25 bg-brand-orange text-white shadow-[0_10px_28px_rgba(255,107,0,0.35)]">
+            <Layers className="h-6 w-6" strokeWidth={1.5} />
           </span>
-          <p className="font-tech text-xs font-bold tracking-wide text-brand-dark sm:text-sm">
-            SEATSCONNECT
+          <p className="rounded-lg border border-white/15 bg-white/10 px-3 py-2 backdrop-blur-md">
+            <span className="block font-tech text-sm font-bold tracking-wide text-white">
+              SEATSCONNECT
+            </span>
+            <span className="mt-0.5 block text-[11px] leading-snug text-white/70">
+              One Connection.
+              <br />
+              Total Control.
+            </span>
           </p>
-          <p className="mt-0.5 text-[10px] leading-snug text-brand-gray-text sm:text-[11px]">
-            One Connection.
-            <br />
-            Total Control.
-          </p>
-        </article>
+        </div>
 
         <FlowConnector icon={Globe2} />
 
-        <article className="hero-arch-card relative flex-1 rounded-2xl border border-brand-dark/8 bg-white/95 p-3 text-left shadow-[0_12px_32px_rgba(40,30,20,0.06)] sm:p-3.5 lg:p-3">
-          <p className="mb-2 font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-brand-orange sm:mb-2.5 sm:text-[10px]">
+        <div className="relative flex-1 text-left">
+          <p className="mb-2.5 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-orange">
             Global B2B Distribution
           </p>
           <ul className="space-y-1.5">
             {channelItems.map((item) => (
-              <li key={item.label} className="flex items-center gap-2">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-brand-orange/10 text-brand-orange sm:h-7 sm:w-7">
-                  <item.icon className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={1.7} />
+              <li
+                key={item.label}
+                className="flex items-center gap-2 rounded-xl border border-white/20 bg-white/12 px-2.5 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-md"
+              >
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand-orange/25 text-brand-orange">
+                  <item.icon className="h-3.5 w-3.5" strokeWidth={1.7} />
                 </span>
-                <span className="font-tech text-[11px] font-semibold text-brand-dark sm:text-xs">
+                <span className="font-tech text-xs font-semibold text-white">
                   {item.label}
                 </span>
               </li>
             ))}
           </ul>
-        </article>
+        </div>
       </div>
     </div>
   );
@@ -331,13 +363,61 @@ function ArchitectureFlow() {
 
 function FlowConnector({ icon: Icon }: { icon: LucideIcon }) {
   return (
-    <div className="relative hidden shrink-0 items-center justify-center lg:mx-1.5 lg:flex lg:w-16 xl:mx-2 xl:w-20">
-      <div className="h-0 w-full border-t-2 border-dashed border-brand-orange/35" />
-      <span className="absolute left-0 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-brand-orange/70" />
-      <span className="absolute right-0 h-1.5 w-1.5 translate-x-1/2 rounded-full bg-brand-orange/70" />
-      <span className="absolute flex h-9 w-9 items-center justify-center rounded-full border border-brand-orange/30 bg-white shadow-[0_6px_16px_rgba(255,107,0,0.15)]">
+    <div className="relative mx-1.5 flex w-16 shrink-0 items-center justify-center xl:mx-2 xl:w-20">
+      <div className="h-0 w-full border-t border-brand-orange/40" />
+      <span className="absolute left-0 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-brand-orange/80" />
+      <span className="absolute right-0 h-1.5 w-1.5 translate-x-1/2 rounded-full bg-brand-orange/80" />
+      <span className="absolute flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-white/15 shadow-[0_6px_16px_rgba(0,0,0,0.2)] backdrop-blur-md">
         <Icon className="h-4 w-4 text-brand-orange" strokeWidth={1.7} />
       </span>
+    </div>
+  );
+}
+
+function HeroBannerBackdrop() {
+  return (
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+      <div className="absolute inset-0 bg-[#1a1512]" />
+
+      {/* Left banner — soft fade toward center */}
+      <div className="absolute inset-y-0 left-0 w-[58%] sm:w-[54%] lg:w-[52%]">
+        <Image
+          src={heroBanner}
+          alt=""
+          fill
+          priority
+          sizes="55vw"
+          className="object-cover object-[22%_center]"
+        />
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-y-0 right-0 w-[70%] bg-gradient-to-r from-transparent via-black/40 to-[#1a1512]" />
+      </div>
+
+      {/* Right banner — stadium night */}
+      <div className="absolute inset-y-0 right-0 w-[58%] sm:w-[54%] lg:w-[52%]">
+        <Image
+          src={heroBannerRight}
+          alt=""
+          fill
+          priority
+          sizes="55vw"
+          className="object-cover object-[62%_center]"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-y-0 left-0 w-[70%] bg-gradient-to-l from-transparent via-black/40 to-[#1a1512]" />
+      </div>
+
+      {/* Cinematic center veil */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/45 to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_48%,rgba(0,0,0,0.28)_0%,rgba(0,0,0,0.12)_42%,transparent_72%)]" />
+
+      {/* Dark vignette on both ends — no bright edge wash */}
+      <div className="absolute inset-y-0 left-0 w-[28%] bg-gradient-to-r from-black/75 via-black/35 to-transparent sm:w-[24%] lg:w-[22%]" />
+      <div className="absolute inset-y-0 right-0 w-[28%] bg-gradient-to-l from-black/75 via-black/35 to-transparent sm:w-[24%] lg:w-[22%]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.45)_100%)]" />
+
+      {/* Bottom only */}
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#1a1512]/95 to-transparent" />
     </div>
   );
 }

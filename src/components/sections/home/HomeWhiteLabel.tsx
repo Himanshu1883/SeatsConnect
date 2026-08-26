@@ -1,14 +1,16 @@
 import type { ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
+  AppWindow,
   ArrowRight,
   Code2,
-  Globe,
+  Flag,
+  Globe2,
   IdCard,
   Layers,
   MonitorSmartphone,
-  Route,
   Server,
+  ShieldCheck,
   Smartphone,
   User,
 } from "lucide-react";
@@ -125,13 +127,41 @@ function InfraArt() {
   );
 }
 
-const solutions: { title: string; icon: LucideIcon }[] = [
-  { title: "White-label websites", icon: Globe },
-  { title: "API-powered platforms", icon: Code2 },
-  { title: "Embedded inventory", icon: Layers },
-  { title: "Partner portals", icon: IdCard },
-  { title: "Mobile applications", icon: Smartphone },
-  { title: "Custom booking journeys", icon: Route },
+const solutions: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    title: "White-label websites",
+    description: "Deliver a seamless branded experience.",
+    icon: AppWindow,
+  },
+  {
+    title: "API-powered platforms",
+    description: "Connect and scale with powerful APIs.",
+    icon: Code2,
+  },
+  {
+    title: "Embedded inventory",
+    description: "Show live inventory directly in your platform.",
+    icon: Layers,
+  },
+  {
+    title: "Partner portals",
+    description: "Give partners tools to search, book and manage.",
+    icon: IdCard,
+  },
+  {
+    title: "Mobile applications",
+    description: "Bring live events to your mobile experience.",
+    icon: Smartphone,
+  },
+  {
+    title: "Custom booking journeys",
+    description: "Create unique booking flows that fit your brand.",
+    icon: Flag,
+  },
 ];
 
 const layers: {
@@ -167,80 +197,111 @@ const layers: {
 export function HomeWhiteLabel() {
   return (
     <HomeFrame tinted variant="plain">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+      <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 xl:gap-14">
         <Reveal>
           <HomeKicker>White Label</HomeKicker>
-          <h2 className="mt-3 mb-4 font-tech text-3xl font-bold leading-[1.12] tracking-tight text-brand-dark sm:text-4xl lg:text-[2.65rem]">
-            Your Brand. Connected to{" "}
-            <span className="wl-accent">Global Supply.</span>
-          </h2>
-          <p className="mb-6 max-w-xl leading-relaxed text-brand-gray-text">
-            SeatsConnect can support approved partners who want event inventory
-            connected directly into their own customer journey.
+
+          <div className="mt-3 flex gap-3.5 sm:gap-4">
+            <span
+              aria-hidden
+              className="mt-1.5 hidden w-1 shrink-0 rounded-full bg-brand-orange sm:block sm:h-[4.6rem]"
+            />
+            <div className="min-w-0">
+              <h2 className="font-tech text-3xl font-bold leading-[1.12] tracking-tight text-brand-dark sm:text-4xl lg:text-[2.55rem]">
+                Your Brand. Connected to{" "}
+                <span className="text-brand-orange">Global Supply.</span>
+              </h2>
+              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-brand-gray-text sm:text-base">
+                SeatsConnect can support approved partners who want event
+                inventory connected directly into their own customer journey.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-8 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-gray-text/80">
+            Potential solutions include
           </p>
-          <ul className="mb-6 grid grid-cols-2 gap-2.5">
+
+          <ul className="mt-3.5 grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
             {solutions.map((item) => (
               <li key={item.title}>
-                <div className="wl-feature home-card-lift flex items-center gap-2.5 rounded-xl border border-orange-100 bg-white px-3 py-2.5">
-                  <item.icon
-                    className="h-4 w-4 shrink-0 text-brand-orange"
-                    strokeWidth={1.7}
-                  />
-                  <span className="text-[13px] font-medium leading-snug text-brand-dark">
-                    {item.title}
+                <div className="wl-feature home-card-lift flex h-full items-start gap-3 rounded-2xl border border-orange-100/90 bg-white px-3.5 py-3.5 shadow-[0_1px_4px_rgba(166,122,70,0.04)] sm:px-4">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand-orange/45 bg-brand-orange-light/70 text-brand-orange">
+                    <item.icon className="h-4 w-4" strokeWidth={1.75} />
                   </span>
+                  <div className="min-w-0 pt-0.5">
+                    <p className="font-tech text-[13px] font-bold leading-snug text-brand-dark sm:text-sm">
+                      {item.title}
+                    </p>
+                    <p className="mt-0.5 text-xs leading-snug text-brand-gray-text">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </li>
             ))}
           </ul>
-          <p className="mb-8 text-sm leading-relaxed text-brand-gray-text">
-            SeatsConnect provides the infrastructure while the partner maintains
-            the relationship with its customer.
-          </p>
-          <Button href={routes.solutionsWhiteLabel}>
+
+          <div className="mt-5 flex items-start gap-3 rounded-2xl border border-brand-orange/20 bg-brand-orange-light/80 px-4 py-3.5 sm:items-center sm:px-5">
+            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-brand-orange shadow-sm sm:mt-0">
+              <ShieldCheck className="h-4 w-4" strokeWidth={1.85} />
+            </span>
+            <p className="text-sm leading-relaxed text-brand-dark/90">
+              <span className="font-semibold text-brand-dark">
+                SeatsConnect provides the infrastructure
+              </span>{" "}
+              while the partner maintains the relationship with its customer.
+            </p>
+          </div>
+
+          <Button href={routes.solutionsWhiteLabel} className="mt-6">
             Explore White Label
             <ArrowRight className="h-4 w-4" />
           </Button>
         </Reveal>
 
-        <Reveal delay={140}>
-          <div className="wl-panel rounded-[1.6rem] border border-brand-orange/20 bg-white p-3.5 sm:p-5">
-            <div className="relative">
+        <Reveal delay={120}>
+          <div className="wl-panel rounded-[1.75rem] border border-brand-orange/20 bg-white p-5 shadow-[0_16px_48px_rgba(26,26,26,0.06)] sm:p-6 lg:p-7">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-gray-text/75">
+              How it works
+            </p>
+
+            <div className="relative mt-5">
               <div
                 aria-hidden
-                className="pointer-events-none absolute top-8 bottom-8 left-3 w-6"
+                className="pointer-events-none absolute top-5 bottom-5 left-[15px] w-px sm:left-[17px]"
               >
-                <div className="wl-rail absolute inset-y-0 left-1/2 -translate-x-1/2" />
+                <div className="wl-rail absolute inset-y-0 left-0" />
               </div>
 
-              <ul className="relative space-y-2">
+              <ol className="relative space-y-5 sm:space-y-6">
                 {layers.map((layer, i) => (
                   <li
                     key={layer.num}
                     className={cn(
-                      "wl-layer grid grid-cols-[24px_1fr] items-center gap-x-3 px-3",
-                      i === 0 && "is-active"
+                      "grid grid-cols-[32px_1fr] items-start gap-x-3.5 sm:grid-cols-[36px_1fr] sm:gap-x-4",
+                      i === 0 && "wl-step-active"
                     )}
                   >
-                    <span className="relative z-10 flex h-6 w-6 items-center justify-center">
-                      <span className="wl-node">
-                        <span className="wl-node-dot" />
+                    <span className="relative z-10 flex h-8 w-8 items-center justify-center sm:h-9 sm:w-9">
+                      <span className="wl-step-num flex h-full w-full items-center justify-center rounded-full bg-brand-orange font-mono text-[10px] font-bold text-white shadow-[0_0_0_4px_rgba(255,107,0,0.12)] sm:text-[11px]">
+                        {layer.num}
                       </span>
                     </span>
-                    <div className="flex min-w-0 flex-col gap-3 min-[560px]:flex-row min-[560px]:items-center">
-                      <span className="wl-layer-icon">
-                        <layer.icon className="h-4 w-4" strokeWidth={1.6} />
-                      </span>
-                      <div className="min-w-0 flex-1">
-                        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-orange">
-                          Layer {layer.num}
-                        </p>
-                        <h3 className="mt-0.5 font-tech text-sm font-bold leading-snug text-brand-dark sm:text-[15px]">
-                          {layer.title}
-                        </h3>
-                        <p className="mt-0.5 text-[12px] leading-snug text-brand-gray-text">
-                          {layer.text}
-                        </p>
+
+                    <div className="flex min-w-0 flex-col gap-3 min-[560px]:flex-row min-[560px]:items-center min-[560px]:gap-4">
+                      <div className="flex min-w-0 flex-1 items-start gap-3">
+                        <span className="wl-layer-icon shrink-0">
+                          <layer.icon className="h-4 w-4" strokeWidth={1.7} />
+                        </span>
+                        <div className="min-w-0 pt-0.5">
+                          <h3 className="font-tech text-sm font-bold leading-snug text-brand-dark sm:text-[15px]">
+                            {layer.title}
+                          </h3>
+                          <p className="mt-1 text-[12px] leading-snug text-brand-gray-text sm:text-[13px]">
+                            {layer.text}
+                          </p>
+                        </div>
                       </div>
                       <div className="wl-art shrink-0 self-start min-[560px]:self-center">
                         <layer.Art />
@@ -248,7 +309,22 @@ export function HomeWhiteLabel() {
                     </div>
                   </li>
                 ))}
-              </ul>
+              </ol>
+            </div>
+
+            <div className="mt-6 flex items-start gap-3.5 rounded-2xl border border-orange-100/90 bg-[#f7f1ea] px-4 py-4 sm:items-center sm:gap-4 sm:px-5">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-orange text-white shadow-[0_8px_20px_rgba(255,107,0,0.28)]">
+                <Globe2 className="h-5 w-5" strokeWidth={1.75} />
+              </span>
+              <div className="min-w-0">
+                <p className="font-tech text-sm font-bold leading-snug text-brand-dark sm:text-[15px]">
+                  One connection. Your brand. Global supply.
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-brand-gray-text sm:text-[13px]">
+                  Access inventory from around the world, delivered through your
+                  brand to your customers.
+                </p>
+              </div>
             </div>
           </div>
         </Reveal>

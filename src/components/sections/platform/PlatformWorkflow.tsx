@@ -579,7 +579,7 @@ function ConfirmCard() {
   const statuses = [
     { label: "Confirmed", color: "#0d9488" },
     { label: "Pending", color: "#f59e0b" },
-    { label: "On Hold", color: "#64748b" },
+    { label: "On Hold", color: "#3f4b5b" },
     { label: "Cancelled", color: "#ef4444" },
   ] as const;
 

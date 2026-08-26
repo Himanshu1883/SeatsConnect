@@ -55,8 +55,8 @@ export function HomeProblem() {
   const [connected, setConnected] = useState(false);
 
   return (
-    <HomeFrame tinted variant="plain" className="overflow-hidden">
-      <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-12 xl:gap-16">
+    <HomeFrame tinted variant="plain">
+      <div className="grid items-start gap-10 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] xl:gap-12 2xl:gap-16">
         <Reveal>
           <HomeKicker>The Challenge</HomeKicker>
           <h2 className="mt-3 mb-5 font-tech text-3xl font-bold leading-[1.12] tracking-tight text-brand-dark sm:text-4xl lg:text-[2.75rem]">
@@ -194,7 +194,7 @@ function ChallengeNetwork() {
   const uid = useId();
 
   return (
-    <div className="relative min-h-[300px] overflow-hidden rounded-3xl sm:min-h-[340px] lg:min-h-[380px]">
+    <div className="relative min-h-[300px] min-w-0 w-full overflow-hidden rounded-3xl sm:min-h-[340px] lg:min-h-[360px] xl:min-h-[380px]">
       {/* Static map backdrop — no motion */}
       <svg
         viewBox="0 0 720 400"
@@ -254,11 +254,11 @@ function ChallengeNetwork() {
         ))}
       </svg>
 
-      <div className="relative z-10 flex h-full min-h-[300px] flex-col items-stretch justify-center gap-5 px-2 py-6 sm:min-h-[340px] sm:flex-row sm:items-center sm:gap-0 sm:px-3 lg:min-h-[380px] lg:px-4">
+      <div className="relative z-10 flex h-full min-h-[300px] min-w-0 w-full flex-col items-stretch justify-center gap-4 px-3 py-6 sm:min-h-[340px] sm:flex-row sm:items-center sm:gap-2 sm:px-3 lg:min-h-[360px] lg:gap-3 lg:px-4 xl:min-h-[380px]">
         <SideCard title="Supply" items={supplyNodes} />
 
         {/* Static dashed connectors + hub */}
-        <div className="relative z-20 flex flex-1 items-center justify-center px-1 sm:px-2">
+        <div className="relative z-20 flex min-w-0 shrink-0 items-center justify-center px-1 sm:px-1.5 lg:px-2">
           <div
             className="pointer-events-none absolute inset-y-0 left-0 right-0 hidden items-center sm:flex"
             aria-hidden
@@ -266,14 +266,14 @@ function ChallengeNetwork() {
             <div className="mx-1 h-px w-full border-t border-dashed border-brand-orange/55" />
           </div>
 
-          <div className="problem-hub relative flex h-[10rem] w-[10rem] flex-col items-center justify-center rounded-full border border-white bg-white px-5 text-center shadow-[0_0_0_10px_rgba(255,107,0,0.06),0_18px_42px_rgba(40,30,20,0.1)] sm:h-[11rem] sm:w-[11rem] lg:h-[12.5rem] lg:w-[12.5rem]">
-            <span className="mb-2.5 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-orange text-white sm:h-11 sm:w-11">
-              <Layers className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.5} />
+          <div className="problem-hub relative flex h-[9.5rem] w-[9.5rem] shrink-0 flex-col items-center justify-center rounded-full border border-white bg-white px-4 text-center shadow-[0_0_0_10px_rgba(255,107,0,0.06),0_18px_42px_rgba(40,30,20,0.1)] sm:h-[10.25rem] sm:w-[10.25rem] lg:h-[10.75rem] lg:w-[10.75rem] xl:h-[11.25rem] xl:w-[11.25rem] xl:px-5 2xl:h-[12.5rem] 2xl:w-[12.5rem]">
+            <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-brand-orange text-white sm:mb-2.5 sm:h-10 sm:w-10 xl:h-11 xl:w-11">
+              <Layers className="h-5 w-5 xl:h-6 xl:w-6" strokeWidth={1.5} />
             </span>
-            <p className="font-tech text-xs font-bold tracking-[0.04em] text-brand-dark sm:text-sm">
+            <p className="font-tech text-[11px] font-bold tracking-[0.04em] text-brand-dark sm:text-xs xl:text-sm">
               SEATSCONNECT
             </p>
-            <p className="mt-1.5 max-w-[8.5rem] text-[10px] leading-snug text-brand-gray-text sm:text-[11px]">
+            <p className="mt-1 max-w-[8.5rem] text-[10px] leading-snug text-brand-gray-text sm:mt-1.5 sm:text-[11px]">
               One Infrastructure.
               <br />
               Infinite Possibilities.
@@ -295,18 +295,18 @@ function SideCard({
   items: { label: string; icon: LucideIcon }[];
 }) {
   return (
-    <article className="relative z-10 w-full shrink-0 rounded-2xl border border-orange-100/80 bg-white p-4 shadow-[0_14px_34px_rgba(40,30,20,0.07)] sm:w-[11.5rem] sm:p-4 lg:w-[13rem] lg:p-[1.1rem]">
+    <article className="relative z-10 min-w-0 w-full rounded-2xl border border-orange-100/80 bg-white p-3.5 shadow-[0_14px_34px_rgba(40,30,20,0.07)] sm:w-auto sm:max-w-[12rem] sm:flex-1 sm:p-4 lg:max-w-[11.25rem] xl:max-w-[12rem] 2xl:max-w-[13rem] 2xl:p-[1.1rem]">
       <p className="mb-3 font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-brand-orange sm:text-[10px]">
         {title}
       </p>
       <ul className="space-y-2.5">
         {items.map((item) => (
-          <li key={item.label} className="flex items-center gap-2.5">
+          <li key={item.label} className="flex min-w-0 items-center gap-2.5">
             <item.icon
               className="h-4 w-4 shrink-0 text-brand-dark/70"
               strokeWidth={1.6}
             />
-            <span className="font-tech text-xs font-semibold text-brand-dark sm:text-[13px]">
+            <span className="min-w-0 truncate font-tech text-xs font-semibold text-brand-dark sm:text-[13px]">
               {item.label}
             </span>
           </li>

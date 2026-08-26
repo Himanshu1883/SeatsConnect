@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { PageHero, PageSection, FeatureGrid, FinalCTA } from "@/components/ui/PageLayout";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SuppliersExpand } from "@/components/sections/suppliers/SuppliersExpand";
+import { SuppliersReach } from "@/components/sections/suppliers/SuppliersReach";
 import { siteImages } from "@/lib/constants/images";
 import {
   heroFeatures,
@@ -15,17 +17,6 @@ export const metadata: Metadata = {
   description:
     "Turn event inventory into global B2B distribution. Connect once and make your inventory available through approved professional channels.",
 };
-
-const channels = [
-  "Travel agencies",
-  "Tour operators",
-  "Concierge businesses",
-  "Corporate travel",
-  "Hotels",
-  "Event agencies",
-  "Sports travel",
-  "White-label platforms",
-];
 
 const controls = [
   "Partners",
@@ -82,27 +73,9 @@ export default function SuppliersPage() {
         features={[...heroFeatures.supply]}
       />
 
-      <PageSection>
-        <SectionHeader
-          title="Expand Reach Without Building Multiple Connections."
-          description="Connecting separately with every travel company, concierge provider, corporate agency or distribution platform creates additional technical and operational complexity. SeatsConnect provides one infrastructure layer between your inventory and multiple approved professional channels."
-          align="center"
-        />
-        <p className="text-center font-tech font-semibold text-brand-dark">Connect once. Expand intelligently.</p>
-      </PageSection>
+      <SuppliersExpand />
 
-      <PageSection tinted>
-        <SectionHeader
-          title="Reach New Markets."
-          description="Your customers may be local, but demand for major events is global. SeatsConnect helps connect supply with businesses already serving international customers. Potential channels include:"
-          align="center"
-        />
-        <div className="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
-          {channels.map((ch) => (
-            <span key={ch} className="rounded-lg border border-orange-100 bg-white px-3 py-2 text-xs">{ch}</span>
-          ))}
-        </div>
-      </PageSection>
+      <SuppliersReach />
 
       <PageSection>
         <SectionHeader
