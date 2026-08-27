@@ -1246,7 +1246,7 @@ export function HomeApi() {
       </Reveal>
 
       {/* Workflow */}
-      <Reveal delay={180}>
+      {/* <Reveal delay={180}>
         <div className="mt-14 lg:mt-16">
           <div className="mb-6 sm:mb-8">
             <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-orange">
@@ -1281,7 +1281,7 @@ export function HomeApi() {
             ))}
           </div>
         </div>
-      </Reveal>
+      </Reveal> */}
 
       {/* Qualities + CTA */}
       <Reveal delay={220}>

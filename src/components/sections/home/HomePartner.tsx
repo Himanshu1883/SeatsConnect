@@ -282,7 +282,7 @@ export function HomePartner() {
       </Reveal>
 
       {/* Workflow — typographic steps, no connecting lines */}
-      <Reveal delay={160}>
+      {/* <Reveal delay={160}>
         <div className="mt-14 lg:mt-16">
           <div className="mb-6 sm:mb-8">
             <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-orange">
@@ -317,10 +317,10 @@ export function HomePartner() {
             ))}
           </div>
         </div>
-      </Reveal>
+      </Reveal> */}
 
       {/* Highlights + CTA */}
-      <Reveal delay={200}>
+      {/* <Reveal delay={200}>
         <div className="mt-14 grid items-stretch gap-4 overflow-hidden rounded-[1.75rem] border border-orange-100/80 bg-white lg:mt-16 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
           <div className="grid gap-0 sm:grid-cols-3">
             {highlights.map((item, i) => (
@@ -375,7 +375,7 @@ export function HomePartner() {
             </div>
           </div>
         </div>
-      </Reveal>
+      </Reveal> */}
     </HomeFrame>
   );
 }

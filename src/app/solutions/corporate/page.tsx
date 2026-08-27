@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
-import { SolutionPageTemplate } from "@/components/pages/SolutionPageTemplate";
-import { siteImages } from "@/lib/constants/images";
-import { routes } from "@/lib/constants/routes";
+import { PageHero } from "@/components/ui/PageLayout";
+import { SolutionFit } from "@/components/sections/solutions/SolutionFit";
+import { SolutionWorkflow } from "@/components/sections/solutions/SolutionWorkflow";
+import { SolutionsFinalCTA } from "@/components/sections/solutions/SolutionsFinalCTA";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
+import { solutionPages } from "@/lib/constants/solutions";
+
+const page = solutionPages.corporate;
 
 export const metadata: Metadata = {
   title: "Corporate & Events — SeatsConnect™",
@@ -11,54 +20,27 @@ export const metadata: Metadata = {
 
 export default function CorporateSolutionPage() {
   return (
-    <SolutionPageTemplate
-      hero={{
-        eyebrow: "Corporate & Events",
-        title: "Event Access for",
-        titleAccent: "Corporate Customers.",
-        description:
-          "Source tickets and hospitality for client entertainment, incentives and corporate events. SeatsConnect gives corporate travel and event businesses access to professional event supply through one connected platform.",
-        cta: { label: "Join SeatsConnect", href: routes.joinPartner },
-        secondaryCta: { label: "Talk to Our Team", href: routes.contact },
-        image: siteImages.pages.corporate,
-      }}
-      sections={[
-        {
-          title: "Experiences That Build Relationships.",
-          description: "Use SeatsConnect to support customer requirements including:",
-          items: [
-            "Client entertainment",
-            "Incentive programmes",
-            "Corporate hospitality",
-            "Employee rewards",
-            "Group attendance",
-            "Business events",
-            "Premium experiences",
-          ],
-        },
-        {
-          title: "From Requirement to Confirmed Booking.",
-          description:
-            "Search suitable options, prepare a customer proposal and manage confirmed orders through one professional workflow. For more complex requirements, partners can also submit bespoke requests.",
-          horizontalFlow: ["SEARCH", "PROPOSAL", "BOOK", "MANAGE"],
-          console: {
-            title: "corporate-workflow",
-            lines: [
-              { text: "REQUIREMENT", type: "muted" },
-              { text: "↓", type: "arrow" },
-              { text: "SEARCH · PROPOSAL · BOOK", type: "accent" },
-              { text: "↓", type: "arrow" },
-              { text: "CONFIRMED BOOKING", type: "accent" },
-            ],
-          },
-          cta: { label: "Submit a Corporate Request", href: routes.request },
-        },
-      ]}
-      finalCta={{
-        title: "Access Events for Corporate Customers.",
-        primaryCta: { label: "Join SeatsConnect", href: routes.joinPartner },
-        secondaryCta: { label: "Submit a Corporate Request", href: routes.request },
-      }}
-    />
+    <>
+      <PageHero
+        eyebrow={page.hero.eyebrow}
+        icon={heroIcons.solutions}
+        image={page.hero.image}
+        title={page.hero.title}
+        titleAccent={page.hero.titleAccent}
+        description={page.hero.description}
+        primaryCta={page.hero.primaryCta}
+        secondaryCta={page.hero.secondaryCta}
+        steps={heroWorkflow}
+        features={[...heroFeatures.solutions]}
+      />
+      <SolutionFit content={page.fit} />
+      <SolutionWorkflow content={page.workflow} />
+      <SolutionsFinalCTA
+        eyebrow={page.finalCta.eyebrow}
+        title={page.finalCta.title}
+        primaryCta={page.finalCta.primaryCta}
+        secondaryCta={page.finalCta.secondaryCta}
+      />
+    </>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import {
   Briefcase,
@@ -18,6 +19,9 @@ import {
 } from "lucide-react";
 import { HomeFrame, HomeKicker } from "@/components/sections/home/HomeFrame";
 import { Reveal } from "@/components/ui/Reveal";
+import { siteImages } from "@/lib/constants/images";
+
+const { experiences: exp } = siteImages;
 
 const points = [
   "Local customers, international demand",
@@ -29,46 +33,55 @@ const channels: {
   title: string;
   text: string;
   icon: LucideIcon;
+  image: string;
 }[] = [
   {
     title: "Travel agencies",
     text: "Agencies packaging events into travel programmes.",
     icon: Luggage,
+    image: exp.travel,
   },
   {
     title: "Tour operators",
     text: "Operators building destination and event itineraries.",
     icon: Plane,
+    image: exp.destination,
   },
   {
     title: "Concierge businesses",
     text: "Lifestyle desks serving private and VIP clients.",
     icon: ConciergeBell,
+    image: exp.concierge,
   },
   {
     title: "Corporate travel",
     text: "Corporate buyers, incentives and client entertainment.",
     icon: Briefcase,
+    image: exp.corporate,
   },
   {
     title: "Hotels",
     text: "Guest-service teams adding events to stays.",
     icon: Hotel,
+    image: exp.hotel,
   },
   {
     title: "Event agencies",
     text: "Agencies creating event-led experiences.",
     icon: CalendarDays,
+    image: exp.venue,
   },
   {
     title: "Sports travel",
     text: "Specialist programmes around major sporting events.",
     icon: Trophy,
+    image: exp.sportsTravel,
   },
   {
     title: "White-label platforms",
     text: "Branded sites and apps powered by SeatsConnect.",
     icon: Monitor,
+    image: exp.tickets,
   },
 ];
 
@@ -157,17 +170,32 @@ export function SuppliersReach() {
             {channels.map((channel) => (
               <article
                 key={channel.title}
-                className="group flex h-full flex-col rounded-xl border border-orange-100/90 bg-white p-3.5 shadow-[0_6px_16px_rgba(40,30,20,0.04)] transition-shadow duration-300 hover:shadow-[0_10px_24px_rgba(40,30,20,0.08)] sm:p-4"
+                className="group flex h-full flex-col overflow-hidden rounded-xl border border-orange-100/90 bg-white shadow-[0_6px_16px_rgba(40,30,20,0.04)] transition-shadow duration-300 hover:shadow-[0_10px_24px_rgba(40,30,20,0.08)]"
               >
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-orange text-white shadow-[0_6px_14px_rgba(255,107,0,0.28)]">
-                  <channel.icon className="h-4 w-4" strokeWidth={2.1} />
-                </span>
-                <h3 className="mt-3 font-tech text-[14px] font-bold text-brand-dark sm:text-[15px]">
-                  {channel.title}
-                </h3>
-                <p className="mt-1 text-[12px] leading-snug text-brand-gray-text sm:text-[13px]">
-                  {channel.text}
-                </p>
+                <div className="relative h-24 overflow-hidden sm:h-28">
+                  <Image
+                    src={channel.image}
+                    alt={channel.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent"
+                  />
+                </div>
+                <div className="relative flex flex-1 flex-col p-3.5 sm:p-4">
+                  <span className="absolute -top-5 left-3.5 flex h-9 w-9 items-center justify-center rounded-lg border-2 border-white bg-brand-orange text-white shadow-[0_6px_14px_rgba(255,107,0,0.28)]">
+                    <channel.icon className="h-4 w-4" strokeWidth={2.1} />
+                  </span>
+                  <h3 className="mt-2 font-tech text-[14px] font-bold text-brand-dark sm:text-[15px]">
+                    {channel.title}
+                  </h3>
+                  <p className="mt-1 text-[12px] leading-snug text-brand-gray-text sm:text-[13px]">
+                    {channel.text}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
@@ -226,21 +254,21 @@ function MarketsDash() {
             <span className="h-2 w-2 rounded-full bg-[#b8d4b8]" />
           </span>
           <span className="truncate font-mono text-[10px] font-semibold uppercase tracking-wide text-brand-gray-text">
-            markets · channel reach
+            markets · approved channels
           </span>
         </div>
         <span className="inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold text-emerald-700">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-          Live
+          Active
         </span>
       </div>
 
       <div className="bg-[#faf7f3]/50 p-3.5 sm:p-4">
         <div className="mb-3 grid grid-cols-3 gap-2">
           {[
-            { label: "Channels", value: "Selected" },
+            { label: "Reach", value: "Global" },
             { label: "Access", value: "Approved" },
-            { label: "Demand", value: "Global" },
+            { label: "Model", value: "B2B" },
           ].map((stat) => (
             <div
               key={stat.label}
@@ -260,10 +288,10 @@ function MarketsDash() {
           <div className="flex items-center justify-between border-b border-orange-50 px-3 py-2">
             <span className="inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-wide text-brand-gray-text">
               <Globe2 className="h-3.5 w-3.5 text-brand-orange" strokeWidth={1.9} />
-              Active market routes
+              Channel coverage
             </span>
             <span className="font-mono text-[9px] font-semibold text-brand-orange">
-              Controlled
+              Professional
             </span>
           </div>
           <ul className="divide-y divide-orange-50">

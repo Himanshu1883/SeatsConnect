@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
-import { SolutionPageTemplate } from "@/components/pages/SolutionPageTemplate";
-import { siteImages } from "@/lib/constants/images";
-import { routes } from "@/lib/constants/routes";
+import { PageHero } from "@/components/ui/PageLayout";
+import { SolutionFit } from "@/components/sections/solutions/SolutionFit";
+import { SolutionWorkflow } from "@/components/sections/solutions/SolutionWorkflow";
+import { SolutionsFinalCTA } from "@/components/sections/solutions/SolutionsFinalCTA";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
+import { solutionPages } from "@/lib/constants/solutions";
+
+const page = solutionPages.hotels;
 
 export const metadata: Metadata = {
   title: "Hotels & Hospitality — SeatsConnect™",
@@ -11,53 +20,27 @@ export const metadata: Metadata = {
 
 export default function HotelsSolutionPage() {
   return (
-    <SolutionPageTemplate
-      hero={{
-        eyebrow: "Hotels & Hospitality",
-        title: "Extend the Guest Experience",
-        titleAccent: "Beyond the Hotel.",
-        description:
-          "Give your concierge and guest-service teams access to global events through one B2B platform. SeatsConnect helps hotels respond to guest requests for tickets, hospitality and live experiences.",
-        cta: { label: "Talk to Our Team", href: routes.contact },
-        secondaryCta: { label: "Join Our Network", href: routes.joinPartner },
-        image: siteImages.pages.hotels,
-      }}
-      sections={[
-        {
-          title: "Help Guests Experience More.",
-          description: "Guests often rely on hotels for access to:",
-          items: [
-            "Sporting events",
-            "Concerts",
-            "Premium hospitality",
-            "Shows",
-            "Major local events",
-            "International events",
-          ],
-          closing:
-            "SeatsConnect provides a professional route for sourcing suitable products.",
-        },
-        {
-          title: "Simple for Your Team.",
-          description: "One connected workflow for guest requirements.",
-          horizontalFlow: ["SEARCH", "QUOTE", "CONFIRM", "MANAGE", "FULFIL"],
-          console: {
-            title: "hotel-concierge",
-            lines: [
-              { text: "GUEST REQUEST", type: "muted" },
-              { text: "↓", type: "arrow" },
-              { text: "SEARCH · QUOTE · CONFIRM", type: "accent" },
-              { text: "↓", type: "arrow" },
-              { text: "MANAGE · FULFIL", type: "accent" },
-            ],
-          },
-        },
-      ]}
-      finalCta={{
-        title: "Extend the Guest Experience.",
-        primaryCta: { label: "Talk to Our Team", href: routes.contact },
-        secondaryCta: { label: "Join SeatsConnect", href: routes.joinPartner },
-      }}
-    />
+    <>
+      <PageHero
+        eyebrow={page.hero.eyebrow}
+        icon={heroIcons.solutions}
+        image={page.hero.image}
+        title={page.hero.title}
+        titleAccent={page.hero.titleAccent}
+        description={page.hero.description}
+        primaryCta={page.hero.primaryCta}
+        secondaryCta={page.hero.secondaryCta}
+        steps={heroWorkflow}
+        features={[...heroFeatures.solutions]}
+      />
+      <SolutionFit content={page.fit} />
+      <SolutionWorkflow content={page.workflow} />
+      <SolutionsFinalCTA
+        eyebrow={page.finalCta.eyebrow}
+        title={page.finalCta.title}
+        primaryCta={page.finalCta.primaryCta}
+        secondaryCta={page.finalCta.secondaryCta}
+      />
+    </>
   );
 }

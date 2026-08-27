@@ -99,7 +99,9 @@ export function PageHero({
                 <span className="flex h-7 w-7 items-center justify-center rounded-md bg-brand-orange text-white shadow-[0_6px_16px_rgba(255,107,0,0.28)]">
                   <BrandIcon className="h-3.5 w-3.5" strokeWidth={2} />
                 </span>
-                Seats<span className="text-brand-orange">Connect</span>™
+                <span>
+                  Seats<span className="text-brand-orange">Connect</span>™
+                </span>
               </span>
             </div>
           </div>
@@ -222,7 +224,12 @@ export function PageHero({
 
         {features && features.length > 0 ? (
           <div className="platform-hero-fade platform-hero-fade-5 relative mt-6 shrink-0 sm:mt-7 lg:mt-5">
-            <div className="grid grid-cols-1 gap-2.5 rounded-2xl border border-orange-100/90 bg-white p-3 shadow-[0_12px_36px_rgba(40,30,20,0.07)] sm:grid-cols-2 sm:gap-0 sm:p-0 lg:grid-cols-4 lg:rounded-full lg:bg-white/95 lg:px-2 lg:py-2.5 lg:backdrop-blur-sm">
+            <div
+              className={cn(
+                "grid grid-cols-1 gap-2.5 rounded-2xl border border-orange-100/90 bg-white p-3 shadow-[0_12px_36px_rgba(40,30,20,0.07)] sm:grid-cols-2 sm:gap-0 sm:p-0 lg:rounded-full lg:bg-white/95 lg:px-2 lg:py-2.5 lg:backdrop-blur-sm",
+                features.length > 4 ? "lg:grid-cols-3 xl:grid-cols-6" : "lg:grid-cols-4"
+              )}
+            >
               {features.map((item, i) => (
                 <div
                   key={item.title}

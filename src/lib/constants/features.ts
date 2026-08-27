@@ -10,4 +10,9 @@ export const launchFlags = {
    * Keep false until developers.seatsconnect.com is live.
    */
   developerPortal: false,
+  /**
+   * Temporary home-hero Dark/Light preview toggle for design approval.
+   * Keep false while shipping Dark. Light hero code remains for later review.
+   */
+  heroThemePreview: false,
 } as const;

@@ -26,6 +26,7 @@ import { routes } from "@/lib/constants/routes";
 import { cn } from "@/lib/utils";
 
 const { experiences: exp } = siteImages;
+const stadiumBg = "/experiences/f2-racing-car.jpg";
 
 const capabilities: {
   icon: LucideIcon;
@@ -279,53 +280,76 @@ export function HomeSupplier() {
 
       {/* Control pillars */}
       <Reveal delay={180}>
-        <div className="mt-14 rounded-[1.75rem] bg-brand-dark px-5 py-8 text-white sm:px-8 sm:py-10 lg:mt-16 lg:px-10">
-          <div className="mb-8 max-w-xl">
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-orange">
-              You stay in control
-            </p>
-            <h3 className="mt-2 font-tech text-2xl font-bold tracking-tight sm:text-3xl">
-              Distribution on your terms
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-white/65">
-              SeatsConnect is B2B distribution infrastructure — not an open
-              marketplace. You decide who can sell, where inventory appears, and
-              on what commercial terms.
-            </p>
-          </div>
+        <div className="relative mt-14 overflow-hidden rounded-[1.75rem] px-5 py-8 text-white sm:px-8 sm:py-10 lg:mt-16 lg:px-10">
+          <Image
+            src={stadiumBg}
+            alt=""
+            fill
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            className="object-cover object-[center_35%]"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-[#1a1512]/88 via-[#1a1512]/72 to-[#1a1512]/55"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-[#1a1512]/75 via-transparent to-[#1a1512]/35"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 bg-brand-orange/[0.08]"
+            aria-hidden
+          />
 
-          <div className="grid gap-4 sm:grid-cols-3">
-            {controlPillars.map((pillar) => (
-              <div
-                key={pillar.title}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-5"
+          <div className="relative z-10">
+            <div className="mb-8 max-w-xl">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-orange">
+                You stay in control
+              </p>
+              <h3 className="mt-2 font-tech text-2xl font-bold tracking-tight sm:text-3xl">
+                Distribution on your terms
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-white/70">
+                SeatsConnect is B2B distribution infrastructure — not an open
+                marketplace. You decide who can sell, where inventory appears, and
+                on what commercial terms.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              {controlPillars.map((pillar) => (
+                <div
+                  key={pillar.title}
+                  className="rounded-2xl border border-white/15 bg-white/[0.08] p-5 backdrop-blur-sm"
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-orange text-white">
+                    <pillar.icon className="h-5 w-5" strokeWidth={1.6} />
+                  </span>
+                  <p className="mt-4 font-tech text-base font-bold">{pillar.title}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-white/65">
+                    {pillar.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Button
+                href={routes.joinSupplier}
+                className="rounded-full bg-brand-orange px-6 hover:bg-brand-orange-hover"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-orange text-white">
-                  <pillar.icon className="h-5 w-5" strokeWidth={1.6} />
-                </span>
-                <p className="mt-4 font-tech text-base font-bold">{pillar.title}</p>
-                <p className="mt-1.5 text-sm leading-relaxed text-white/60">
-                  {pillar.text}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button
-              href={routes.joinSupplier}
-              className="rounded-full bg-brand-orange px-6 hover:bg-brand-orange-hover"
-            >
-              Become a Supply Partner
-              <ArrowRight className="ml-1.5 h-4 w-4" />
-            </Button>
-            <Button
-              href={routes.suppliers}
-              variant="ghost"
-              className="rounded-full text-white hover:bg-white/10 hover:text-white"
-            >
-              Learn more about suppliers
-            </Button>
+                Become a Supply Partner
+                <ArrowRight className="ml-1.5 h-4 w-4" />
+              </Button>
+              <Button
+                href={routes.suppliers}
+                variant="ghost"
+                className="rounded-full text-white hover:bg-white/10 hover:text-white"
+              >
+                Learn more about suppliers
+              </Button>
+            </div>
           </div>
         </div>
       </Reveal>

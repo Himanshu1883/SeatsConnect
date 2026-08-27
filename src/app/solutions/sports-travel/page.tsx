@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
-import { SolutionPageTemplate } from "@/components/pages/SolutionPageTemplate";
-import { siteImages } from "@/lib/constants/images";
-import { routes } from "@/lib/constants/routes";
+import { PageHero } from "@/components/ui/PageLayout";
+import { SolutionFit } from "@/components/sections/solutions/SolutionFit";
+import { SolutionWorkflow } from "@/components/sections/solutions/SolutionWorkflow";
+import { SolutionsFinalCTA } from "@/components/sections/solutions/SolutionsFinalCTA";
+import {
+  heroFeatures,
+  heroIcons,
+  heroWorkflow,
+} from "@/lib/constants/pageHero";
+import { solutionPages } from "@/lib/constants/solutions";
+
+const page = solutionPages["sports-travel"];
 
 export const metadata: Metadata = {
   title: "Sports Travel — SeatsConnect™",
@@ -11,62 +20,27 @@ export const metadata: Metadata = {
 
 export default function SportsTravelSolutionPage() {
   return (
-    <SolutionPageTemplate
-      hero={{
-        eyebrow: "Sports Travel",
-        title: "Build Complete Sporting",
-        titleAccent: "Event Experiences.",
-        description:
-          "Connect event tickets and hospitality with your existing sports travel operation. SeatsConnect gives sports travel businesses access to event inventory through one B2B connection.",
-        cta: { label: "Join SeatsConnect", href: routes.joinPartner },
-        secondaryCta: { label: "Talk to Our Team", href: routes.contact },
-        image: siteImages.pages.sportsTravel,
-      }}
-      sections={[
-        {
-          title: "Event Supply for Your Travel Programmes.",
-          description: "Potential categories include:",
-          items: [
-            "Football",
-            "Formula 1",
-            "Tennis",
-            "Motorsport",
-            "Boxing",
-            "UFC",
-            "Golf",
-            "Major tournaments",
-            "Premium hospitality",
-          ],
-        },
-        {
-          title: "Combine With Your Existing Services.",
-          description:
-            "SeatsConnect can provide the event inventory layer while your business manages:",
-          items: [
-            "Flights",
-            "Hotels",
-            "Transfers",
-            "Tours",
-            "Destination services",
-            "Customer packages",
-          ],
-          console: {
-            title: "sports-travel",
-            lines: [
-              { text: "EVENT INVENTORY", type: "accent" },
-              { text: "+  FLIGHTS · HOTELS · TRANSFERS", type: "muted" },
-              { text: "↓", type: "arrow" },
-              { text: "COMPLETE SPORTING EXPERIENCE", type: "accent" },
-            ],
-          },
-          closing: "Your travel product. Connected event supply.",
-        },
-      ]}
-      finalCta={{
-        title: "Build Complete Event Experiences.",
-        primaryCta: { label: "Join SeatsConnect", href: routes.joinPartner },
-        secondaryCta: { label: "Talk to Our Team", href: routes.contact },
-      }}
-    />
+    <>
+      <PageHero
+        eyebrow={page.hero.eyebrow}
+        icon={heroIcons.solutions}
+        image={page.hero.image}
+        title={page.hero.title}
+        titleAccent={page.hero.titleAccent}
+        description={page.hero.description}
+        primaryCta={page.hero.primaryCta}
+        secondaryCta={page.hero.secondaryCta}
+        steps={heroWorkflow}
+        features={[...heroFeatures.solutions]}
+      />
+      <SolutionFit content={page.fit} />
+      <SolutionWorkflow content={page.workflow} />
+      <SolutionsFinalCTA
+        eyebrow={page.finalCta.eyebrow}
+        title={page.finalCta.title}
+        primaryCta={page.finalCta.primaryCta}
+        secondaryCta={page.finalCta.secondaryCta}
+      />
+    </>
   );
 }

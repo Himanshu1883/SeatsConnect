@@ -9,6 +9,7 @@ import {
   Globe2,
   Handshake,
   Headphones,
+  Hotel,
   KeyRound,
   Layers,
   Link2,
@@ -18,6 +19,7 @@ import {
   ShieldCheck,
   ShoppingCart,
   Sparkles,
+  Trophy,
   Users,
   Workflow,
 } from "lucide-react";
@@ -150,6 +152,16 @@ export const heroFeatures = {
       title: "Corporate",
       text: "Client entertainment and incentives.",
       icon: Building2,
+    },
+    {
+      title: "Hotels",
+      text: "Extend the guest experience.",
+      icon: Hotel,
+    },
+    {
+      title: "Sports Travel",
+      text: "Complete sporting event packages.",
+      icon: Trophy,
     },
     {
       title: "White Label",

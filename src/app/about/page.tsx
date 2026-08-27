@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/Button";
+import { PageHero } from "@/components/ui/PageLayout";
 import { LogoWall } from "@/components/ui/LogoWall";
-import { PageHero, PageSection } from "@/components/ui/PageLayout";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { AboutConnect } from "@/components/sections/about/AboutConnect";
+import { AboutExperience } from "@/components/sections/about/AboutExperience";
+import { AboutMission } from "@/components/sections/about/AboutMission";
+import { AboutGroup } from "@/components/sections/about/AboutGroup";
+import { AboutFinalCTA } from "@/components/sections/about/AboutFinalCTA";
 import { siteImages } from "@/lib/constants/images";
 import {
   heroFeatures,
@@ -33,42 +36,12 @@ export default function AboutPage() {
         features={[...heroFeatures.about]}
       />
 
-      <PageSection>
-        <SectionHeader
-          title="Connecting Supply and Demand."
-          description="Our platform connects venues, promoters, hospitality providers and approved suppliers with professional B2B distribution partners serving customers internationally. By building one infrastructure layer between both sides, SeatsConnect aims to make event distribution more connected, controlled and efficient."
-          align="center"
-        />
-      </PageSection>
-
-      <PageSection tinted>
-        <SectionHeader
-          title="Built on Experience."
-          description="SeatsConnect is built on more than 30 years of experience across ticketing, events, hospitality, distribution and B2B sales. That experience gives us an understanding of the challenges faced across the full distribution chain — from the organisations controlling inventory to the businesses serving the end customer."
-          align="center"
-        />
-      </PageSection>
-
-      <PageSection>
-        <SectionHeader
-          eyebrow="Mission"
-          title="Our Mission."
-          description="To create the technology infrastructure that connects global event supply with professional B2B demand."
-          align="center"
-        />
-      </PageSection>
-
-      <PageSection tinted>
-        <SectionHeader
-          title="Part of SeatsGroup."
-          description="SeatsConnect is part of SeatsGroup, a technology group focused on developing infrastructure and distribution solutions for the ticketing, travel and hospitality industries."
-          align="center"
-        />
-        <div className="text-center mt-4">
-          <Button href={routes.contact}>Talk to Our Team</Button>
-        </div>
-      </PageSection>
+      <AboutConnect />
+      <AboutExperience />
+      <AboutMission />
+      <AboutGroup />
       <LogoWall />
+      <AboutFinalCTA />
     </>
   );
 }
