@@ -317,9 +317,9 @@ function PageHeroBackdrop({ image }: { image: string }) {
 
       {/* Bright overlay — extended further right so step copy stays readable */}
       <div className="absolute inset-0 hidden bg-gradient-to-r from-[#f7f4f0] from-[0%] via-[#f7f4f0] via-[38%] to-transparent to-[82%] lg:block" />
-      <div className="absolute inset-0 hidden bg-gradient-to-r from-[#f7f4f0] from-[0%] via-[#f7f4f0]/85 via-[38%] to-transparent to-[88%] lg:block" />
-      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#f7f4f0] via-[#f7f4f0]/45 to-transparent sm:h-32" />
-      <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#f7f4f0]/65 to-transparent" />
+      {/* <div className="absolute inset-0 hidden bg-gradient-to-r from-[#f7f4f0] from-[0%] via-[#f7f4f0]/85 via-[38%] to-transparent to-[88%] lg:block" /> */}
+      {/* <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#f7f4f0] via-[#f7f4f0]/45 to-transparent sm:h-32" /> */}
+      {/* <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#f7f4f0]/65 to-transparent" /> */}
     </div>
   );
 }

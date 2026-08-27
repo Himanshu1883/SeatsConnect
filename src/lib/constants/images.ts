@@ -1,174 +1,129 @@
 /**
- * Unsplash imagery for SeatsConnect.
+ * Local imagery for SeatsConnect (downloaded Unsplash assets in /public/assets).
  * Full-bleed banners: heroes / PageHero only.
  * Experience photos: cards, media panels, strips — never inside live consoles or diagrams.
  */
+const a = (path: string) => `/assets/${path}`;
+
 export const siteImages = {
   hero: {
     backgrounds: [
-      /* Concert */
-      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&q=80",
-      /* Football stadium */
-      "https://images.unsplash.com/photo-1459865264687-595d652de67e?w=1920&q=80",
+      /* Concert / stadium tour */
+      a("hero/concert.jpg"),
+      /* Football stadium pitch */
+      a("hero/football-stadium.jpg"),
       /* Stadium night */
-      "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=1920&q=80",
-      /* Crowd / live event */
-      "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=1920&q=80",
-      /* Formula 1 / motorsport */
-      "https://images.unsplash.com/photo-1504704911898-68304a7d2807?w=1920&q=80",
-      /* Tennis */
-      "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1920&q=80",
+      a("hero/stadium-night-lit.jpg"),
+      /* Crowd at live event */
+      a("hero/live-crowd.jpg"),
+      /* Formula 1 — Circuit of the Americas */
+      a("hero/formula1.jpg"),
+      /* Tennis court */
+      a("hero/tennis.jpg"),
       /* Premium hospitality dining */
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80",
-      /* Travel destination skyline */
-      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&q=80",
+      a("hero/hospitality-dining.jpg"),
+      /* Travel / destination planning */
+      a("hero/travel-destination.jpg"),
     ],
-    background:
-      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&q=80",
+    background: a("hero/concert.jpg"),
   },
 
   /** Card / panel experience photography (not section backgrounds). */
   experiences: {
-    stadium:
-      "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=900&q=80",
-    football:
-      "https://images.unsplash.com/photo-1459865264687-595d652de67e?w=900&q=80",
-    formula1:
-      "https://images.unsplash.com/photo-1504704911898-68304a7d2807?w=900&q=80",
-    tennis:
-      "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=900&q=80",
-    concert:
-      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=900&q=80",
-    venue:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900&q=80",
-    hospitality:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80",
-    suite:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80",
-    travel:
-      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&q=80",
-    destination:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=80",
-    hotel:
-      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=900&q=80",
-    corporate:
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?w=900&q=80",
-    concierge:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80",
-    sportsTravel:
-      "https://images.unsplash.com/photo-1461896836934-ffe607ba6851?w=900&q=80",
-    tickets:
-      "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=900&q=80",
-    network:
-      "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=900&q=80",
+    stadium: a("hero/stadium-night-lit.jpg"),
+    football: a("hero/football-stadium.jpg"),
+    formula1: a("hero/formula1.jpg"),
+    tennis: a("hero/tennis.jpg"),
+    concert: a("hero/concert.jpg"),
+    /** Arena / theatre seating — venue inventory */
+    venue: a("experiences/venue.jpg"),
+    hospitality: a("experiences/hospitality.jpg"),
+    /** Luxury suite / guest room */
+    suite: a("experiences/suite.jpg"),
+    /** Travel agency / itinerary context */
+    travel: a("experiences/travel.jpg"),
+    /** Global reach — aircraft window / destination */
+    destination: a("experiences/destination.jpg"),
+    hotel: a("experiences/hotel.jpg"),
+    /** Corporate / incentive groups */
+    corporate: a("experiences/corporate.jpg"),
+    /** Hotel lobby / guest services */
+    concierge: a("experiences/concierge.jpg"),
+    /** Fans in stadium — sports travel packages */
+    sportsTravel: a("experiences/sports-travel.jpg"),
+    /** Ticketed live experience */
+    tickets: a("experiences/tickets.jpg"),
+    /** Global connectivity / network */
+    network: a("experiences/network.jpg"),
+    /** API / platform infrastructure visual */
+    api: a("experiences/api.jpg"),
     /** Landmark photos for international region cards */
-    regionEurope:
-      "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&q=80",
-    regionMiddleEast:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900&q=80",
-    regionAsia:
-      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=900&q=80",
-    regionAmericas:
-      "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=900&q=80",
-    regionAfrica:
-      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=900&q=80",
-    regionAustralasia:
-      "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=900&q=80",
+    regionEurope: a("regions/europe.jpg"),
+    regionMiddleEast: a("regions/middle-east.jpg"),
+    regionAsia: a("regions/asia.jpg"),
+    regionAmericas: a("regions/americas.jpg"),
+    regionAfrica: a("regions/africa.jpg"),
+    regionAustralasia: a("regions/australasia.jpg"),
   },
 
   sections: {
-    problem:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80",
-    supplier:
-      "https://images.unsplash.com/photo-1459865264687-595d652de67e?w=1920&q=80",
-    partner:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=80",
-    workflow:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80",
-    api: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80",
-    control:
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80",
-    network:
-      "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1920&q=80",
-    tools:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80",
-    whiteLabel:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80",
-    international:
-      "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=1920&q=80",
-    experience:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80",
-    cta: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920&q=80",
+    problem: a("sections/city-skyline.jpg"),
+    supplier: a("hero/stadium-night-lit.jpg"),
+    partner: a("sections/airplane.jpg"),
+    workflow: a("sections/event-lights.jpg"),
+    api: a("sections/circuit.jpg"),
+    /** Controlled access / professional operations */
+    control: a("sections/office.jpg"),
+    network: a("experiences/network.jpg"),
+    tools: a("sections/analytics.jpg"),
+    whiteLabel: a("sections/workspace.jpg"),
+    international: a("sections/world-map-travel.jpg"),
+    experience: a("hero/hospitality-dining.jpg"),
+    cta: a("sections/concert-stage.jpg"),
   },
   pages: {
-    platform:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80",
-    suppliers:
-      "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=1920&q=80",
-    partners:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=80",
-    solutions:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80",
-    api: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=80",
-    about:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&q=80",
-    join: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1920&q=80",
-    contact:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80",
-    request:
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1920&q=80",
-    developers:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80",
-    support:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&q=80",
-    resources:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80",
-    login:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80",
-    travel:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=80",
-    concierge:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80",
-    corporate:
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1920&q=80",
-    hotels:
-      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1920&q=80",
-    sportsTravel:
-      "https://images.unsplash.com/photo-1459865264687-595d652de67e?w=1920&q=80",
-    whiteLabel:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80",
-    legal:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80",
-    topics:
-      "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1920&q=80",
+    /** Audience / seated venue — platform infrastructure */
+    platform: a("pages/platform-hero.jpg"),
+    /** Airplane window at dusk — global supply reach */
+    suppliers: a("pages/suppliers-hero.jpg"),
+    /** World map with location pins — partner network */
+    partners: a("pages/partners-hero.jpg"),
+    solutions: a("sections/event-lights.jpg"),
+    api: a("pages/servers.jpg"),
+    about: a("pages/team.jpg"),
+    join: a("pages/conference.jpg"),
+    contact: a("sections/office.jpg"),
+    request: a("pages/event-hall.jpg"),
+    developers: a("pages/developers.jpg"),
+    support: a("pages/support.jpg"),
+    resources: a("pages/resources.jpg"),
+    login: a("sections/city-skyline.jpg"),
+    travel: a("sections/airplane.jpg"),
+    concierge: a("experiences/hotel.jpg"),
+    corporate: a("experiences/corporate.jpg"),
+    hotels: a("pages/hotel-exterior.jpg"),
+    sportsTravel: a("experiences/sports-travel.jpg"),
+    whiteLabel: a("sections/office.jpg"),
+    legal: a("pages/legal.jpg"),
+    topics: a("experiences/network.jpg"),
   },
-  trustStrip:
-    "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1920&q=80",
+  trustStrip: a("experiences/tickets.jpg"),
   about: {
-    section:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&q=80",
-    travel:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=80",
-    liveEvents:
-      "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=1920&q=80",
+    section: a("pages/team.jpg"),
+    travel: a("sections/airplane.jpg"),
+    liveEvents: a("hero/live-crowd.jpg"),
   },
-  advantage:
-    "https://images.unsplash.com/photo-1459865264687-595d652de67e?w=1920&q=80",
-  engine:
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80",
+  advantage: a("hero/football-stadium.jpg"),
+  engine: a("sections/circuit.jpg"),
   events: {
-    section:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80",
+    section: a("sections/event-lights.jpg"),
   },
   reach: {
-    section:
-      "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1920&q=80",
-    map: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=900&q=80",
+    section: a("experiences/network.jpg"),
+    map: a("experiences/network.jpg"),
   },
-  calculator:
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80",
-  contact:
-    "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80",
+  calculator: a("sections/analytics.jpg"),
+  contact: a("sections/office.jpg"),
 } as const;
 
 export function pageBanners(primary?: string): readonly string[] {

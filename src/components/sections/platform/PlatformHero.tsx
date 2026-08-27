@@ -9,8 +9,6 @@ import {
 } from "@/lib/constants/pageHero";
 import { routes } from "@/lib/constants/routes";
 
-const { experiences: exp } = siteImages;
-
 export function PlatformHero() {
   return (
     <PageHero
@@ -19,7 +17,7 @@ export function PlatformHero() {
       title="The Infrastructure Behind"
       titleAccent="B2B Event Distribution."
       description="Connect supply, technology and professional distribution through one B2B infrastructure layer — from inventory connectivity through booking and fulfilment."
-      image={exp.football}
+      image={siteImages.pages.platform}
       primaryCta={{ label: "Talk to Our Team", href: routes.contact }}
       secondaryCta={{ label: "Explore API", href: routes.api }}
       tertiaryCta={{ label: "Connect Inventory", href: routes.joinSupplier }}

@@ -26,7 +26,7 @@ import { routes } from "@/lib/constants/routes";
 import { cn } from "@/lib/utils";
 
 const { experiences: exp } = siteImages;
-const stadiumBg = "/experiences/f2-racing-car.jpg";
+const stadiumBg = exp.stadium;
 
 const capabilities: {
   icon: LucideIcon;
@@ -50,7 +50,7 @@ const capabilities: {
     icon: Code2,
     title: "API Connectivity",
     text: "Connect inventory systems directly into SeatsConnect infrastructure.",
-    image: exp.tickets,
+    image: exp.api,
   },
   {
     icon: Users,
@@ -68,7 +68,7 @@ const capabilities: {
     icon: BarChart3,
     title: "Distribution Visibility",
     text: "Keep a structured view of how inventory is made available to partners.",
-    image: exp.stadium,
+    image: exp.network,
   },
 ];
 

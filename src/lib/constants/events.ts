@@ -31,8 +31,8 @@ export const events: EventItem[] = [
       "Full premium package listings, VIP boxes, and hospitality allocations across all stadiums.",
     location: "Global Venues",
     tag: "Instant API Feed",
-    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80",
-    imageAlt: "FIFA World Cup",
+    image: "/assets/hero/football-stadium.jpg",
+    imageAlt: "Football tournament stadium",
   },
   {
     id: "f1",
@@ -44,8 +44,8 @@ export const events: EventItem[] = [
       "Paddock Club hospitality, premium grandstand seats, and suite-only track options.",
     location: "Monaco, Singapore, ME",
     tag: "Dynamic Pricing",
-    image: "/events/f2-racing-car.jpg",
-    imageAlt: "Formula 2 racing car on track",
+    image: "/assets/hero/formula1.jpg",
+    imageAlt: "Formula 1 cars on the race track",
   },
   {
     id: "concerts",
@@ -57,8 +57,8 @@ export const events: EventItem[] = [
       "Top tier shows: Coldplay, Ed Sheeran, Taylor Swift, Lady Gaga, and prestigious stadium tours.",
     location: "Global Cities",
     tag: "High Demand",
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80",
-    imageAlt: "Global stadium tours",
+    image: "/assets/hero/concert.jpg",
+    imageAlt: "Global stadium concert tour",
   },
   {
     id: "rugby",
@@ -70,7 +70,7 @@ export const events: EventItem[] = [
       "Official lounge passes, primary category tickets, and verified corporate block packages.",
     location: "Strategic Venues",
     tag: "Pre-booking Active",
-    image: "https://images.unsplash.com/photo-1652107990078-71ac8b908302?w=600&q=80",
+    image: "/assets/events/rugby.jpg",
     imageAlt: "Rugby World Cup",
   },
   {
@@ -83,8 +83,8 @@ export const events: EventItem[] = [
       "Debenture court access, premium hospitality pathways, and center court boxes.",
     location: "London, New York, Paris",
     tag: "Guaranteed Delivery",
-    image: "https://images.unsplash.com/photo-1751893710672-360fd5cc4f71?w=600&q=80",
-    imageAlt: "Wimbledon and Grand Slams",
+    image: "/assets/hero/tennis.jpg",
+    imageAlt: "Tennis grand slam court",
   },
   {
     id: "football",
@@ -96,7 +96,7 @@ export const events: EventItem[] = [
       "Regular club packages, elite executive boxes, and high-security ticket fulfillment channels.",
     location: "European Stadiums",
     tag: "SaaS API Router",
-    image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=600&q=80",
-    imageAlt: "EPL and Champions League",
+    image: "/assets/experiences/sports-travel.jpg",
+    imageAlt: "EPL and Champions League stadium",
   },
 ];
