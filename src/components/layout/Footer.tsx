@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
@@ -20,6 +24,7 @@ import {
 import { launchFlags } from "@/lib/constants/features";
 import { siteConfig } from "@/lib/constants/site";
 import { routes } from "@/lib/constants/routes";
+import { cn } from "@/lib/utils";
 
 const trustItems: { title: string; text: string; icon: LucideIcon }[] = [
   {
@@ -56,6 +61,25 @@ const linkColumns = [
   },
 ] as const;
 
+function isFooterLinkActive(
+  href: string,
+  pathname: string,
+  hash: string
+): boolean {
+  const [path, fragment] = href.split("#");
+  const base = path || "/";
+
+  if (fragment) {
+    return pathname === base && hash === `#${fragment}`;
+  }
+
+  if (base === routes.join) {
+    return pathname === routes.join || pathname.startsWith(`${routes.join}/`);
+  }
+
+  return pathname === base;
+}
+
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
     <h4 className="mb-3 flex items-center gap-1.5 font-tech text-[10px] font-bold uppercase tracking-[0.16em] text-brand-dark">
@@ -67,39 +91,67 @@ function FooterHeading({ children }: { children: React.ReactNode }) {
 
 function FooterLinkList({
   links,
+  pathname,
+  hash,
 }: {
   links: readonly { label: string; href: string; external?: boolean }[];
+  pathname: string;
+  hash: string;
 }) {
   return (
     <ul className="space-y-2 text-[13px] leading-snug">
-      {links.map((link) => (
-        <li key={link.label}>
-          {"external" in link && link.external ? (
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-brand-gray-text transition-colors hover:text-brand-orange"
-            >
-              {link.label}
-            </a>
-          ) : (
+      {links.map((link) => {
+        if ("external" in link && link.external) {
+          return (
+            <li key={link.label}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-gray-text transition-colors hover:text-brand-orange"
+              >
+                {link.label}
+              </a>
+            </li>
+          );
+        }
+
+        const active = isFooterLinkActive(link.href, pathname, hash);
+
+        return (
+          <li key={link.label}>
             <Link
               href={link.href}
-              className="text-brand-gray-text transition-colors hover:text-brand-orange"
+              aria-current={active ? "page" : undefined}
+              className={cn(
+                "transition-colors hover:text-brand-orange",
+                active
+                  ? "font-semibold text-brand-orange"
+                  : "text-brand-gray-text"
+              )}
             >
               {link.label}
             </Link>
-          )}
-        </li>
-      ))}
+          </li>
+        );
+      })}
     </ul>
   );
 }
 
 export function Footer() {
+  const pathname = usePathname();
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    const syncHash = () => setHash(window.location.hash);
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, [pathname]);
+
   return (
-    <footer className="footer-band w-full bg-[#faf8f5] text-brand-gray-text">
+    <footer className="footer-band relative w-full bg-[#faf8f5] text-brand-gray-text">
       <div className="pointer-events-none absolute inset-0 surface-grid opacity-35" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-orange/30 to-transparent" />
 
@@ -137,7 +189,11 @@ export function Footer() {
             {linkColumns.map((column) => (
               <div key={column.title}>
                 <FooterHeading>{column.title}</FooterHeading>
-                <FooterLinkList links={column.links} />
+                <FooterLinkList
+                  links={column.links}
+                  pathname={pathname}
+                  hash={hash}
+                />
               </div>
             ))}
           </div>
@@ -209,15 +265,24 @@ export function Footer() {
             © 2026 {siteConfig.trademark}. All rights reserved.
           </p>
           <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-            {footerLegalLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-[12px] text-brand-gray-text transition-colors hover:text-brand-orange"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {footerLegalLinks.map((link) => {
+              const active = isFooterLinkActive(link.href, pathname, hash);
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "text-[12px] transition-colors hover:text-brand-orange",
+                    active
+                      ? "font-semibold text-brand-orange"
+                      : "text-brand-gray-text"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       </div>
