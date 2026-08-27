@@ -30,7 +30,7 @@ export const siteImages = {
 
   /** Card / panel experience photography (not section backgrounds). */
   experiences: {
-    stadium: a("hero/stadium-night-lit.jpg"),
+    stadium: a("hero/stadium-night-lit.png"),
     football: a("hero/football-stadium.jpg"),
     formula1: a("hero/formula1.jpg"),
     tennis: a("hero/tennis.jpg"),
@@ -43,7 +43,7 @@ export const siteImages = {
     /** Travel agency / itinerary context */
     travel: a("experiences/travel.jpg"),
     /** Global reach — aircraft window / destination */
-    destination: a("experiences/destination.jpg"),
+    destination: a("experiences/destination.png"),
     hotel: a("experiences/hotel.jpg"),
     /** Corporate / incentive groups */
     corporate: a("experiences/corporate.jpg"),

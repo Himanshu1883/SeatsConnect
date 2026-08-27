@@ -272,8 +272,8 @@ function PageHeroBackdrop({ image }: { image: string }) {
     >
       <div className="absolute inset-0 bg-[#f7f4f0]" />
 
-      {/* Mobile / tablet: soft top image band */}
-      <div className="absolute inset-x-0 top-0 h-[11rem] overflow-hidden bg-[#f7f4f0] opacity-55 sm:h-[14rem] sm:opacity-65 lg:hidden">
+      {/* Mobile / tablet: image band — soft cream into dark */}
+      <div className="absolute inset-x-0 top-0 h-[11rem] overflow-hidden bg-[#f7f4f0] sm:h-[14rem] lg:hidden">
         <div className="page-hero-shot absolute inset-0">
           <Image
             src={image}
@@ -284,42 +284,52 @@ function PageHeroBackdrop({ image }: { image: string }) {
             className="object-cover object-[60%_center]"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f7f4f0]/35 via-[#f7f4f0]/55 to-[#f7f4f0]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f7f4f0] via-[#f7f4f0]/75 to-transparent" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(10,8,7,0.4) 0%, rgba(10,8,7,0.18) 45%, #f7f4f0 100%)",
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, #f7f4f0 0%, rgba(247,244,240,0.85) 35%, rgba(247,244,240,0.25) 70%, transparent 100%)",
+          }}
+        />
       </div>
 
-      {/*
-        Desktop: no right-side panel box (that hard left/bottom edge caused the
-        laptop “border” lines). Image is full-bleed and soft-masked in from the left.
-      */}
-      <div
-        className="page-hero-shot absolute inset-0 hidden lg:block"
-        style={{
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent 0%, transparent 42%, rgba(0,0,0,0.35) 54%, black 68%)",
-          maskImage:
-            "linear-gradient(to right, transparent 0%, transparent 42%, rgba(0,0,0,0.35) 54%, black 68%)",
-          WebkitMaskRepeat: "no-repeat",
-          maskRepeat: "no-repeat",
-          WebkitMaskSize: "100% 100%",
-          maskSize: "100% 100%",
-        }}
-      >
+      {/* Desktop: full-bleed visionary image */}
+      <div className="page-hero-shot absolute inset-0 hidden lg:block">
         <Image
           src={image}
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[78%_center]"
+          className="object-cover object-[72%_center]"
         />
       </div>
 
-      {/* Bright overlay — extended further right so step copy stays readable */}
-      <div className="absolute inset-0 hidden bg-gradient-to-r from-[#f7f4f0] from-[0%] via-[#f7f4f0] via-[38%] to-transparent to-[82%] lg:block" />
-      {/* <div className="absolute inset-0 hidden bg-gradient-to-r from-[#f7f4f0] from-[0%] via-[#f7f4f0]/85 via-[38%] to-transparent to-[88%] lg:block" /> */}
-      {/* <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#f7f4f0] via-[#f7f4f0]/45 to-transparent sm:h-32" /> */}
-      {/* <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#f7f4f0]/65 to-transparent" /> */}
+      {/*
+        Continuous plain → dark dissolve (no hard center seam).
+        Cream stays longer under copy so text stays readable, then softens into dark.
+      */}
+      <div
+        className="absolute inset-0 hidden lg:block"
+        style={{
+          background:
+            "linear-gradient(to right, #f7f4f0 0%, #f7f4f0 42%, rgba(247,244,240,0.97) 52%, rgba(247,244,240,0.82) 60%, rgba(247,244,240,0.52) 68%, rgba(247,244,240,0.22) 76%, rgba(247,244,240,0.06) 84%, transparent 92%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 hidden lg:block"
+        style={{
+          background:
+            "linear-gradient(to right, transparent 0%, transparent 48%, rgba(18,14,12,0.06) 58%, rgba(14,11,9,0.18) 68%, rgba(12,10,8,0.34) 78%, rgba(10,8,7,0.48) 88%, rgba(8,7,6,0.56) 100%)",
+        }}
+      />
     </div>
   );
 }
