@@ -724,10 +724,6 @@ main {
 }
 
 @media (min-width: 1024px) and (max-height: 820px) {
-  .hero-feature-desc {
-    display: none;
-  }
-
   .hero-side-panel {
     box-shadow: 0 6px 16px rgba(40, 30, 20, 0.1);
   }

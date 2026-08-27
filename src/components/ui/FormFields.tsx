@@ -9,6 +9,7 @@ type FormFieldProps = {
   options?: { value: string; label: string }[];
   placeholder?: string;
   className?: string;
+  defaultValue?: string;
 };
 
 export function FormField({
@@ -20,6 +21,7 @@ export function FormField({
   options,
   placeholder,
   className,
+  defaultValue,
 }: FormFieldProps) {
   const baseClass =
     "w-full rounded-lg border border-orange-100 bg-white px-3.5 py-2.5 text-sm text-brand-dark placeholder:text-brand-gray-text/60 focus:outline-none focus:ring-2 focus:ring-brand-orange/30 focus:border-brand-orange/50 transition-colors";
@@ -37,10 +39,17 @@ export function FormField({
           required={required}
           rows={4}
           placeholder={placeholder}
+          defaultValue={defaultValue}
           className={cn(baseClass, "resize-y min-h-[100px]")}
         />
       ) : as === "select" ? (
-        <select id={name} name={name} required={required} className={baseClass}>
+        <select
+          id={name}
+          name={name}
+          required={required}
+          defaultValue={defaultValue ?? ""}
+          className={baseClass}
+        >
           <option value="">Select...</option>
           {options?.map((opt) => (
             <option key={opt.value} value={opt.value}>
@@ -55,6 +64,7 @@ export function FormField({
           type={type}
           required={required}
           placeholder={placeholder}
+          defaultValue={defaultValue}
           className={baseClass}
         />
       )}

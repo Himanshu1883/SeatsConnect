@@ -54,8 +54,8 @@ export const footerPartnerLinks = [
 ] as const;
 
 export const footerLegalLinks = [
-  { label: "Terms", href: "/terms" },
-  { label: "Privacy", href: "/privacy" },
-  { label: "Cookies", href: "/cookies" },
-  { label: "Compliance", href: "/compliance" },
+  { label: "Terms", href: "/legal#terms" },
+  { label: "Privacy", href: "/legal#privacy" },
+  { label: "Cookies", href: "/legal#cookies" },
+  { label: "Compliance", href: "/legal#compliance" },
 ] as const;

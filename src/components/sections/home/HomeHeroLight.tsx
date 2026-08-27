@@ -74,7 +74,7 @@ const rightPanels = [exp.hotel, exp.suite, exp.formula1] as const;
 
 export function HomeHeroLight() {
   return (
-    <section className="hero-band hero-light relative flex h-auto min-h-0 flex-col overflow-hidden lg:h-[calc(100dvh-var(--site-header-height))] lg:max-h-[calc(100dvh-var(--site-header-height))]">
+    <section className="hero-band hero-light relative flex h-auto min-h-0 flex-col overflow-hidden lg:min-h-[calc(100dvh-var(--site-header-height))]">
       <HeroLightBackdrop />
 
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-4 py-6 sm:px-6 sm:py-8 lg:max-w-6xl lg:px-8 lg:py-4 xl:py-5">

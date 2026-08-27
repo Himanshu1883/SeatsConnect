@@ -22,8 +22,9 @@ export const routes = {
   resources: "/resources",
   login: "/login",
   topics: "/topics",
-  terms: "/terms",
-  privacy: "/privacy",
-  cookies: "/cookies",
-  compliance: "/compliance",
+  legal: "/legal",
+  terms: "/legal#terms",
+  privacy: "/legal#privacy",
+  cookies: "/legal#cookies",
+  compliance: "/legal#compliance",
 } as const;

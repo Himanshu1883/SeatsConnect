@@ -70,10 +70,10 @@ const heroBannerRight = "/hero/stadium-night.jpg";
 
 export function HomeHeroDark() {
   return (
-    <section className="hero-band relative flex h-[calc(100dvh-var(--site-header-height))] max-h-[calc(100dvh-var(--site-header-height))] min-h-0 flex-col overflow-hidden bg-[#1a1512]">
+    <section className="hero-band relative flex min-h-[calc(100dvh-var(--site-header-height))] flex-col overflow-hidden bg-[#1a1512] lg:min-h-[calc(100dvh-var(--site-header-height))]">
       <HeroBannerBackdrop />
 
-      <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-5xl flex-1 flex-col justify-center px-4 py-2.5 sm:px-6 sm:py-5 lg:max-w-6xl lg:px-8 lg:py-4 xl:py-5">
+      <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-5xl flex-1 flex-col justify-center px-4 py-3 sm:px-6 sm:py-5 lg:max-w-6xl lg:px-8 lg:py-4 xl:py-5 [@media(min-width:1024px)_and_(max-height:860px)]:py-3 [@media(min-width:1024px)_and_(max-height:780px)]:py-2.5">
         {/* ── Mobile hero — single-screen stack ── */}
         <div className="mx-auto flex w-full max-w-sm min-h-0 flex-1 flex-col justify-center gap-3 text-center sm:max-w-md sm:gap-4 lg:hidden [@media(max-height:720px)]:gap-2.5 [@media(max-height:640px)]:gap-2">
           <div className="shrink-0">
@@ -127,8 +127,8 @@ export function HomeHeroDark() {
         </div>
 
         {/* ── Desktop / tablet hero composition ── */}
-        <div className="mx-auto hidden max-w-3xl text-center lg:block">
-          <p className="hero-fade-up mb-2.5 inline-flex items-center gap-2 font-tech text-sm font-semibold tracking-tight text-white">
+        <div className="mx-auto hidden max-w-3xl text-center lg:block [@media(min-width:1024px)_and_(max-height:860px)]:max-w-2xl">
+          <p className="hero-fade-up mb-2.5 inline-flex items-center gap-2 font-tech text-sm font-semibold tracking-tight text-white [@media(min-width:1024px)_and_(max-height:780px)]:mb-1.5">
             <span className="flex h-6 w-6 items-center justify-center rounded-md bg-brand-orange text-white">
               <Layers className="h-3.5 w-3.5" strokeWidth={2} />
             </span>
@@ -137,36 +137,36 @@ export function HomeHeroDark() {
             </span>
           </p>
 
-          <h1 className="hero-fade-up hero-fade-up-delay-1 font-tech text-[2.75rem] font-bold leading-[1.05] tracking-tight text-white xl:text-[3.15rem]">
+          <h1 className="hero-fade-up hero-fade-up-delay-1 font-tech text-[2.75rem] font-bold leading-[1.05] tracking-tight text-white xl:text-[3.15rem] [@media(min-width:1024px)_and_(max-height:860px)]:text-[2.35rem] [@media(min-width:1024px)_and_(max-height:780px)]:text-[2.1rem]">
             Connect Once.
             <br />
             <span className="text-brand-orange">Distribute Globally.</span>
           </h1>
 
-          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-white/90">
+          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-white/90 [@media(min-width:1024px)_and_(max-height:860px)]:mt-2 [@media(min-width:1024px)_and_(max-height:860px)]:text-[13px] [@media(min-width:1024px)_and_(max-height:780px)]:mt-1.5 [@media(min-width:1024px)_and_(max-height:780px)]:text-[12px]">
             {siteConfig.description}
           </p>
-          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-2 max-w-2xl text-[15px] leading-relaxed text-white/80">
+          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-2 max-w-2xl text-[15px] leading-relaxed text-white/80 [@media(min-width:1024px)_and_(max-height:860px)]:mt-1.5 [@media(min-width:1024px)_and_(max-height:860px)]:text-[13px] [@media(min-width:1024px)_and_(max-height:780px)]:mt-1 [@media(min-width:1024px)_and_(max-height:780px)]:text-[12px]">
             SeatsConnect connects venues, promoters, hospitality providers and
             approved suppliers with a global network of professional B2B
             distribution partners.
           </p>
-          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-1.5 max-w-2xl text-[15px] leading-relaxed text-white/70">
+          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-1.5 max-w-2xl text-[15px] leading-relaxed text-white/70 [@media(min-width:1024px)_and_(max-height:860px)]:mt-1 [@media(min-width:1024px)_and_(max-height:860px)]:text-[13px] [@media(min-width:1024px)_and_(max-height:780px)]:text-[12px]">
             Expand your reach while maintaining control over how and where your
             inventory is distributed.
           </p>
 
-          <div className="hero-fade-up hero-fade-up-delay-3 mt-5 flex flex-row justify-center gap-3">
+          <div className="hero-fade-up hero-fade-up-delay-3 mt-5 flex flex-row justify-center gap-3 [@media(min-width:1024px)_and_(max-height:860px)]:mt-3 [@media(min-width:1024px)_and_(max-height:780px)]:mt-2.5">
             <Link
               href={routes.joinSupplier}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-orange px-5 py-2.5 font-tech text-sm font-semibold text-white shadow-[0_10px_28px_rgba(255,107,0,0.28)] transition hover:bg-brand-orange-hover"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-orange px-5 py-2.5 font-tech text-sm font-semibold text-white shadow-[0_10px_28px_rgba(255,107,0,0.28)] transition hover:bg-brand-orange-hover [@media(min-width:1024px)_and_(max-height:780px)]:px-4 [@media(min-width:1024px)_and_(max-height:780px)]:py-2"
             >
               Connect Your Inventory
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href={routes.joinPartner}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-brand-orange/45 bg-white px-5 py-2.5 font-tech text-sm font-semibold text-brand-orange transition hover:border-brand-orange hover:bg-brand-orange/5"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-brand-orange/45 bg-white px-5 py-2.5 font-tech text-sm font-semibold text-brand-orange transition hover:border-brand-orange hover:bg-brand-orange/5 [@media(min-width:1024px)_and_(max-height:780px)]:px-4 [@media(min-width:1024px)_and_(max-height:780px)]:py-2"
             >
               Join Our Network
               <ArrowRight className="h-4 w-4" />
@@ -174,14 +174,14 @@ export function HomeHeroDark() {
           </div>
           <Link
             href={routes.contact}
-            className="hero-fade-up hero-fade-up-delay-4 mt-3 inline-flex items-center gap-1.5 font-tech text-sm font-semibold text-brand-orange transition hover:text-brand-orange-hover"
+            className="hero-fade-up hero-fade-up-delay-4 mt-3 inline-flex items-center gap-1.5 font-tech text-sm font-semibold text-brand-orange transition hover:text-brand-orange-hover [@media(min-width:1024px)_and_(max-height:780px)]:mt-2"
           >
             Talk to Our Team
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
 
-        <div className="hero-fade-up hero-fade-up-delay-5 mt-5 hidden lg:mt-4 lg:block xl:mt-5">
+        <div className="hero-fade-up hero-fade-up-delay-5 mt-5 hidden lg:mt-4 lg:block xl:mt-5 [@media(min-width:1024px)_and_(max-height:860px)]:mt-3 [@media(min-width:1024px)_and_(max-height:780px)]:mt-2.5">
           <DesktopArchitectureFlow />
         </div>
       </div>
@@ -192,7 +192,7 @@ export function HomeHeroDark() {
           {featureBar.map((item) => (
             <div
               key={item.label}
-              className="flex items-start gap-2.5 px-4 py-2.5 xl:px-5"
+              className="flex items-start gap-2.5 px-4 py-2.5 xl:px-5 [@media(min-width:1024px)_and_(max-height:860px)]:py-2 [@media(min-width:1024px)_and_(max-height:780px)]:gap-2 [@media(min-width:1024px)_and_(max-height:780px)]:px-3 [@media(min-width:1024px)_and_(max-height:780px)]:py-1.5"
             >
               <item.icon
                 className="mt-0.5 h-4 w-4 shrink-0 text-brand-orange"
@@ -202,7 +202,7 @@ export function HomeHeroDark() {
                 <p className="font-tech text-xs font-semibold text-white">
                   {item.label}
                 </p>
-                <p className="hero-feature-desc mt-0.5 text-[11px] leading-snug text-white/75">
+                <p className="mt-0.5 text-[11px] leading-snug text-white/75 [@media(min-width:1024px)_and_(max-height:780px)]:text-[10px]">
                   {item.description}
                 </p>
               </div>
@@ -315,19 +315,19 @@ function DesktopArchitectureFlow() {
     <div className="relative mx-auto max-w-5xl">
       <div className="flex flex-row items-center gap-0">
         <div className="relative flex-1 text-left">
-          <p className="mb-2.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-orange">
+          <p className="mb-2.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-orange [@media(min-width:1024px)_and_(max-height:780px)]:mb-1.5">
             Supply
           </p>
-          <ul className="space-y-2">
+          <ul className="space-y-2 [@media(min-width:1024px)_and_(max-height:860px)]:space-y-1.5 [@media(min-width:1024px)_and_(max-height:780px)]:space-y-1">
             {supplyItems.map((item) => (
               <li
                 key={item.label}
-                className="flex items-center gap-2 rounded-xl border border-white/20 bg-white/12 px-2.5 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-md"
+                className="flex items-center gap-2 rounded-xl border border-white/20 bg-white/12 px-2.5 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-md [@media(min-width:1024px)_and_(max-height:780px)]:px-2 [@media(min-width:1024px)_and_(max-height:780px)]:py-1.5"
               >
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand-orange/25 text-brand-orange">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand-orange/25 text-brand-orange [@media(min-width:1024px)_and_(max-height:780px)]:h-6 [@media(min-width:1024px)_and_(max-height:780px)]:w-6">
                   <item.icon className="h-3.5 w-3.5" strokeWidth={1.7} />
                 </span>
-                <span className="font-tech text-xs font-semibold text-white">
+                <span className="font-tech text-xs font-semibold text-white [@media(min-width:1024px)_and_(max-height:780px)]:text-[11px]">
                   {item.label}
                 </span>
               </li>
@@ -337,15 +337,15 @@ function DesktopArchitectureFlow() {
 
         <FlowConnector icon={Layers} />
 
-        <div className="relative z-10 flex min-w-[11.5rem] max-w-[12.5rem] flex-col items-center justify-center px-3 py-2 text-center">
-          <span className="mb-2.5 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/25 bg-brand-orange text-white shadow-[0_10px_28px_rgba(255,107,0,0.35)]">
-            <Layers className="h-6 w-6" strokeWidth={1.5} />
+        <div className="relative z-10 flex min-w-[11.5rem] max-w-[12.5rem] flex-col items-center justify-center px-3 py-2 text-center [@media(min-width:1024px)_and_(max-height:780px)]:min-w-[10rem] [@media(min-width:1024px)_and_(max-height:780px)]:max-w-[11rem]">
+          <span className="mb-2.5 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/25 bg-brand-orange text-white shadow-[0_10px_28px_rgba(255,107,0,0.35)] [@media(min-width:1024px)_and_(max-height:780px)]:mb-1.5 [@media(min-width:1024px)_and_(max-height:780px)]:h-9 [@media(min-width:1024px)_and_(max-height:780px)]:w-9">
+            <Layers className="h-6 w-6 [@media(min-width:1024px)_and_(max-height:780px)]:h-5 [@media(min-width:1024px)_and_(max-height:780px)]:w-5" strokeWidth={1.5} />
           </span>
-          <p className="rounded-lg border border-white/15 bg-white/10 px-3 py-2 backdrop-blur-md">
-            <span className="block font-tech text-sm font-bold tracking-wide text-white">
+          <p className="rounded-lg border border-white/15 bg-white/10 px-3 py-2 backdrop-blur-md [@media(min-width:1024px)_and_(max-height:780px)]:px-2 [@media(min-width:1024px)_and_(max-height:780px)]:py-1.5">
+            <span className="block font-tech text-sm font-bold tracking-wide text-white [@media(min-width:1024px)_and_(max-height:780px)]:text-xs">
               SEATSCONNECT
             </span>
-            <span className="mt-0.5 block text-[11px] leading-snug text-white/70">
+            <span className="mt-0.5 block text-[11px] leading-snug text-white/70 [@media(min-width:1024px)_and_(max-height:780px)]:text-[10px]">
               One Connection.
               <br />
               Total Control.
@@ -356,19 +356,19 @@ function DesktopArchitectureFlow() {
         <FlowConnector icon={Globe2} />
 
         <div className="relative flex-1 text-left">
-          <p className="mb-2.5 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-orange">
+          <p className="mb-2.5 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-orange [@media(min-width:1024px)_and_(max-height:780px)]:mb-1.5">
             Global B2B Distribution
           </p>
-          <ul className="space-y-1.5">
+          <ul className="space-y-1.5 [@media(min-width:1024px)_and_(max-height:780px)]:space-y-1">
             {channelItems.map((item) => (
               <li
                 key={item.label}
-                className="flex items-center gap-2 rounded-xl border border-white/20 bg-white/12 px-2.5 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-md"
+                className="flex items-center gap-2 rounded-xl border border-white/20 bg-white/12 px-2.5 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-md [@media(min-width:1024px)_and_(max-height:780px)]:px-2 [@media(min-width:1024px)_and_(max-height:780px)]:py-1.5"
               >
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand-orange/25 text-brand-orange">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand-orange/25 text-brand-orange [@media(min-width:1024px)_and_(max-height:780px)]:h-6 [@media(min-width:1024px)_and_(max-height:780px)]:w-6">
                   <item.icon className="h-3.5 w-3.5" strokeWidth={1.7} />
                 </span>
-                <span className="font-tech text-xs font-semibold text-white">
+                <span className="font-tech text-xs font-semibold text-white [@media(min-width:1024px)_and_(max-height:780px)]:text-[11px]">
                   {item.label}
                 </span>
               </li>

@@ -58,17 +58,17 @@ export function PageHero({
     <section
       className={cn(
         "hero-band relative flex flex-col overflow-hidden",
-        // Auto-height on small screens so steps/features never collide;
-        // fixed viewport height only from lg up.
+        // Always grow with content so steps + feature bar never collide.
+        // Soft min-height on large screens for presence — no max-height crop.
         "h-auto min-h-0",
-        "lg:h-[70vh] lg:max-h-[70vh] lg:min-h-[28rem]",
+        "lg:min-h-[min(68vh,36rem)]",
         className
       )}
     >
       <PageHeroBackdrop image={heroImage} />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col px-4 py-6 sm:px-6 sm:py-8 lg:h-full lg:justify-between lg:px-8 lg:py-7">
-        <div className="flex min-h-0 flex-col lg:flex-1 lg:justify-center">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-6 sm:gap-7 sm:px-6 sm:py-8 lg:gap-8 lg:px-8 lg:py-8 xl:gap-9 xl:py-10">
+        <div className="flex min-h-0 flex-col">
           <div className="platform-hero-fade mb-3 sm:mb-4">
             {/* Mobile: eyebrow only as a pill */}
             {eyebrow ? (
@@ -169,7 +169,7 @@ export function PageHero({
           </div>
 
           {steps && steps.length > 0 ? (
-            <div className="platform-hero-fade platform-hero-fade-4 relative mt-6 sm:mt-7 lg:mt-6">
+            <div className="platform-hero-fade platform-hero-fade-4 relative mt-5 sm:mt-6 lg:mt-7">
               {/* Mobile: one-row pill */}
               <div className="relative flex w-full items-stretch overflow-hidden rounded-full border border-orange-100/90 bg-white/95 p-1 shadow-[0_8px_20px_rgba(40,30,20,0.05)] sm:hidden">
                 {steps.map((step, i) => (
@@ -196,9 +196,9 @@ export function PageHero({
                   aria-hidden
                   className="pointer-events-none absolute -inset-x-2 -inset-y-2 rounded-2xl bg-[#f7f4f0]/92 lg:hidden"
                 />
-                <div className="relative grid max-w-2xl grid-cols-4 gap-2 sm:max-w-3xl">
+                <div className="relative grid max-w-2xl grid-cols-4 gap-2 sm:max-w-3xl lg:gap-3">
                   {steps.map((step, i) => (
-                    <div key={step.title} className="relative flex flex-col gap-1.5">
+                    <div key={step.title} className="relative flex flex-col gap-1.5 pb-0.5">
                       <span className="relative z-[1] flex h-9 w-9 items-center justify-center rounded-lg bg-brand-orange/12 text-brand-orange ring-4 ring-[#f7f4f0]">
                         <step.icon className="h-4 w-4" strokeWidth={1.7} />
                       </span>
@@ -223,11 +223,13 @@ export function PageHero({
         </div>
 
         {features && features.length > 0 ? (
-          <div className="platform-hero-fade platform-hero-fade-5 relative mt-6 shrink-0 sm:mt-7 lg:mt-5">
+          <div className="platform-hero-fade platform-hero-fade-5 relative z-20 shrink-0">
             <div
               className={cn(
                 "grid grid-cols-1 gap-2.5 rounded-2xl border border-orange-100/90 bg-white p-3 shadow-[0_12px_36px_rgba(40,30,20,0.07)] sm:grid-cols-2 sm:gap-0 sm:p-0 lg:rounded-full lg:bg-white/95 lg:px-2 lg:py-2.5 lg:backdrop-blur-sm",
-                features.length > 4 ? "lg:grid-cols-3 xl:grid-cols-6" : "lg:grid-cols-4"
+                features.length > 4
+                  ? "lg:grid-cols-3 xl:grid-cols-6"
+                  : "lg:grid-cols-4"
               )}
             >
               {features.map((item, i) => (
