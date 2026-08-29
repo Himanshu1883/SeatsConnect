@@ -4339,6 +4339,18 @@
       "source_location": "L256"
     },
     {
+      "id": "src_components_sections_home_homewhatis_endcollage",
+      "label": "EndCollage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "HomeWhatIs.tsx",
+      "file_type": "code",
+      "norm_label": "endcollage()",
+      "source_file": "src/components/sections/home/HomeWhatIs.tsx",
+      "source_location": "L250"
+    },
+    {
       "id": "src_components_sections_home_homewhatis_homewhatis",
       "label": "HomeWhatIs()",
       "_callable": true,
@@ -4348,19 +4360,7 @@
       "file_type": "code",
       "norm_label": "homewhatis()",
       "source_file": "src/components/sections/home/HomeWhatIs.tsx",
-      "source_location": "L98"
-    },
-    {
-      "id": "src_components_sections_home_homewhatis_photocollage",
-      "label": "PhotoCollage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "HomeWhatIs.tsx",
-      "file_type": "code",
-      "norm_label": "photocollage()",
-      "source_file": "src/components/sections/home/HomeWhatIs.tsx",
-      "source_location": "L281"
+      "source_location": "L82"
     },
     {
       "id": "src_components_sections_about_aboutmission_aboutmission",
@@ -8378,7 +8378,7 @@
       "file_type": "code",
       "norm_label": "collage",
       "source_file": "src/components/sections/home/HomeWhatIs.tsx",
-      "source_location": "L92"
+      "source_location": "L76"
     },
     {
       "id": "src_components_sections_home_homewhatis_pillars",
@@ -14555,7 +14555,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/sections/home/HomeWhatIs.tsx",
-      "source_location": "L139",
+      "source_location": "L121",
       "weight": 1.0
     },
     {
@@ -34556,13 +34556,13 @@
     },
     {
       "source": "src_components_sections_home_homewhatis",
-      "target": "src_components_sections_home_homewhatis_photocollage",
+      "target": "src_components_sections_home_homewhatis_endcollage",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/sections/home/HomeWhatIs.tsx",
-      "source_location": "L281",
+      "source_location": "L250",
       "weight": 1.0
     },
     {
@@ -34606,7 +34606,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/sections/home/HomeWhatIs.tsx",
-      "source_location": "L92",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -34617,7 +34617,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/sections/home/HomeWhatIs.tsx",
-      "source_location": "L98",
+      "source_location": "L82",
       "weight": 1.0
     },
     {

@@ -526,6 +526,19 @@
       "source_location": "L29"
     },
     {
+      "id": "src_components_sections_api_apiflows_flowstep",
+      "label": "FlowStep",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ApiFlows.tsx",
+      "file_type": "code",
+      "norm_label": "flowstep",
+      "source_file": "src/components/sections/api/ApiFlows.tsx",
+      "source_location": "L23"
+    },
+    {
       "id": "src_components_sections_home_homecontrolleddist_rule",
       "label": "Rule",
       "_callable": true,
@@ -656,39 +669,13 @@
       "source_location": "L1"
     },
     {
-      "id": "src_components_ui_logowall_logowallprops",
-      "label": "LogoWallProps",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "LogoWall.tsx",
-      "file_type": "code",
-      "norm_label": "logowallprops",
-      "source_file": "src/components/ui/LogoWall.tsx",
-      "source_location": "L5"
-    },
-    {
-      "id": "src_lib_constants_logos_partnerlogo",
-      "label": "PartnerLogo",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "LogoWall.tsx",
-      "file_type": "code",
-      "norm_label": "partnerlogo",
-      "source_file": "src/lib/constants/logos.ts",
-      "source_location": "L1"
-    },
-    {
       "id": "src_lib_hooks_useherothemepreview_herotheme",
       "label": "HeroTheme",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "LogoWall.tsx",
+      "community_name": "features.ts",
       "file_type": "code",
       "norm_label": "herotheme",
       "source_file": "src/lib/hooks/useHeroThemePreview.ts",
@@ -955,19 +942,6 @@
       "source_location": "L4"
     },
     {
-      "id": "src_components_sections_api_apiflows_flowstep",
-      "label": "FlowStep",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "cn",
-      "file_type": "code",
-      "norm_label": "flowstep",
-      "source_file": "src/components/sections/api/ApiFlows.tsx",
-      "source_location": "L23"
-    },
-    {
       "id": "src_components_ui_swipeablecards_swipeablecardsprops",
       "label": "SwipeableCardsProps",
       "_callable": true,
@@ -1070,6 +1044,32 @@
       "norm_label": "experiencestripprops",
       "source_file": "src/components/ui/CardMedia.tsx",
       "source_location": "L45"
+    },
+    {
+      "id": "src_components_ui_logowall_logowallprops",
+      "label": "LogoWallProps",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "about/page.tsx",
+      "file_type": "code",
+      "norm_label": "logowallprops",
+      "source_file": "src/components/ui/LogoWall.tsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "src_lib_constants_logos_partnerlogo",
+      "label": "PartnerLogo",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "about/page.tsx",
+      "file_type": "code",
+      "norm_label": "partnerlogo",
+      "source_file": "src/lib/constants/logos.ts",
+      "source_location": "L1"
     },
     {
       "id": "src_components_sections_home_homeframe_homeframeprops",
@@ -1483,42 +1483,6 @@
       "source_location": "L801"
     },
     {
-      "id": "src_components_sections_home_homeapi_homeapi",
-      "label": "HomeApi()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "HomeApi.tsx",
-      "file_type": "code",
-      "norm_label": "homeapi()",
-      "source_file": "src/components/sections/home/HomeApi.tsx",
-      "source_location": "L903"
-    },
-    {
-      "id": "src_components_sections_home_homeapi_homeapi_handlecopy",
-      "label": "handleCopy()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "HomeApi.tsx",
-      "file_type": "code",
-      "norm_label": "handlecopy()",
-      "source_file": "src/components/sections/home/HomeApi.tsx",
-      "source_location": "L917"
-    },
-    {
-      "id": "src_components_sections_home_homeapi_homeapi_selectresource",
-      "label": "selectResource()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "HomeApi.tsx",
-      "file_type": "code",
-      "norm_label": "selectresource()",
-      "source_file": "src/components/sections/home/HomeApi.tsx",
-      "source_location": "L911"
-    },
-    {
       "id": "src_components_sections_home_homeapi_inventorydash",
       "label": "InventoryDash()",
       "_callable": true,
@@ -1831,6 +1795,102 @@
       "source_location": "L5"
     },
     {
+      "id": "src_components_sections_api_apiflows_consoleshell",
+      "label": "ConsoleShell()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ApiFlows.tsx",
+      "file_type": "code",
+      "norm_label": "consoleshell()",
+      "source_file": "src/components/sections/api/ApiFlows.tsx",
+      "source_location": "L274"
+    },
+    {
+      "id": "src_components_sections_api_apiflows_flowshowcase",
+      "label": "FlowShowcase()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ApiFlows.tsx",
+      "file_type": "code",
+      "norm_label": "flowshowcase()",
+      "source_file": "src/components/sections/api/ApiFlows.tsx",
+      "source_location": "L142"
+    },
+    {
+      "id": "src_components_sections_api_apiflows_globalconsolestyles",
+      "label": "GlobalConsoleStyles()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ApiFlows.tsx",
+      "file_type": "code",
+      "norm_label": "globalconsolestyles()",
+      "source_file": "src/components/sections/api/ApiFlows.tsx",
+      "source_location": "L490"
+    },
+    {
+      "id": "src_components_sections_api_apiflows_partnerconsoles",
+      "label": "PartnerConsoles()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ApiFlows.tsx",
+      "file_type": "code",
+      "norm_label": "partnerconsoles()",
+      "source_file": "src/components/sections/api/ApiFlows.tsx",
+      "source_location": "L415"
+    },
+    {
+      "id": "src_components_sections_api_apiflows_supplierconsoles",
+      "label": "SupplierConsoles()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ApiFlows.tsx",
+      "file_type": "code",
+      "norm_label": "supplierconsoles()",
+      "source_file": "src/components/sections/api/ApiFlows.tsx",
+      "source_location": "L319"
+    },
+    {
+      "id": "src_components_sections_home_homeapi_homeapi",
+      "label": "HomeApi()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 118,
+      "community_name": "HomeApi",
+      "file_type": "code",
+      "norm_label": "homeapi()",
+      "source_file": "src/components/sections/home/HomeApi.tsx",
+      "source_location": "L903"
+    },
+    {
+      "id": "src_components_sections_home_homeapi_homeapi_handlecopy",
+      "label": "handleCopy()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 118,
+      "community_name": "HomeApi",
+      "file_type": "code",
+      "norm_label": "handlecopy()",
+      "source_file": "src/components/sections/home/HomeApi.tsx",
+      "source_location": "L917"
+    },
+    {
+      "id": "src_components_sections_home_homeapi_homeapi_selectresource",
+      "label": "selectResource()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 118,
+      "community_name": "HomeApi",
+      "file_type": "code",
+      "norm_label": "selectresource()",
+      "source_file": "src/components/sections/home/HomeApi.tsx",
+      "source_location": "L911"
+    },
+    {
       "id": "src_components_sections_home_homecontrolleddist_homecontrolleddist",
       "label": "HomeControlledDist()",
       "_callable": true,
@@ -1973,18 +2033,6 @@
       "norm_label": "isfooterlinkactive()",
       "source_file": "src/components/layout/Footer.tsx",
       "source_location": "L64"
-    },
-    {
-      "id": "src_components_ui_logowall_logowall",
-      "label": "LogoWall()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "LogoWall.tsx",
-      "file_type": "code",
-      "norm_label": "logowall()",
-      "source_file": "src/components/ui/LogoWall.tsx",
-      "source_location": "L10"
     },
     {
       "id": "src_app_resources_page_resourcespage",
@@ -3019,64 +3067,16 @@
       "source_location": "L14"
     },
     {
-      "id": "src_components_sections_api_apiflows_consoleshell",
-      "label": "ConsoleShell()",
+      "id": "src_components_layout_herothemepreviewtoggle_themechip",
+      "label": "ThemeChip()",
       "_callable": true,
       "_origin": "ast",
       "community": 31,
       "community_name": "cn",
       "file_type": "code",
-      "norm_label": "consoleshell()",
-      "source_file": "src/components/sections/api/ApiFlows.tsx",
-      "source_location": "L274"
-    },
-    {
-      "id": "src_components_sections_api_apiflows_flowshowcase",
-      "label": "FlowShowcase()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "cn",
-      "file_type": "code",
-      "norm_label": "flowshowcase()",
-      "source_file": "src/components/sections/api/ApiFlows.tsx",
-      "source_location": "L142"
-    },
-    {
-      "id": "src_components_sections_api_apiflows_globalconsolestyles",
-      "label": "GlobalConsoleStyles()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "cn",
-      "file_type": "code",
-      "norm_label": "globalconsolestyles()",
-      "source_file": "src/components/sections/api/ApiFlows.tsx",
-      "source_location": "L490"
-    },
-    {
-      "id": "src_components_sections_api_apiflows_partnerconsoles",
-      "label": "PartnerConsoles()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "cn",
-      "file_type": "code",
-      "norm_label": "partnerconsoles()",
-      "source_file": "src/components/sections/api/ApiFlows.tsx",
-      "source_location": "L415"
-    },
-    {
-      "id": "src_components_sections_api_apiflows_supplierconsoles",
-      "label": "SupplierConsoles()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "cn",
-      "file_type": "code",
-      "norm_label": "supplierconsoles()",
-      "source_file": "src/components/sections/api/ApiFlows.tsx",
-      "source_location": "L319"
+      "norm_label": "themechip()",
+      "source_file": "src/components/layout/HeroThemePreviewToggle.tsx",
+      "source_location": "L39"
     },
     {
       "id": "src_components_sections_join_joinnetwork_joinnetwork",
@@ -4003,6 +4003,18 @@
       "source_location": "L41"
     },
     {
+      "id": "src_components_ui_logowall_logowall",
+      "label": "LogoWall()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "about/page.tsx",
+      "file_type": "code",
+      "norm_label": "logowall()",
+      "source_file": "src/components/ui/LogoWall.tsx",
+      "source_location": "L10"
+    },
+    {
       "id": "src_components_sections_home_homewhitelabel_brandlayerart",
       "label": "BrandLayerArt()",
       "_callable": true,
@@ -4517,18 +4529,6 @@
       "norm_label": "herothemepreviewtoggle()",
       "source_file": "src/components/layout/HeroThemePreviewToggle.tsx",
       "source_location": "L8"
-    },
-    {
-      "id": "src_components_layout_herothemepreviewtoggle_themechip",
-      "label": "ThemeChip()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 76,
-      "community_name": "HomeHero.tsx",
-      "file_type": "code",
-      "norm_label": "themechip()",
-      "source_file": "src/components/layout/HeroThemePreviewToggle.tsx",
-      "source_location": "L39"
     },
     {
       "id": "src_components_sections_home_homehero_homehero",
@@ -5576,6 +5576,39 @@
       "source_location": "L1"
     },
     {
+      "id": "src_components_sections_api_apiflows",
+      "label": "ApiFlows.tsx",
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ApiFlows.tsx",
+      "file_type": "code",
+      "norm_label": "apiflows.tsx",
+      "source_file": "src/components/sections/api/ApiFlows.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_sections_api_apiflows_partnerflow",
+      "label": "partnerFlow",
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ApiFlows.tsx",
+      "file_type": "code",
+      "norm_label": "partnerflow",
+      "source_file": "src/components/sections/api/ApiFlows.tsx",
+      "source_location": "L52"
+    },
+    {
+      "id": "src_components_sections_api_apiflows_supplierflow",
+      "label": "supplierFlow",
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ApiFlows.tsx",
+      "file_type": "code",
+      "norm_label": "supplierflow",
+      "source_file": "src/components/sections/api/ApiFlows.tsx",
+      "source_location": "L29"
+    },
+    {
       "id": "src_components_sections_home_homecontrolleddist",
       "label": "HomeControlledDist.tsx",
       "_origin": "ast",
@@ -5774,22 +5807,11 @@
       "source_location": "L23"
     },
     {
-      "id": "src_components_ui_logowall",
-      "label": "LogoWall.tsx",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "LogoWall.tsx",
-      "file_type": "code",
-      "norm_label": "logowall.tsx",
-      "source_file": "src/components/ui/LogoWall.tsx",
-      "source_location": "L1"
-    },
-    {
       "id": "src_lib_constants_features",
       "label": "features.ts",
       "_origin": "ast",
       "community": 15,
-      "community_name": "LogoWall.tsx",
+      "community_name": "features.ts",
       "file_type": "code",
       "norm_label": "features.ts",
       "source_file": "src/lib/constants/features.ts",
@@ -5800,40 +5822,18 @@
       "label": "launchFlags",
       "_origin": "ast",
       "community": 15,
-      "community_name": "LogoWall.tsx",
+      "community_name": "features.ts",
       "file_type": "code",
       "norm_label": "launchflags",
       "source_file": "src/lib/constants/features.ts",
       "source_location": "L1"
     },
     {
-      "id": "src_lib_constants_logos",
-      "label": "logos.ts",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "LogoWall.tsx",
-      "file_type": "code",
-      "norm_label": "logos.ts",
-      "source_file": "src/lib/constants/logos.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_constants_logos_partnerlogos",
-      "label": "partnerLogos",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "LogoWall.tsx",
-      "file_type": "code",
-      "norm_label": "partnerlogos",
-      "source_file": "src/lib/constants/logos.ts",
-      "source_location": "L11"
-    },
-    {
       "id": "src_lib_hooks_useherothemepreview",
       "label": "useHeroThemePreview.ts",
       "_origin": "ast",
       "community": 15,
-      "community_name": "LogoWall.tsx",
+      "community_name": "features.ts",
       "file_type": "code",
       "norm_label": "useherothemepreview.ts",
       "source_file": "src/lib/hooks/useHeroThemePreview.ts",
@@ -6797,37 +6797,15 @@
       "source_location": "L26"
     },
     {
-      "id": "src_components_sections_api_apiflows",
-      "label": "ApiFlows.tsx",
+      "id": "src_components_layout_herothemepreviewtoggle",
+      "label": "HeroThemePreviewToggle.tsx",
       "_origin": "ast",
       "community": 31,
       "community_name": "cn",
       "file_type": "code",
-      "norm_label": "apiflows.tsx",
-      "source_file": "src/components/sections/api/ApiFlows.tsx",
+      "norm_label": "herothemepreviewtoggle.tsx",
+      "source_file": "src/components/layout/HeroThemePreviewToggle.tsx",
       "source_location": "L1"
-    },
-    {
-      "id": "src_components_sections_api_apiflows_partnerflow",
-      "label": "partnerFlow",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "cn",
-      "file_type": "code",
-      "norm_label": "partnerflow",
-      "source_file": "src/components/sections/api/ApiFlows.tsx",
-      "source_location": "L52"
-    },
-    {
-      "id": "src_components_sections_api_apiflows_supplierflow",
-      "label": "supplierFlow",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "cn",
-      "file_type": "code",
-      "norm_label": "supplierflow",
-      "source_file": "src/components/sections/api/ApiFlows.tsx",
-      "source_location": "L29"
     },
     {
       "id": "src_components_ui_swipeablecards",
@@ -7587,6 +7565,39 @@
       "norm_label": "sides",
       "source_file": "src/components/sections/about/AboutConnect.tsx",
       "source_location": "L19"
+    },
+    {
+      "id": "src_components_ui_logowall",
+      "label": "LogoWall.tsx",
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "about/page.tsx",
+      "file_type": "code",
+      "norm_label": "logowall.tsx",
+      "source_file": "src/components/ui/LogoWall.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_constants_logos",
+      "label": "logos.ts",
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "about/page.tsx",
+      "file_type": "code",
+      "norm_label": "logos.ts",
+      "source_file": "src/lib/constants/logos.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_constants_logos_partnerlogos",
+      "label": "partnerLogos",
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "about/page.tsx",
+      "file_type": "code",
+      "norm_label": "partnerlogos",
+      "source_file": "src/lib/constants/logos.ts",
+      "source_location": "L11"
     },
     {
       "id": "src_components_sections_home_homewhitelabel",
@@ -8951,17 +8962,6 @@
       "norm_label": "supporthelpareas",
       "source_file": "src/lib/constants/support.ts",
       "source_location": "L4"
-    },
-    {
-      "id": "src_components_layout_herothemepreviewtoggle",
-      "label": "HeroThemePreviewToggle.tsx",
-      "_origin": "ast",
-      "community": 76,
-      "community_name": "HomeHero.tsx",
-      "file_type": "code",
-      "norm_label": "herothemepreviewtoggle.tsx",
-      "source_file": "src/components/layout/HeroThemePreviewToggle.tsx",
-      "source_location": "L1"
     },
     {
       "id": "src_components_sections_home_homehero",
@@ -14508,18 +14508,6 @@
       "context": "call",
       "source_file": "src/components/sections/home/HomePartner.tsx",
       "source_location": "L577",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_sections_home_homepartner_homepartner",
-      "target": "src_lib_utils_cn",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/components/sections/home/HomePartner.tsx",
-      "source_location": "L243",
       "weight": 1.0
     },
     {
@@ -41807,5 +41795,5 @@
       "source_file": "public/seatsconnect-logo.png"
     }
   ],
-  "built_at_commit": "588e606305fd1f60d166c64a0a9453bad19ac039"
+  "built_at_commit": "4c78c9e9661b4d4a6607073bfffd7b51675e4c94"
 }

@@ -82,8 +82,8 @@ export const siteImages = {
     cta: a("sections/concert-stage.jpg"),
   },
   pages: {
-    /** Stadium crowd — platform infrastructure */
-    platform: a("pages/platform-hero.png"),
+    /** Night concert — platform infrastructure hero */
+    platform: a("pages/platform-hero-.jpg"),
     /** Night concert — supplier inventory at live events */
     suppliers: a("pages/suppliers-hero.jpg"),
     /** Global network map — partner distribution */

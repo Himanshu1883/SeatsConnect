@@ -14,7 +14,7 @@
   "12": "HomeControlledDist.tsx",
   "13": "LiveConsole.tsx",
   "14": "Footer.tsx",
-  "15": "LogoWall.tsx",
+  "15": "features.ts",
   "16": "Graphify Skill",
   "17": "developerPortal",
   "18": "resources/page.tsx",
@@ -115,5 +115,7 @@
   "113": "legal/page.tsx",
   "114": "HomeSupplier.tsx",
   "115": "HomeB2BTools.tsx",
-  "116": "utils.ts"
+  "116": "utils.ts",
+  "117": "ApiFlows.tsx",
+  "118": "HomeApi"
 }

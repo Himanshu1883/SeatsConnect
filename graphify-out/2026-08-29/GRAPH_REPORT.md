@@ -1,7 +1,7 @@
 # Graph Report - SeatsConnect  (2026-08-29)
 
 ## Corpus Check
-- 191 files · ~1,428,328 words
+- 191 files · ~1,428,259 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
