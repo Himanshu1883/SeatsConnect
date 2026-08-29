@@ -215,7 +215,7 @@ export function HomePartner() {
       </Reveal>
 
       {/* Access modes — selector + visual, no console / lines */}
-      <Reveal delay={120}>
+      {/* <Reveal delay={120}>
         <div className="mt-14 lg:mt-16">
           <div className="mb-6 flex flex-col gap-2 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -279,7 +279,7 @@ export function HomePartner() {
             </div>
           </div>
         </div>
-      </Reveal>
+      </Reveal> */}
 
       {/* Workflow — typographic steps, no connecting lines */}
       {/* <Reveal delay={160}>
