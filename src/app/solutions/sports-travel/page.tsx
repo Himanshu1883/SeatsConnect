@@ -25,6 +25,7 @@ export default function SportsTravelSolutionPage() {
         eyebrow={page.hero.eyebrow}
         icon={heroIcons.solutions}
         image={page.hero.image}
+        imagePlacement="right"
         title={page.hero.title}
         titleAccent={page.hero.titleAccent}
         description={page.hero.description}

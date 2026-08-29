@@ -27,6 +27,8 @@ type PageHeroProps = {
   description?: string;
   icon?: LucideIcon;
   image?: string;
+  /** right = photo sits in the right panel; bleed = full-width under the wash */
+  imagePlacement?: "right" | "bleed";
   primaryCta?: PageHeroCta;
   secondaryCta?: PageHeroCta;
   tertiaryCta?: PageHeroCta;
@@ -43,6 +45,7 @@ export function PageHero({
   description,
   icon: BrandIcon = Layers,
   image,
+  imagePlacement = "bleed",
   primaryCta,
   secondaryCta,
   tertiaryCta,
@@ -65,7 +68,7 @@ export function PageHero({
         className
       )}
     >
-      <PageHeroBackdrop image={heroImage} />
+      <PageHeroBackdrop image={heroImage} placement={imagePlacement} />
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-6 sm:gap-7 sm:px-6 sm:py-8 lg:gap-8 lg:px-8 lg:py-8 xl:gap-9 xl:py-10">
         <div className="flex min-h-0 flex-col">
@@ -264,7 +267,15 @@ export function PageHero({
   );
 }
 
-function PageHeroBackdrop({ image }: { image: string }) {
+function PageHeroBackdrop({
+  image,
+  placement = "bleed",
+}: {
+  image: string;
+  placement?: "right" | "bleed";
+}) {
+  const right = placement === "right";
+
   return (
     <div
       className="pointer-events-none absolute inset-0 overflow-hidden"
@@ -300,15 +311,24 @@ function PageHeroBackdrop({ image }: { image: string }) {
         />
       </div>
 
-      {/* Desktop: full-bleed visionary image */}
-      <div className="page-hero-shot absolute inset-0 hidden lg:block">
+      {/* Desktop: photo on the right (or full-bleed under the wash) */}
+      <div
+        className={cn(
+          "page-hero-shot absolute hidden lg:block",
+          right ? "inset-y-0 right-0 left-[42%]" : "inset-0"
+        )}
+      >
         <Image
           src={image}
           alt=""
           fill
           priority
-          sizes="100vw"
-          className="object-cover object-[72%_center]"
+          sizes={right ? "58vw" : "100vw"}
+          className={
+            right
+              ? "object-cover object-center"
+              : "object-cover object-[72%_center]"
+          }
         />
       </div>
 
@@ -320,7 +340,7 @@ function PageHeroBackdrop({ image }: { image: string }) {
         className="absolute inset-0 hidden lg:block"
         style={{
           background:
-            "linear-gradient(to right, #f7f4f0 0%, #f7f4f0 42%, rgba(247,244,240,0.97) 52%, rgba(247,244,240,0.82) 60%, rgba(247,244,240,0.52) 68%, rgba(247,244,240,0.22) 76%, rgba(247,244,240,0.06) 84%, transparent 92%)",
+            "linear-gradient(to right, #f7f4f0 0%, #f7f4f0 42%, rgba(247,244,240,0.97) 52%, rgba(247,244,240,0.82) 60%, rgba(247,244,240,0.52) 68%, rgba(247,244,240,0.22) 76%, rgba(247,244,240,0.06) 84%, transparent 100%)",
         }}
       />
       <div

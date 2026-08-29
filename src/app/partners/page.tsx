@@ -17,7 +17,7 @@ import { routes } from "@/lib/constants/routes";
 export const metadata: Metadata = {
   title: "For Partners — SeatsConnect™",
   description:
-    "One connection to global event supply. Access tickets, hospitality and live experiences through one professional B2B platform.",
+    "More inventory. Fewer integrations. One relationship. Access tickets, hospitality and live experiences through one professional B2B platform.",
 };
 
 export default function PartnersPage() {
@@ -27,11 +27,12 @@ export default function PartnersPage() {
         eyebrow="For Partners"
         icon={heroIcons.partner}
         image={siteImages.pages.partners}
-        title="One Connection to"
-        titleAccent="Global Event Supply."
-        description="Access tickets, hospitality and live experiences through one professional B2B platform. Approved businesses access event supply without separate relationships with every supplier."
-        primaryCta={{ label: "Apply for Partner Access", href: routes.joinPartner }}
-        secondaryCta={{ label: "Book a Demo", href: routes.contact }}
+        imagePlacement="right"
+        title="More Inventory. Fewer Integrations."
+        titleAccent="One Relationship."
+        description="Connect once to approved event supply. Access tickets, hospitality and live experiences through one professional B2B platform — without a separate relationship with every supplier."
+        primaryCta={{ label: "Join Our Network", href: routes.joinPartner }}
+        secondaryCta={{ label: "Talk to Our Team", href: routes.contact }}
         steps={heroWorkflow}
         features={[...heroFeatures.partner]}
       />

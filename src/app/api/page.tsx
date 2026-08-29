@@ -15,7 +15,7 @@ import { routes } from "@/lib/constants/routes";
 export const metadata: Metadata = {
   title: "API — SeatsConnect™",
   description:
-    "Connect your platform to SeatsConnect. One API infrastructure connecting global event supply with professional distribution.",
+    "Connect your platform to SeatsConnect. API infrastructure connecting global event supply with professional distribution.",
 };
 
 export default function ApiPage() {
@@ -25,9 +25,10 @@ export default function ApiPage() {
         eyebrow="API Infrastructure"
         icon={heroIcons.api}
         image={siteImages.pages.api}
+        imagePlacement="right"
         title="Connect Your Platform to"
         titleAccent="SeatsConnect."
-        description="One API infrastructure connecting global event supply with professional distribution. Approved suppliers and partners connect existing technology directly into the network."
+        description="API infrastructure connecting global event supply with professional distribution. Approved suppliers and partners connect existing technology into the network."
         primaryCta={{ label: "Request API Access", href: routes.contact }}
         secondaryCta={{
           label: "Talk to Our Integration Team",

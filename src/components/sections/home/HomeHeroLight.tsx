@@ -58,8 +58,8 @@ const featureBar: {
     icon: ShieldCheck,
   },
   {
-    label: "Real-time Connectivity",
-    description: "API-powered infrastructure built for live inventory.",
+    label: "API Connectivity",
+    description: "Infrastructure built to connect inventory and distribution systems.",
     icon: Zap,
   },
   {
@@ -273,7 +273,7 @@ function MobileArchitectureFlow() {
           SEATSCONNECT
         </p>
         <p className="mt-0.5 text-[10px] leading-snug text-brand-gray-text">
-          One Connection. Total Control.
+          Connect Once. Distribute Globally.
         </p>
       </article>
 
@@ -336,9 +336,9 @@ function DesktopArchitectureFlow() {
             SEATSCONNECT
           </p>
           <p className="mt-0.5 text-[11px] leading-snug text-brand-gray-text">
-            One Connection.
+            Connect Once.
             <br />
-            Total Control.
+            Distribute Globally.
           </p>
         </article>
 

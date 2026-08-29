@@ -164,7 +164,7 @@ export function PlatformSupply() {
               </span>
               <div className="min-w-0">
                 <p className="font-tech text-[14px] font-bold leading-snug text-brand-dark sm:text-[15px]">
-                  One Connection. Many Opportunities.
+                  Connect Once. Distribute Globally.
                 </p>
                 <p className="mt-0.5 text-[12px] leading-snug text-brand-gray-text">
                   Connect once and reach a global network of approved

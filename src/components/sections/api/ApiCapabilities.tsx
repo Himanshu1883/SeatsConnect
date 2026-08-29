@@ -62,7 +62,7 @@ const capabilities: {
   },
   {
     name: "Webhooks",
-    desc: "Receive relevant real-time updates.",
+    desc: "Receive event and order updates where supported.",
     icon: Bell,
   },
 ];

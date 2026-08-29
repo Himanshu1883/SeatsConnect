@@ -61,8 +61,8 @@ const steps: Step[] = [
       },
       {
         icon: Package,
-        title: "Live Availability",
-        description: "Keep tickets, hospitality and event stock in sync.",
+        title: "Inventory Sync",
+        description: "Keep tickets, hospitality and event stock connected.",
       },
       {
         icon: ShieldCheck,
@@ -151,7 +151,7 @@ const steps: Step[] = [
         icon: Search,
         title: "Search Inventory",
         description:
-          "Real-time access to tickets, hospitality and event inventory.",
+          "Search tickets, hospitality and event inventory through approved access.",
       },
       {
         icon: FileText,
@@ -237,8 +237,8 @@ const steps: Step[] = [
 const bottomFeatures: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: Layers,
-    title: "One Infrastructure",
-    text: "One connection to reach global demand.",
+    title: "Connect Once",
+    text: "Reach professional demand through one layer.",
   },
   {
     icon: ShieldCheck,
@@ -294,7 +294,7 @@ export function HomeHowItWorks() {
           </h2>
           <div className="mx-auto mb-5 mt-4 h-0.5 w-12 rounded-full bg-brand-orange" />
           <p className="text-brand-gray-text leading-relaxed">
-            A simple process. One connected infrastructure.
+            A simple process. Connect once. Distribute globally.
           </p>
         </div>
       </Reveal>

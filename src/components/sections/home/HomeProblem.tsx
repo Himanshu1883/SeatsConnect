@@ -25,9 +25,9 @@ import { cn } from "@/lib/utils";
 const { experiences: exp } = siteImages;
 
 const features: { icon: LucideIcon; title: string; text: string }[] = [
-  { icon: Globe2, title: "1 Network", text: "Unified infrastructure" },
-  { icon: ShieldCheck, title: "100% Approved", text: "Trusted partners" },
-  { icon: Zap, title: "Real-time", text: "Inventory access" },
+  { icon: Globe2, title: "Connect Once", text: "One infrastructure layer" },
+  { icon: ShieldCheck, title: "Approved Only", text: "Controlled B2B access" },
+  { icon: Zap, title: "API-Ready", text: "Built to connect systems" },
 ];
 
 const supplyNodes: { label: string; icon: LucideIcon }[] = [
@@ -64,14 +64,12 @@ export function HomeProblem() {
             <span className="text-brand-orange">Distribution</span> Is Still
             Fragmented.
           </h2>
-          <p className="mb-3 leading-relaxed text-brand-gray-text">
-            Event inventory is often distributed through disconnected systems,
-            individual commercial relationships and manual processes.
-          </p>
           <p className="mb-6 leading-relaxed text-brand-gray-text">
-            Professional businesses still need tickets, hospitality and live
-            experiences for their customers. SeatsConnect provides unified B2B
-            distribution infrastructure between supply and approved partners.
+            Event inventory still moves through disconnected systems, one-off
+            relationships and manual processes. SeatsConnect is B2B
+            distribution infrastructure for tickets, hospitality and live
+            experiences — connecting supply with approved partners through one
+            layer. Not an open marketplace.
           </p>
 
           <div
@@ -274,9 +272,9 @@ function ChallengeNetwork() {
               SEATSCONNECT
             </p>
             <p className="mt-1 max-w-[8.5rem] text-[10px] leading-snug text-brand-gray-text sm:mt-1.5 sm:text-[11px]">
-              One Infrastructure.
+              Connect Once.
               <br />
-              Infinite Possibilities.
+              Distribute Globally.
             </p>
           </div>
         </div>

@@ -387,7 +387,7 @@ function SearchConsole({
       badge="live"
       metricLabel="Connected inventory"
       metricValue="Available"
-      metricNote="Real-time search"
+      metricNote="Approved inventory search"
       active={active}
       onSelect={onSelect}
     >

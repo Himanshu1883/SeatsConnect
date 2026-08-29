@@ -30,10 +30,10 @@ export function JoinNetwork() {
       <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-12">
         <Reveal>
           <div>
-            <HomeKicker>One network</HomeKicker>
+            <HomeKicker>Connect Once</HomeKicker>
             <h2 className="mt-3 font-tech text-3xl font-bold leading-[1.08] text-brand-dark sm:text-4xl">
-              Supply and Distribution.{" "}
-              <span className="text-brand-orange">One Infrastructure.</span>
+              Connect Once.{" "}
+              <span className="text-brand-orange">Distribute Globally.</span>
             </h2>
             <p className="mt-3 max-w-lg text-sm leading-relaxed text-brand-gray-text sm:text-[15px]">
               Whether you connect inventory or distribute to customers,

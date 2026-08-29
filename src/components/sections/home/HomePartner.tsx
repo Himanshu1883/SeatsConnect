@@ -151,8 +151,8 @@ export function HomePartner() {
           <div>
             <HomeKicker>For Partners</HomeKicker>
             <h2 className="mt-3 max-w-2xl font-tech text-3xl font-bold leading-[1.1] tracking-tight text-brand-dark sm:text-4xl lg:text-[2.65rem]">
-              One Connection to{" "}
-              <span className="text-brand-orange">Global Event Supply.</span>
+              Global Event Supply Through{" "}
+              <span className="text-brand-orange">Approved Access.</span>
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-brand-gray-text sm:text-base">
               Approved B2B businesses access ticket, hospitality and event

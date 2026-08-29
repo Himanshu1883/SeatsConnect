@@ -28,6 +28,7 @@ export default function SuppliersPage() {
         eyebrow="For Suppliers"
         icon={heroIcons.supply}
         image={siteImages.pages.suppliers}
+        imagePlacement="right"
         title="Turn Event Inventory Into"
         titleAccent="Global B2B Distribution."
         description="Connect once and make your inventory available through approved professional channels. SeatsConnect helps venues, promoters, hospitality providers and approved suppliers connect inventory with professional B2B demand."

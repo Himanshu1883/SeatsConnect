@@ -82,15 +82,17 @@ export const siteImages = {
     cta: a("sections/concert-stage.jpg"),
   },
   pages: {
-    /** Audience / seated venue — platform infrastructure */
-    platform: a("pages/platform-hero.jpg"),
-    /** Airplane window at dusk — global supply reach */
+    /** Stadium crowd — platform infrastructure */
+    platform: a("pages/platform-hero.png"),
+    /** Night concert — supplier inventory at live events */
     suppliers: a("pages/suppliers-hero.jpg"),
-    /** World map with location pins — partner network */
-    partners: a("pages/partners-hero.jpg"),
+    /** Global network map — partner distribution */
+    partners: a("pages/partners-hero.png"),
     solutions: a("sections/event-lights.jpg"),
-    api: a("pages/servers.jpg"),
-    about: a("pages/team.jpg"),
+    /** Global network — API infrastructure */
+    api: a("pages/api-hero.png"),
+    /** About collage — heritage, supply, demand, global connectivity */
+    about: a("pages/about-hero.jpg"),
     join: a("pages/conference.jpg"),
     contact: a("sections/office.jpg"),
     request: a("pages/event-hall.jpg"),
@@ -102,7 +104,7 @@ export const siteImages = {
     concierge: a("experiences/hotel.jpg"),
     corporate: a("experiences/corporate.jpg"),
     hotels: a("pages/hotel-exterior.jpg"),
-    sportsTravel: a("experiences/sports-travel.jpg"),
+    sportsTravel: a("pages/sports-travel-hero.jpg"),
     whiteLabel: a("sections/office.jpg"),
     legal: a("pages/legal.jpg"),
     topics: a("experiences/network.jpg"),

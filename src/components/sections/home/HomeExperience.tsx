@@ -7,6 +7,7 @@ import {
   CalendarDays,
   Globe2,
   Layers,
+  Ticket,
   UsersRound,
 } from "lucide-react";
 import { HomeFrame, HomeKicker } from "@/components/sections/home/HomeFrame";
@@ -196,15 +197,15 @@ export function HomeExperience() {
           <div>
             <HomeKicker>Experience</HomeKicker>
             <h2 className="mt-3 font-tech text-2xl sm:text-3xl lg:text-4xl font-bold leading-[1.14] tracking-tight text-brand-dark">
-              Built on Decades of{" "}
-              <span className="text-brand-orange">Ticketing & Distribution</span>{" "}
-              Experience.
+              30+ Years of Industry Experience.{" "}
+              <span className="text-brand-orange">Modern Infrastructure.</span>
             </h2>
             <p className="mt-3 max-w-lg text-sm sm:text-base leading-relaxed text-brand-gray-text">
-              SeatsConnect is built on more than 30 years of experience across
-              ticketing, events, hospitality, distribution and B2B sales. That
-              supply-and-distribution background shaped a platform for connected,
-              controlled global event distribution.
+              SeatsConnect combines more than 30 years of real ticketing,
+              hospitality and B2B distribution experience with modern technology
+              and API infrastructure. The platform is shaped by how event supply
+              and professional demand actually work — not by generic software
+              adapted after the fact.
             </p>
           </div>
           <div className="relative flex justify-center items-center" aria-hidden>
@@ -212,6 +213,24 @@ export function HomeExperience() {
             <span className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 p-2.5 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-brand-orange/20">
               <Layers className="h-5 w-5 text-brand-orange" strokeWidth={1.65} />
             </span>
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal delay={40}>
+        <div className="mb-12 flex flex-col gap-4 rounded-2xl border border-orange-100/90 bg-white px-5 py-5 shadow-[0_10px_28px_rgba(40,30,20,0.05)] sm:flex-row sm:items-center sm:gap-6 sm:px-6 lg:mb-16">
+          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-orange text-white shadow-[0_8px_18px_rgba(255,107,0,0.28)]">
+            <Ticket className="h-5 w-5" strokeWidth={1.8} />
+          </span>
+          <div className="min-w-0">
+            <p className="font-tech text-[15px] font-bold text-brand-dark sm:text-base">
+              Built for the event industry.
+            </p>
+            <p className="mt-1 text-sm leading-relaxed text-brand-gray-text">
+              SeatsConnect is purpose-built for tickets, hospitality and live
+              experiences — not generic distribution technology adapted for
+              ticketing.
+            </p>
           </div>
         </div>
       </Reveal>

@@ -58,7 +58,7 @@ export function ApiBothSides() {
               <span className="text-brand-orange">Distribution.</span>
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-brand-gray-text sm:text-[15px]">
-              One API infrastructure connecting global event supply with
+              API infrastructure connecting global event supply with
               professional distribution — reducing the need for multiple
               individual integrations on both sides.
             </p>

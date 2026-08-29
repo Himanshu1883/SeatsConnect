@@ -26,12 +26,12 @@ export function HomeFinalCTA() {
               next step
             </p>
             <h2 className="mb-4 font-tech text-3xl font-bold text-brand-dark sm:text-4xl lg:text-5xl">
-              One Connection. Global Opportunity.
+              Connect Once. Distribute Globally.
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-brand-gray-text">
-              Whether you supply event inventory or distribute experiences to
-              customers, SeatsConnect provides the infrastructure to connect both
-              sides. Connect supply. Expand distribution. Reach new markets.
+              Connect once. Expand through approved channels. Operate Search →
+              Quote → Book → Fulfil on B2B infrastructure built for tickets,
+              hospitality and live experiences.
             </p>
             <ExperienceStrip
               items={ctaStrip}

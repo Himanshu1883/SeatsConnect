@@ -54,8 +54,8 @@ const featureBar: {
     icon: ShieldCheck,
   },
   {
-    label: "Real-time Connectivity",
-    description: "API-powered infrastructure built for live inventory.",
+    label: "API Connectivity",
+    description: "Infrastructure built to connect inventory and distribution systems.",
     icon: Zap,
   },
   {
@@ -144,16 +144,9 @@ export function HomeHeroDark() {
           </h1>
 
           <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-white/90 [@media(min-width:1024px)_and_(max-height:860px)]:mt-2 [@media(min-width:1024px)_and_(max-height:860px)]:text-[13px] [@media(min-width:1024px)_and_(max-height:780px)]:mt-1.5 [@media(min-width:1024px)_and_(max-height:780px)]:text-[12px]">
-            {siteConfig.description}
-          </p>
-          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-2 max-w-2xl text-[15px] leading-relaxed text-white/80 [@media(min-width:1024px)_and_(max-height:860px)]:mt-1.5 [@media(min-width:1024px)_and_(max-height:860px)]:text-[13px] [@media(min-width:1024px)_and_(max-height:780px)]:mt-1 [@media(min-width:1024px)_and_(max-height:780px)]:text-[12px]">
-            SeatsConnect connects venues, promoters, hospitality providers and
-            approved suppliers with a global network of professional B2B
+            {siteConfig.description} SeatsConnect connects venues, promoters,
+            hospitality providers and approved suppliers with professional B2B
             distribution partners.
-          </p>
-          <p className="hero-fade-up hero-fade-up-delay-2 mx-auto mt-1.5 max-w-2xl text-[15px] leading-relaxed text-white/70 [@media(min-width:1024px)_and_(max-height:860px)]:mt-1 [@media(min-width:1024px)_and_(max-height:860px)]:text-[13px] [@media(min-width:1024px)_and_(max-height:780px)]:text-[12px]">
-            Expand your reach while maintaining control over how and where your
-            inventory is distributed.
           </p>
 
           <div className="hero-fade-up hero-fade-up-delay-3 mt-5 flex flex-row justify-center gap-3 [@media(min-width:1024px)_and_(max-height:860px)]:mt-3 [@media(min-width:1024px)_and_(max-height:780px)]:mt-2.5">
@@ -254,7 +247,7 @@ function MobileArchitectureFlow() {
           SEATSCONNECT
         </p>
         <p className="text-[9px] leading-tight text-white/70 sm:text-[10px]">
-          One Connection. Total Control.
+          Connect Once. Distribute Globally.
         </p>
         <ArrowDown
           className="h-3 w-3 text-brand-orange/70"
@@ -346,9 +339,9 @@ function DesktopArchitectureFlow() {
               SEATSCONNECT
             </span>
             <span className="mt-0.5 block text-[11px] leading-snug text-white/70 [@media(min-width:1024px)_and_(max-height:780px)]:text-[10px]">
-              One Connection.
+              Connect Once.
               <br />
-              Total Control.
+              Distribute Globally.
             </span>
           </p>
         </div>

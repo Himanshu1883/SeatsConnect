@@ -51,8 +51,8 @@ export const heroWorkflow: PageHeroItem[] = [
 export const heroFeatures = {
   infrastructure: [
     {
-      title: "One Infrastructure Layer",
-      text: "Unified. Connected. Scalable.",
+    title: "Connect Once",
+    text: "Unified. Connected. Controlled.",
       icon: ShieldCheck,
     },
     {
@@ -66,8 +66,8 @@ export const heroFeatures = {
       icon: Users,
     },
     {
-      title: "Real-time Distribution",
-      text: "Live inventory, availability and fulfilment.",
+    title: "Connected Distribution",
+    text: "Inventory, availability and fulfilment workflows.",
       icon: BarChart3,
     },
   ] satisfies PageHeroItem[],
@@ -83,8 +83,8 @@ export const heroFeatures = {
       icon: ShieldCheck,
     },
     {
-      title: "Live Availability",
-      text: "Inventory and booking information.",
+    title: "Connected Availability",
+    text: "Inventory and booking information.",
       icon: BarChart3,
     },
     {
@@ -132,8 +132,8 @@ export const heroFeatures = {
       icon: Workflow,
     },
     {
-      title: "Webhooks",
-      text: "Relevant real-time updates.",
+      title: "Updates",
+      text: "Event and order updates where supported.",
       icon: Cable,
     },
   ] satisfies PageHeroItem[],

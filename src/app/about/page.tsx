@@ -27,6 +27,7 @@ export default function AboutPage() {
         eyebrow="About SeatsConnect"
         icon={heroIcons.about}
         image={siteImages.pages.about}
+        imagePlacement="right"
         title="Building the Connections Behind"
         titleAccent="Global Event Distribution."
         description="Global event supply exists. Professional global demand exists. SeatsConnect provides the infrastructure layer that brings them together."

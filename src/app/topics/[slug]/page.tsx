@@ -93,8 +93,8 @@ export default async function TopicPage({ params }: TopicRouteProps) {
       </PageSection>
 
       <FinalCTA
-        title="One Connection. Global Opportunity."
-        description="Connect supply. Expand distribution. Reach new markets."
+        title="Connect Once. Distribute Globally."
+        description="Connect inventory. Expand through approved channels. Reach professional demand."
         primaryCta={{ label: "Connect Your Inventory", href: routes.joinSupplier }}
         secondaryCta={{ label: "Join Our Network", href: routes.joinPartner }}
       />

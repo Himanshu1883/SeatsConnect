@@ -27,7 +27,7 @@ export function PlatformFinalCTA() {
               next step
             </p>
             <h2 className="mb-4 font-tech text-3xl font-bold text-brand-dark sm:text-4xl lg:text-5xl">
-              Build Your Distribution Around One Connection.
+              Connect Once. Distribute Globally.
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-brand-gray-text">
               Connect inventory, expand through approved channels, and operate

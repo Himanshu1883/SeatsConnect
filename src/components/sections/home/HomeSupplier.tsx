@@ -25,8 +25,17 @@ import { siteImages } from "@/lib/constants/images";
 import { routes } from "@/lib/constants/routes";
 import { cn } from "@/lib/utils";
 
-const { experiences: exp } = siteImages;
-const stadiumBg = exp.stadium;
+const { experiences: exp, sections: sec, pages } = siteImages;
+
+/** Background collage — live events, venues, hospitality, professional ops */
+const controlCollage: { src: string; className: string }[] = [
+  { src: pages.suppliers, className: "col-span-7 row-span-6" },
+  { src: exp.football, className: "col-span-5 row-span-2 col-start-8 row-start-1" },
+  { src: exp.formula1, className: "col-span-3 row-span-2 col-start-8 row-start-3" },
+  { src: sec.control, className: "col-span-2 row-span-2 col-start-11 row-start-3" },
+  { src: exp.tickets, className: "col-span-3 row-span-2 col-start-8 row-start-5" },
+  { src: exp.suite, className: "col-span-2 row-span-2 col-start-11 row-start-5" },
+];
 
 const capabilities: {
   icon: LucideIcon;
@@ -281,14 +290,25 @@ export function HomeSupplier() {
       {/* Control pillars */}
       <Reveal delay={180}>
         <div className="relative mt-14 overflow-hidden rounded-[1.75rem] px-5 py-8 text-white sm:px-8 sm:py-10 lg:mt-16 lg:px-10">
-          <Image
-            src={stadiumBg}
-            alt=""
-            fill
-            sizes="(max-width: 1280px) 100vw, 1280px"
-            className="object-cover object-[center_35%]"
+          <div
+            className="absolute inset-0 grid grid-cols-12 grid-rows-6 gap-0.5"
             aria-hidden
-          />
+          >
+            {controlCollage.map((tile, i) => (
+              <div
+                key={i}
+                className={cn("relative overflow-hidden", tile.className)}
+              >
+                <Image
+                  src={tile.src}
+                  alt=""
+                  fill
+                  sizes="(max-width: 1280px) 33vw, 400px"
+                  className="object-cover scale-[1.03]"
+                />
+              </div>
+            ))}
+          </div>
           <div
             className="absolute inset-0 bg-gradient-to-r from-[#1a1512]/88 via-[#1a1512]/72 to-[#1a1512]/55"
             aria-hidden
