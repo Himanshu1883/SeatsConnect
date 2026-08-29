@@ -34,6 +34,8 @@ type PageHeroProps = {
   tertiaryCta?: PageHeroCta;
   steps?: PageHeroItem[];
   features?: PageHeroItem[];
+  /** Shorter hero — no large min-height (legal docs, etc.) */
+  compact?: boolean;
   children?: React.ReactNode;
   className?: string;
 };
@@ -51,6 +53,7 @@ export function PageHero({
   tertiaryCta,
   steps,
   features,
+  compact = false,
   children,
   className,
 }: PageHeroProps) {
@@ -64,13 +67,20 @@ export function PageHero({
         // Always grow with content so steps + feature bar never collide.
         // Soft min-height on large screens for presence — no max-height crop.
         "h-auto min-h-0",
-        "lg:min-h-[min(68vh,36rem)]",
+        !compact && "lg:min-h-[min(68vh,36rem)]",
         className
       )}
     >
       <PageHeroBackdrop image={heroImage} placement={imagePlacement} />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-6 sm:gap-7 sm:px-6 sm:py-8 lg:gap-8 lg:px-8 lg:py-8 xl:gap-9 xl:py-10">
+      <div
+        className={cn(
+          "relative z-10 mx-auto flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8",
+          compact
+            ? "gap-4 py-5 sm:gap-5 sm:py-6 lg:gap-5 lg:py-6"
+            : "gap-6 py-6 sm:gap-7 sm:py-8 lg:gap-8 lg:py-8 xl:gap-9 xl:py-10"
+        )}
+      >
         <div className="flex min-h-0 flex-col">
           <div className="platform-hero-fade mb-3 sm:mb-4">
             {/* Mobile: eyebrow only as a pill */}

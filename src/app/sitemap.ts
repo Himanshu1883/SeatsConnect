@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     routes.resources,
     routes.login,
     routes.topics,
+    routes.legal,
     routes.terms,
     routes.privacy,
     routes.cookies,

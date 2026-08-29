@@ -1,5 +1,6 @@
 import { HomeHero } from "@/components/sections/home/HomeHero";
 import { HomeProblem } from "@/components/sections/home/HomeProblem";
+import { HomeWhatIs } from "@/components/sections/home/HomeWhatIs";
 import { HomeSupplier } from "@/components/sections/home/HomeSupplier";
 import { HomePartner } from "@/components/sections/home/HomePartner";
 import { HomeHowItWorks } from "@/components/sections/home/HomeHowItWorks";
@@ -11,6 +12,7 @@ export default function HomePage() {
     <>
       <HomeHero />
       <HomeProblem />
+      <HomeWhatIs />
       <HomeSupplier />
       <HomePartner />
       <HomeHowItWorks />

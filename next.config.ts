@@ -16,14 +16,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  async redirects() {
-    return [
-      { source: "/terms", destination: "/legal", permanent: true },
-      { source: "/privacy", destination: "/legal", permanent: true },
-      { source: "/cookies", destination: "/legal", permanent: true },
-      { source: "/compliance", destination: "/legal", permanent: true },
-    ];
-  },
 };
 
 export default nextConfig;

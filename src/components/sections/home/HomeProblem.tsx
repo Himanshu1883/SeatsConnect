@@ -8,14 +8,11 @@ import {
   Briefcase,
   Building2,
   ConciergeBell,
-  Globe2,
   Layers,
   Megaphone,
   Plane,
   Share2,
-  ShieldCheck,
   Target,
-  Zap,
 } from "lucide-react";
 import { HomeFrame, HomeKicker } from "@/components/sections/home/HomeFrame";
 import { Reveal } from "@/components/ui/Reveal";
@@ -23,12 +20,6 @@ import { siteImages } from "@/lib/constants/images";
 import { cn } from "@/lib/utils";
 
 const { experiences: exp } = siteImages;
-
-const features: { icon: LucideIcon; title: string; text: string }[] = [
-  { icon: Globe2, title: "Connect Once", text: "One infrastructure layer" },
-  { icon: ShieldCheck, title: "Approved Only", text: "Controlled B2B access" },
-  { icon: Zap, title: "API-Ready", text: "Built to connect systems" },
-];
 
 const supplyNodes: { label: string; icon: LucideIcon }[] = [
   { label: "Venues", icon: Building2 },
@@ -55,7 +46,7 @@ export function HomeProblem() {
   const [connected, setConnected] = useState(false);
 
   return (
-    <HomeFrame tinted variant="plain">
+    <HomeFrame variant="plain">
       <div className="grid items-start gap-10 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] xl:gap-12 2xl:gap-16">
         <Reveal>
           <HomeKicker>The Challenge</HomeKicker>
@@ -66,10 +57,7 @@ export function HomeProblem() {
           </h2>
           <p className="mb-6 leading-relaxed text-brand-gray-text">
             Event inventory still moves through disconnected systems, one-off
-            relationships and manual processes. SeatsConnect is B2B
-            distribution infrastructure for tickets, hospitality and live
-            experiences — connecting supply with approved partners through one
-            layer. Not an open marketplace.
+            relationships and manual processes.
           </p>
 
           <div
@@ -112,27 +100,7 @@ export function HomeProblem() {
       </div>
 
       <Reveal delay={140}>
-        <div className="mt-10 grid gap-6 sm:grid-cols-3 lg:mt-12 lg:max-w-3xl">
-          {features.map((feature) => (
-            <div key={feature.title} className="flex items-start gap-3">
-              <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand-orange/25 bg-brand-orange/10 text-brand-orange">
-                <feature.icon className="h-4 w-4" strokeWidth={1.6} />
-              </span>
-              <div>
-                <p className="font-tech text-sm font-bold leading-tight text-brand-dark">
-                  {feature.title}
-                </p>
-                <p className="mt-0.5 text-xs leading-snug text-brand-gray-text">
-                  {feature.text}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Reveal>
-
-      <Reveal delay={180}>
-        <div className="mt-6 grid items-stretch gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+        <div className="mt-10 grid items-stretch gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
           <div className="flex items-center gap-3 rounded-2xl border border-orange-100/90 bg-white px-4 py-3.5 shadow-[0_10px_28px_rgba(40,30,20,0.05)] sm:px-5 sm:py-4">
             <Share2
               className="h-5 w-5 shrink-0 text-brand-orange"
@@ -140,10 +108,10 @@ export function HomeProblem() {
             />
             <p className="text-sm leading-snug">
               <span className="font-tech font-bold text-brand-dark">
-                One connection for supply.
+                Connect Once. Distribute Globally.
               </span>{" "}
               <span className="text-brand-gray-text">
-                Multiple approved channels for distribution.
+                Through approved channels.
               </span>
             </p>
           </div>

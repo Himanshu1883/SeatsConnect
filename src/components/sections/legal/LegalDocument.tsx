@@ -1,84 +1,68 @@
 "use client";
 
-import { useEffect } from "react";
-import {
-  HomeFrame,
-  HomeKicker,
-} from "@/components/sections/home/HomeFrame";
+import { HomeFrame, HomeKicker } from "@/components/sections/home/HomeFrame";
 import { Reveal } from "@/components/ui/Reveal";
-import { legalSections } from "@/lib/constants/support";
-import { cn } from "@/lib/utils";
+import { legalHubCards, legalReviewNotice } from "@/lib/constants/legal";
+import { routes } from "@/lib/constants/routes";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function LegalDocument() {
-  useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (!hash) return;
-    const el = document.getElementById(hash);
-    if (el) {
-      requestAnimationFrame(() => {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    }
-  }, []);
-
   return (
-    <>
-      <HomeFrame variant="plain" className="!py-8 sm:!py-10 lg:!py-10">
-        <Reveal>
-          <div className="mx-auto max-w-3xl text-center">
-            <HomeKicker>Legal</HomeKicker>
-            <h2 className="mt-3 font-tech text-3xl font-bold leading-[1.08] text-brand-dark sm:text-4xl">
-              Legal{" "}
-              <span className="text-brand-orange">Policies.</span>
+    <HomeFrame variant="plain" className="!py-6 sm:!py-7 lg:!py-8">
+      <Reveal>
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <HomeKicker>Legal Pages</HomeKicker>
+            <h2 className="mt-2 font-tech text-2xl font-bold leading-[1.08] text-brand-dark sm:text-3xl">
+              Policies{" "}
+              <span className="text-brand-orange">and Standards.</span>
             </h2>
           </div>
-        </Reveal>
+          <p className="max-w-xl text-sm leading-relaxed text-brand-gray-text lg:text-right">
+            {legalReviewNotice}
+          </p>
+        </div>
+      </Reveal>
 
-        <Reveal delay={50}>
-          <nav
-            aria-label="Legal sections"
-            className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2"
-          >
-            {legalSections.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                className="rounded-full border border-orange-100 bg-white px-3.5 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-brand-dark transition hover:border-brand-orange/40 hover:text-brand-orange"
-              >
-                {section.title}
-              </a>
-            ))}
-          </nav>
-        </Reveal>
-      </HomeFrame>
-
-      {legalSections.map((section, i) => (
-        <HomeFrame
-          key={section.id}
-          id={section.id}
-          tinted={i % 2 === 1}
-          variant="plain"
-          className="!scroll-mt-24 !py-10 sm:!py-12 lg:!py-14"
-        >
-          <Reveal>
-            <article
-              className={cn(
-                "mx-auto max-w-3xl rounded-[1.75rem] border border-orange-100 bg-white p-6 shadow-[0_12px_36px_rgba(40,30,20,0.05)] sm:p-8"
-              )}
+      <Reveal delay={50}>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {legalHubCards.map((card, i) => (
+            <Link
+              key={card.slug}
+              href={card.href}
+              className="group flex flex-col rounded-2xl border border-orange-100 bg-white p-5 shadow-[0_8px_24px_rgba(40,30,20,0.04)] transition hover:-translate-y-0.5 hover:border-brand-orange/30"
             >
               <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-orange">
                 {String(i + 1).padStart(2, "0")}
               </p>
-              <h2 className="mt-2 font-tech text-2xl font-bold text-brand-dark sm:text-3xl">
-                {section.title}
-              </h2>
-              <p className="mt-4 text-sm leading-relaxed text-brand-gray-text sm:text-[15px]">
-                {section.body}
+              <h3 className="mt-2 font-tech text-lg font-bold text-brand-dark">
+                {card.title}
+              </h3>
+              <p className="mt-2 flex-1 text-sm leading-snug text-brand-gray-text">
+                {card.text}
               </p>
-            </article>
-          </Reveal>
-        </HomeFrame>
-      ))}
-    </>
+              <span className="mt-4 inline-flex items-center gap-1.5 font-tech text-sm font-semibold text-brand-orange">
+                Read this page
+                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </Reveal>
+
+      <Reveal delay={80}>
+        <p className="mt-6 text-sm text-brand-gray-text">
+          Need to speak with the team?{" "}
+          <Link
+            href={routes.contact}
+            className="font-semibold text-brand-orange hover:underline"
+          >
+            Talk to Our Team
+          </Link>
+          .
+        </p>
+      </Reveal>
+    </HomeFrame>
   );
 }

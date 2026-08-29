@@ -80,25 +80,3 @@ export const requestTypes = [
   { value: "multi", label: "Multi-event requests" },
 ] as const;
 
-export const legalSections = [
-  {
-    id: "terms",
-    title: "Terms of Service",
-    body: "Final legal wording for Terms of Service will be provided or reviewed separately by legal and compliance before launch.",
-  },
-  {
-    id: "privacy",
-    title: "Privacy Policy",
-    body: "Final legal wording for the Privacy Policy will be provided or reviewed separately by legal and compliance before launch.",
-  },
-  {
-    id: "cookies",
-    title: "Cookie Policy",
-    body: "Final legal wording for the Cookie Policy will be provided or reviewed separately by legal and compliance before launch.",
-  },
-  {
-    id: "compliance",
-    title: "Compliance Standards",
-    body: "Final legal wording for Compliance documentation will be provided or reviewed separately by legal and compliance before launch.",
-  },
-] as const;

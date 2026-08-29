@@ -288,7 +288,7 @@ export function HomeSupplier() {
       </Reveal>
 
       {/* Control pillars */}
-      <Reveal delay={180}>
+      {/* <Reveal delay={180}>
         <div className="relative mt-14 overflow-hidden rounded-[1.75rem] px-5 py-8 text-white sm:px-8 sm:py-10 lg:mt-16 lg:px-10">
           <div
             className="absolute inset-0 grid grid-cols-12 grid-rows-6 gap-0.5"
@@ -372,7 +372,7 @@ export function HomeSupplier() {
             </div>
           </div>
         </div>
-      </Reveal>
+      </Reveal> */}
     </HomeFrame>
   );
 }

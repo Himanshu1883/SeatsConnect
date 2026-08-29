@@ -23,8 +23,8 @@ export const routes = {
   login: "/login",
   topics: "/topics",
   legal: "/legal",
-  terms: "/legal#terms",
-  privacy: "/legal#privacy",
-  cookies: "/legal#cookies",
-  compliance: "/legal#compliance",
+  terms: "/terms",
+  privacy: "/privacy",
+  cookies: "/cookies",
+  compliance: "/compliance",
 } as const;
