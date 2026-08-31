@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { FormField, FormGrid } from "@/components/ui/FormFields";
+import { FormSuccess } from "@/components/ui/FormSuccess";
 import { SubmitButton } from "@/components/ui/SubmitButton";
+import { cn } from "@/lib/utils";
 
 const roleOptions = [
   { value: "supplier", label: "Supplier / inventory system" },
@@ -11,7 +13,7 @@ const roleOptions = [
   { value: "white-label", label: "White-label implementation" },
 ];
 
-export function DeveloperAccessForm() {
+export function DeveloperAccessForm({ className }: { className?: string }) {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -21,17 +23,15 @@ export function DeveloperAccessForm() {
 
   if (submitted) {
     return (
-      <div className="max-w-xl mx-auto text-center rounded-xl border border-orange-100 bg-brand-orange-light/40 p-8">
-        <p className="text-brand-dark font-medium">
-          Thank you. Our integration team will review your request for developer
-          access and contact you regarding next steps.
-        </p>
-      </div>
+      <FormSuccess>
+        Thank you. Our integration team will review your request for developer
+        access and contact you regarding next steps.
+      </FormSuccess>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-5">
+    <form onSubmit={handleSubmit} className={cn("space-y-5", className)}>
       <FormGrid>
         <FormField label="Name" name="name" required />
         <FormField label="Company" name="company" required />

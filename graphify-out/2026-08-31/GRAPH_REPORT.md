@@ -1,12 +1,12 @@
 # Graph Report - SeatsConnect  (2026-08-31)
 
 ## Corpus Check
-- 202 files · ~1,430,731 words
+- 202 files · ~1,430,553 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1147 nodes · 2503 edges · 106 communities (78 shown, 28 thin omitted)
-- Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 163 edges (avg confidence: 0.84)
+- 1145 nodes · 2500 edges · 115 communities (85 shown, 30 thin omitted)
+- Extraction: 93% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 162 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
@@ -15,7 +15,7 @@
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- SectionBackground.tsx
+- EdgeEngineSection.tsx
 - Button.tsx
 - PlatformSupply.tsx
 - images.ts
@@ -27,7 +27,7 @@
 - compilerOptions
 - app/layout.tsx
 - SolutionWorkflow.tsx
-- HomeWhatIs.tsx
+- routes.ts
 - LiveConsole.tsx
 - Footer.tsx
 - SuppliersControl.tsx
@@ -36,15 +36,17 @@
 - site.ts
 - src/app/page.tsx
 - PartnersSupport.tsx
-- about/page.tsx
+- AboutConnect.tsx
 - HomeHero
 - Marketing Website
 - Night Stadium Exterior Hero
 - utils.ts
-- HomeExperience.tsx
+- [slug]/page.tsx
 - PlatformTechnology.tsx
-- HomeControlledDist.tsx
+- AboutMission.tsx
 - B2B Distribution Infrastructure
+- AdvantageSection.tsx
+- TrustStrip.tsx
 - HeroVisualPanel.tsx
 - HomeHeroLight.tsx
 - engage.ts
@@ -52,7 +54,7 @@
 - Reveal.tsx
 - SeatsConnect
 - World Map Travel Pins
-- HomeHero.tsx
+- features.ts
 - HeroNetworkConsole.tsx
 - CardMedia.tsx
 - cn
@@ -68,6 +70,8 @@
 - Semantic Extraction
 - Structural AST Extraction
 - API Global Network Hero
+- ApiFlows.tsx
+- Reveal
 - SuppliersApi.tsx
 - PartnersAccess.tsx
 - EXTRACTED INFERRED AMBIGUOUS
@@ -76,6 +80,7 @@
 - Experiences Cricket Stadium Night Match
 - EDGE Engine
 - HomeFrame.tsx
+- SectionBackground.tsx
 - graphify merge-graphs
 - Incremental Update Reference
 - BFS Traversal
@@ -86,6 +91,7 @@
 - Live Concert Crowd Hero
 - Team Collaborative Workspace
 - Favicon 32 Brand Mark
+- EventsCatalogSection.tsx
 - CLAUDE.md Graphify Section
 - graphify
 - next.config.ts
@@ -103,6 +109,7 @@
 - Interpreter Guard
 - postcss.config.mjs
 - Analytics Dashboard Laptop
+- LogoWall.tsx
 - MCP Graph Server
 - Token Reduction Benchmark
 - Wiki Export
@@ -117,8 +124,10 @@
 - Node ID Format
 - cluster-only
 - DMCC Dubai HQ
-- HomeB2BTools.tsx
-- FormModalHost.tsx
+- SuppliersReach.tsx
+- solutions/page.tsx
+- MarginCalculatorCard.tsx
+- ContactEnquiryForm
 - Modal.tsx
 
 ## God Nodes (most connected - your core abstractions)
@@ -165,23 +174,23 @@
 - **SeatsConnect Brand Lockup Family** — assets_seatsconnect_logo_orange_pdf_brand_logo, assets_apple_touch_icon_app_icon, assets_favicon_32_favicon, assets_favicon_logo_mark, assets_seatsconnect_logo_nav_wordmark, assets_seatsconnect_logo_primary_lockup, public_apple_touch_icon_app_icon, assets_seatsconnect_logo_brand_identity [INFERRED 0.95]
 - **SeatsConnect Brand Identity** — public_favicon_32_brand_mark, public_favicon_brand_mark, public_seatsconnect_logo_nav_wordmark, public_seatsconnect_logo_lockup [INFERRED 0.95]
 
-## Communities (106 total, 28 thin omitted)
+## Communities (115 total, 30 thin omitted)
 
-### Community 0 - "SectionBackground.tsx"
-Cohesion: 0.05
-Nodes (37): ContactSection(), focusOptions, volumeOptions, EdgeEngineSection(), EventsCatalogSection(), HeroBackgroundSlideshow(), HeroBackgroundSlideshowProps, MarginCalculatorCard() (+29 more)
+### Community 0 - "EdgeEngineSection.tsx"
+Cohesion: 0.23
+Nodes (6): EdgeEngineSection(), SectionBackground(), SectionHeader(), SectionHeaderProps, EdgeStep, edgeSteps
 
 ### Community 1 - "Button.tsx"
-Cohesion: 0.12
-Nodes (19): ctaStrip, ContactFinalCTA(), PartnersFinalCTA(), strip, strip, EngageFinalCTA(), Props, ResourcesFinalCTA() (+11 more)
+Cohesion: 0.09
+Nodes (24): AboutFinalCTA(), ctaStrip, ctaStrip, clarityIs, clarityNot, collage, pillars, workflow (+16 more)
 
 ### Community 2 - "PlatformSupply.tsx"
 Cohesion: 0.04
 Nodes (27): metadata, channels, features, PlatformDistribution(), sidebarStats, PlatformFinalCTA(), PlatformHero(), FulfilCard() (+19 more)
 
 ### Community 3 - "images.ts"
-Cohesion: 0.07
-Nodes (42): metadata, metadata, metadata, metadata, metadata, metadata, metadata, metadata (+34 more)
+Cohesion: 0.10
+Nodes (22): metadata, metadata, metadata, metadata, metadata, metadata, metadata, metadata (+14 more)
 
 ### Community 4 - "formModals.ts"
 Cohesion: 0.17
@@ -192,8 +201,8 @@ Cohesion: 0.05
 Nodes (38): eslint, eslint-config-next, @eslint/eslintrc, lucide-react, next, dependencies, lucide-react, next (+30 more)
 
 ### Community 6 - "HomePartner.tsx"
-Cohesion: 0.07
-Nodes (18): ctaStrip, HomeFinalCTA(), AccessModeId, accessModes, audiences, EmbeddedDashboardMock(), highlights, HomePartner() (+10 more)
+Cohesion: 0.05
+Nodes (26): barItems, HomeExperience(), pillars, HomeFinalCTA(), bottomFeatures, HomeHowItWorks(), Step, steps (+18 more)
 
 ### Community 7 - "SupportFaqs.tsx"
 Cohesion: 0.27
@@ -212,12 +221,12 @@ Cohesion: 0.22
 Nodes (5): inter, metadata, monaSans, Navbar(), TopAccentBar()
 
 ### Community 11 - "SolutionWorkflow.tsx"
-Cohesion: 0.07
-Nodes (31): metadata, metadata, metadata, metadata, metadata, metadata, flow, JoinNetwork() (+23 more)
+Cohesion: 0.10
+Nodes (21): metadata, metadata, metadata, metadata, metadata, metadata, Props, SolutionFit() (+13 more)
 
-### Community 12 - "HomeWhatIs.tsx"
-Cohesion: 0.25
-Nodes (6): clarityIs, clarityNot, collage, HomeWhatIs(), pillars, workflow
+### Community 12 - "routes.ts"
+Cohesion: 0.13
+Nodes (15): metadata, metadata, metadata, metadata, metadata, metadata, ContactFinalCTA(), JoinFinalCTA() (+7 more)
 
 ### Community 13 - "LiveConsole.tsx"
 Cohesion: 0.12
@@ -240,8 +249,8 @@ Cohesion: 0.14
 Nodes (14): launchFlags.developerPortal, launchFlags.partnerLogos, src/lib/constants, Claims Policy, Legal Page Placeholders, developerPortal, /developers, src/lib/constants/features.ts (+6 more)
 
 ### Community 18 - "site.ts"
-Cohesion: 0.18
-Nodes (4): channelItems, featureBar, supplyItems, siteConfig
+Cohesion: 0.28
+Nodes (4): ContactSection(), focusOptions, volumeOptions, siteConfig
 
 ### Community 19 - "src/app/page.tsx"
 Cohesion: 0.17
@@ -251,9 +260,9 @@ Nodes (13): Search Quote Book Fulfil, HomeApi, HomeB2BTools, HomeControlledDist,
 Cohesion: 0.22
 Nodes (8): howSteps, PartnersSupport(), queueStats, requestRows, statusClasses, SupportDashboard(), supportTypes, trustItems
 
-### Community 21 - "about/page.tsx"
-Cohesion: 0.10
-Nodes (16): metadata, AboutConnect(), outcomes, SideCard(), sides, AboutExperience(), AboutFinalCTA(), AboutGroup() (+8 more)
+### Community 21 - "AboutConnect.tsx"
+Cohesion: 0.29
+Nodes (4): AboutConnect(), outcomes, SideCard(), sides
 
 ### Community 22 - "HomeHero"
 Cohesion: 0.18
@@ -268,36 +277,44 @@ Cohesion: 0.18
 Nodes (12): Hospitality Fine Dining Hero, Stadium Player Tunnel Hero, Night Stadium Exterior Hero, Tennis Match Hero, Travel Destination Planning Hero, About Page Collage Hero, Hotel Resort Exterior Hero, Legal Contract Signing Hero (+4 more)
 
 ### Community 25 - "utils.ts"
-Cohesion: 0.29
-Nodes (11): enquiryValues, roleOptions, FormField(), FormFieldProps, FormGrid(), FormGridProps, YesNoField(), YesNoFieldProps (+3 more)
+Cohesion: 0.16
+Nodes (16): enquiryValues, DeveloperAccessForm(), roleOptions, JoinPartnerForm(), JoinSupplierForm(), LoginForm(), RequestEnquiryForm(), FormField() (+8 more)
 
-### Community 26 - "HomeExperience.tsx"
-Cohesion: 0.29
-Nodes (3): barItems, HomeExperience(), pillars
+### Community 26 - "[slug]/page.tsx"
+Cohesion: 0.24
+Nodes (7): generateMetadata(), TopicPage(), TopicRouteProps, FinalCTA(), getTopicBySlug(), TopicPage, topicPages
 
 ### Community 27 - "PlatformTechnology.tsx"
 Cohesion: 0.18
 Nodes (7): ApiVisual(), BentoCard(), PlatformVisual(), ShotFrame(), Tone, tones, trustItems
 
-### Community 28 - "HomeControlledDist.tsx"
-Cohesion: 0.33
-Nodes (5): features, HomeControlledDist(), Rule, RuleGroup(), rules
+### Community 28 - "AboutMission.tsx"
+Cohesion: 0.40
+Nodes (4): AboutMission(), clarity, clarityIs, pillars
 
 ### Community 29 - "B2B Distribution Infrastructure"
 Cohesion: 0.20
 Nodes (10): Not a Marketplace or Broker, B2B Distribution Infrastructure, Demand Side, Not Marketplace Resale or SeatsBrokers, Supply Side, HomeNetwork, HomeSupplier, /solutions (+2 more)
+
+### Community 30 - "AdvantageSection.tsx"
+Cohesion: 0.23
+Nodes (6): ImagePanel(), ComparisonPoint, fragmentedPoints, hubBadges, seatsConnectPoints, strategicStrongholds
+
+### Community 31 - "TrustStrip.tsx"
+Cohesion: 0.21
+Nodes (6): HeroBackgroundSlideshow(), HeroBackgroundSlideshowProps, iconMap, HeroStat, heroStats, trustStripItems
 
 ### Community 32 - "HeroVisualPanel.tsx"
 Cohesion: 0.20
 Nodes (6): apiFeed, countries, HeroVisualPanel(), HeroVisualPanelProps, PanelSlide, tickerEvents
 
 ### Community 33 - "HomeHeroLight.tsx"
-Cohesion: 0.20
-Nodes (5): channelItems, featureBar, leftPanels, rightPanels, supplyItems
+Cohesion: 0.10
+Nodes (10): channelItems, featureBar, HomeHeroDark(), supplyItems, channelItems, featureBar, HomeHeroLight(), leftPanels (+2 more)
 
 ### Community 34 - "engage.ts"
-Cohesion: 0.18
-Nodes (10): JoinPathChooser(), groups, icons, ResourcesLibrary(), contactChannels, contactEnquiryTypes, joinPartnerTypes, joinSupplyTypes (+2 more)
+Cohesion: 0.17
+Nodes (11): JoinPathChooser(), JoinPaths(), groups, icons, ResourcesLibrary(), contactChannels, contactEnquiryTypes, joinPartnerTypes (+3 more)
 
 ### Community 35 - "SuppliersExpand.tsx"
 Cohesion: 0.20
@@ -315,21 +332,21 @@ Nodes (9): Accent Orange #ff6b00, No Invented Stats, SeatsConnect, SeatsGroup, 3
 Cohesion: 0.28
 Nodes (9): Africa Safari Sunset, Americas Times Square, Asia Tokyo Neon Street, Australasia Sydney Harbour, Europe London Skyline, Middle East Dubai Skyline, Airplane Window Wing, City Skyline Skyscrapers (+1 more)
 
-### Community 39 - "HomeHero.tsx"
-Cohesion: 0.21
-Nodes (9): HeroThemePreviewToggle(), ThemeChip(), HomeHero(), HomeHeroDark(), HomeHeroLight(), launchFlags, HeroTheme, useHeroThemePreview() (+1 more)
+### Community 39 - "features.ts"
+Cohesion: 0.25
+Nodes (7): HeroThemePreviewToggle(), ThemeChip(), HomeHero(), launchFlags, HeroTheme, useHeroThemePreview(), choose()
 
 ### Community 40 - "HeroNetworkConsole.tsx"
 Cohesion: 0.25
 Nodes (8): architecture, bars, channels, feed, HeroNetworkConsole(), metrics, pipeline, stamp()
 
 ### Community 41 - "CardMedia.tsx"
-Cohesion: 0.10
-Nodes (14): domains, bottomFeatures, HomeHowItWorks(), Step, steps, SubFeature, businessTypes, PartnersBusinessTypes() (+6 more)
+Cohesion: 0.11
+Nodes (14): AboutExperience(), domains, AboutGroup(), focusAreas, businessTypes, PartnersBusinessTypes(), points, PartnersRelationship() (+6 more)
 
 ### Community 42 - "cn"
 Cohesion: 0.09
-Nodes (22): ApiFlows(), ConsoleShell(), FlowShowcase(), FlowStep, PartnerConsoles(), partnerFlow, SupplierConsoles(), supplierFlow (+14 more)
+Nodes (21): HomeB2BTools(), features, HomeControlledDist(), Rule, RuleGroup(), rules, JoinNetwork(), CompareConsole() (+13 more)
 
 ### Community 43 - "Semantic Extraction"
 Cohesion: 0.25
@@ -379,6 +396,14 @@ Nodes (6): Watch Debounce, needs_update Flag, Watch Mode, Code-Only Update Skip 
 Cohesion: 0.33
 Nodes (6): API Global Network Hero, Developer Workspace Hero, Partners Global Network Overlay Hero, Partners World Map Network Hero, Resources Collaborative Planning Hero, Data Center Servers Hero
 
+### Community 55 - "ApiFlows.tsx"
+Cohesion: 0.20
+Nodes (8): ApiFlows(), ConsoleShell(), FlowShowcase(), FlowStep, PartnerConsoles(), partnerFlow, SupplierConsoles(), supplierFlow
+
+### Community 56 - "Reveal"
+Cohesion: 0.15
+Nodes (9): ContactChannels(), icons, ContactForm(), features, steps, toolsStrip, SuppliersSupplyTypes(), supplyTypes (+1 more)
+
 ### Community 57 - "SuppliersApi.tsx"
 Cohesion: 0.40
 Nodes (3): flowSteps, integrationData, SuppliersApi()
@@ -405,7 +430,11 @@ Nodes (5): DEPLOY, EDGE Engine, FULFILL, INGEST, PRICE
 
 ### Community 64 - "HomeFrame.tsx"
 Cohesion: 0.09
-Nodes (28): focusAreas, ApiBothSides(), sides, ApiCapabilities(), capabilities, ApiDocs(), notes, ContactChannels() (+20 more)
+Nodes (25): ApiBothSides(), sides, ApiCapabilities(), capabilities, ApiDocs(), notes, DevelopersAccess(), DevelopersCapabilities() (+17 more)
+
+### Community 65 - "SectionBackground.tsx"
+Cohesion: 0.25
+Nodes (7): ImagePanelProps, patternClass, SectionBackgroundProps, SectionTint, SurfacePatternName, tintClasses, tintPattern
 
 ### Community 66 - "graphify merge-graphs"
 Cohesion: 0.50
@@ -447,6 +476,10 @@ Nodes (4): Support Partnership Handshake, Team Collaborative Workspace, Modern O
 Cohesion: 0.67
 Nodes (4): Favicon 32 Brand Mark, Favicon Brand Mark, SeatsConnect Logo Lockup, SeatsConnect Nav Logo Wordmark
 
+### Community 76 - "EventsCatalogSection.tsx"
+Cohesion: 0.43
+Nodes (5): EventsCatalogSection(), EventCategory, eventFilters, EventItem, events
+
 ### Community 77 - "CLAUDE.md Graphify Section"
 Cohesion: 0.67
 Nodes (3): AGENTS.md Integration, CLAUDE.md Graphify Section, CLAUDE.md Integration
@@ -463,17 +496,21 @@ Nodes (3): Conference Hall Hero, Event Hall Audience Hero, Platform Conference A
 Cohesion: 1.00
 Nodes (3): Suppliers Hero Outdoor Concert, Concert Stage Festival Crowd, Event Lights Confetti Crowd
 
-### Community 110 - "HomeB2BTools.tsx"
-Cohesion: 0.18
-Nodes (7): features, steps, toolsStrip, bottomNotes, channels, points, SuppliersReach()
+### Community 94 - "LogoWall.tsx"
+Cohesion: 0.33
+Nodes (5): LogoWall(), LogoWallProps, SurfacePattern(), PartnerLogo, partnerLogos
 
-### Community 113 - "FormModalHost.tsx"
-Cohesion: 0.14
-Nodes (7): ContactEnquiryForm(), isContactEnquiryType(), DeveloperAccessForm(), JoinPartnerForm(), JoinSupplierForm(), LoginForm(), RequestEnquiryForm()
+### Community 110 - "SuppliersReach.tsx"
+Cohesion: 0.33
+Nodes (4): bottomNotes, channels, points, SuppliersReach()
+
+### Community 112 - "MarginCalculatorCard.tsx"
+Cohesion: 0.83
+Nodes (3): MarginCalculatorCard(), calculateVIPMargins(), formatCurrency()
 
 ### Community 116 - "Modal.tsx"
-Cohesion: 0.29
-Nodes (6): isInside(), Modal(), stopIfOutsideScroll(), ModalProps, ModalSize, sizeClasses
+Cohesion: 0.33
+Nodes (4): Modal(), ModalProps, ModalSize, sizeClasses
 
 ## Ambiguous Edges - Review These
 - `Prototype Numeric Claims` → `Claims Policy`  [AMBIGUOUS]
@@ -486,7 +523,7 @@ Nodes (6): isInside(), Modal(), stopIfOutsideScroll(), ModalProps, ModalSize, si
 ## Knowledge Gaps
 - **395 isolated node(s):** `__filename`, `__dirname`, `compat`, `eslintConfig`, `isDev` (+390 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **28 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **30 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -497,11 +534,11 @@ _Questions this graph is uniquely positioned to answer:_
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
 - **What is the exact relationship between `Unified Marketplace Language` and `Not Marketplace Resale or SeatsBrokers`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `cn()` connect `cn` to `SectionBackground.tsx`, `Button.tsx`, `PlatformSupply.tsx`, `images.ts`, `HomePartner.tsx`, `SupportFaqs.tsx`, `app/layout.tsx`, `SolutionWorkflow.tsx`, `HomeWhatIs.tsx`, `LiveConsole.tsx`, `Footer.tsx`, `PartnersSupport.tsx`, `about/page.tsx`, `utils.ts`, `HomeExperience.tsx`, `PlatformTechnology.tsx`, `HomeControlledDist.tsx`, `HeroVisualPanel.tsx`, `HomeHeroLight.tsx`, `SuppliersExpand.tsx`, `Reveal.tsx`, `HomeHero.tsx`, `HeroNetworkConsole.tsx`, `CardMedia.tsx`, `DevelopersPortal.tsx`, `HomeApi.tsx`, `HomeWhiteLabel.tsx`, `HomeFrame.tsx`, `HomeB2BTools.tsx`, `FormModalHost.tsx`, `Modal.tsx`?**
-  _High betweenness centrality (0.158) - this node is a cross-community bridge._
-- **Why does `routes` connect `images.ts` to `Button.tsx`, `PlatformSupply.tsx`, `formModals.ts`, `HomePartner.tsx`, `SupportFaqs.tsx`, `SolutionWorkflow.tsx`, `HomeWhatIs.tsx`, `Footer.tsx`, `site.ts`, `PartnersSupport.tsx`, `about/page.tsx`, `PlatformTechnology.tsx`, `HomeHeroLight.tsx`, `engage.ts`, `Reveal.tsx`, `DevelopersPortal.tsx`, `HomeApi.tsx`, `HomeWhiteLabel.tsx`, `SuppliersApi.tsx`, `PartnersAccess.tsx`, `HomeFrame.tsx`, `FormModalHost.tsx`?**
+- **Why does `cn()` connect `cn` to `EdgeEngineSection.tsx`, `Button.tsx`, `PlatformSupply.tsx`, `images.ts`, `HomePartner.tsx`, `SupportFaqs.tsx`, `app/layout.tsx`, `SolutionWorkflow.tsx`, `LiveConsole.tsx`, `Footer.tsx`, `PartnersSupport.tsx`, `AboutConnect.tsx`, `utils.ts`, `PlatformTechnology.tsx`, `AboutMission.tsx`, `AdvantageSection.tsx`, `TrustStrip.tsx`, `HeroVisualPanel.tsx`, `HomeHeroLight.tsx`, `SuppliersExpand.tsx`, `Reveal.tsx`, `features.ts`, `HeroNetworkConsole.tsx`, `CardMedia.tsx`, `DevelopersPortal.tsx`, `HomeApi.tsx`, `HomeWhiteLabel.tsx`, `ApiFlows.tsx`, `Reveal`, `HomeFrame.tsx`, `SectionBackground.tsx`, `EventsCatalogSection.tsx`, `LogoWall.tsx`, `ContactEnquiryForm`, `Modal.tsx`?**
+  _High betweenness centrality (0.162) - this node is a cross-community bridge._
+- **Why does `routes` connect `routes.ts` to `Button.tsx`, `PlatformSupply.tsx`, `images.ts`, `formModals.ts`, `HomePartner.tsx`, `SupportFaqs.tsx`, `SolutionWorkflow.tsx`, `Footer.tsx`, `PartnersSupport.tsx`, `utils.ts`, `[slug]/page.tsx`, `PlatformTechnology.tsx`, `HomeHeroLight.tsx`, `engage.ts`, `Reveal.tsx`, `CardMedia.tsx`, `DevelopersPortal.tsx`, `HomeApi.tsx`, `HomeWhiteLabel.tsx`, `SuppliersApi.tsx`, `PartnersAccess.tsx`, `HomeFrame.tsx`, `solutions/page.tsx`?**
   _High betweenness centrality (0.039) - this node is a cross-community bridge._
-- **Why does `siteImages` connect `images.ts` to `HomeFrame.tsx`, `Button.tsx`, `engage.ts`, `SectionBackground.tsx`, `HomeHeroLight.tsx`, `Reveal.tsx`, `HomePartner.tsx`, `PartnersAccess.tsx`, `PlatformSupply.tsx`, `CardMedia.tsx`, `SolutionWorkflow.tsx`, `HomeWhatIs.tsx`, `HomeB2BTools.tsx`, `site.ts`, `about/page.tsx`, `HomeExperience.tsx`, `PlatformTechnology.tsx`?**
-  _High betweenness centrality (0.027) - this node is a cross-community bridge._
+- **Why does `siteImages` connect `images.ts` to `EdgeEngineSection.tsx`, `Button.tsx`, `PlatformSupply.tsx`, `HomePartner.tsx`, `SolutionWorkflow.tsx`, `routes.ts`, `site.ts`, `AboutConnect.tsx`, `[slug]/page.tsx`, `PlatformTechnology.tsx`, `AdvantageSection.tsx`, `TrustStrip.tsx`, `HomeHeroLight.tsx`, `engage.ts`, `Reveal.tsx`, `CardMedia.tsx`, `Reveal`, `PartnersAccess.tsx`, `EventsCatalogSection.tsx`, `SuppliersReach.tsx`, `solutions/page.tsx`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
 - **What connects `__filename`, `__dirname`, `compat` to the rest of the system?**
   _395 weakly-connected nodes found - possible documentation gaps or missing edges._

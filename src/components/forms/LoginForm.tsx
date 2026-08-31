@@ -5,8 +5,15 @@ import Link from "next/link";
 import { SubmitButton } from "@/components/ui/SubmitButton";
 import { routes } from "@/lib/constants/routes";
 import { siteConfig } from "@/lib/constants/site";
+import { cn } from "@/lib/utils";
 
-export function LoginForm() {
+export function LoginForm({
+  embedded = false,
+  className,
+}: {
+  embedded?: boolean;
+  className?: string;
+}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,7 +25,12 @@ export function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto space-y-5 rounded-2xl border border-orange-100 bg-white p-6 sm:p-8 glow-border"
+      className={cn(
+        "space-y-5",
+        !embedded &&
+          "mx-auto max-w-md rounded-2xl border border-orange-100 bg-white p-6 sm:p-8 glow-border",
+        className
+      )}
     >
       <div className="space-y-1.5">
         <label htmlFor="email" className="block text-sm font-medium text-brand-dark">
@@ -49,14 +61,17 @@ export function LoginForm() {
         />
       </div>
       <SubmitButton className="w-full">Login</SubmitButton>
-      <div className="flex flex-col sm:flex-row justify-between gap-2 text-sm">
+      <div className="flex flex-col justify-between gap-2 text-sm sm:flex-row">
         <a
           href={siteConfig.portalUrl}
-          className="text-brand-orange font-medium hover:underline"
+          className="font-medium text-brand-orange hover:underline"
         >
           Forgot Password?
         </a>
-        <Link href={routes.support} className="text-brand-gray-text hover:text-brand-orange">
+        <Link
+          href={routes.support}
+          className="text-brand-gray-text hover:text-brand-orange"
+        >
           Need Support?
         </Link>
       </div>

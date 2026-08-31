@@ -25,9 +25,23 @@ export function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    function closeOverlays() {
+      setMobileOpen(false);
+      setSolutionsOpen(false);
+      setMobileSolutionsOpen(false);
+    }
+    window.addEventListener("seatsconnect:modal-open", closeOverlays);
+    return () =>
+      window.removeEventListener("seatsconnect:modal-open", closeOverlays);
+  }, []);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "";
+      if (document.documentElement.getAttribute("data-form-modal-open") !== "true") {
+        document.body.style.overflow = "";
+      }
     };
   }, [mobileOpen]);
 

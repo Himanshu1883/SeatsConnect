@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { TopAccentBar } from "@/components/layout/TopAccentBar";
+import { FormModalProvider } from "@/components/modals/FormModalProvider";
 import { siteConfig } from "@/lib/constants/site";
 import "./globals.css";
 
@@ -52,12 +53,14 @@ export default function RootLayout({
       className={`scroll-smooth ${inter.variable} ${monaSans.variable}`}
     >
       <body>
-        <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-          <TopAccentBar />
-          <Navbar />
-        </header>
-        <main className="pt-[var(--site-header-height)]">{children}</main>
-        <Footer />
+        <FormModalProvider>
+          <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+            <TopAccentBar />
+            <Navbar />
+          </header>
+          <main className="pt-[var(--site-header-height)]">{children}</main>
+          <Footer />
+        </FormModalProvider>
       </body>
     </html>
   );
