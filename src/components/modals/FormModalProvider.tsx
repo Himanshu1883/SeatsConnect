@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { FormModalHost } from "@/components/modals/FormModalHost";
 import {
+  FORM_MODAL_OPEN_EVENT,
   FORM_MODAL_PAGE_SKIP_KEY,
   matchFormModalPath,
   parseFormModalUrl,
@@ -75,6 +76,7 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
 
       event.preventDefault();
       event.stopPropagation();
+      event.stopImmediatePropagation();
       setTarget(next);
     }
 
@@ -104,11 +106,19 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
       setTarget({ kind: next.kind, params });
     }
 
+    function onOpenEvent(event: Event) {
+      const detail = (event as CustomEvent<FormModalTarget>).detail;
+      if (!detail?.kind) return;
+      setTarget(detail);
+    }
+
     document.addEventListener("click", onClick, true);
     document.addEventListener("submit", onSubmit, true);
+    window.addEventListener(FORM_MODAL_OPEN_EVENT, onOpenEvent);
     return () => {
       document.removeEventListener("click", onClick, true);
       document.removeEventListener("submit", onSubmit, true);
+      window.removeEventListener(FORM_MODAL_OPEN_EVENT, onOpenEvent);
     };
   }, []);
 

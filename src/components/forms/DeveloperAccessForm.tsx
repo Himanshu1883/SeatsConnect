@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Building2, Cable, FileText, Mail, User } from "lucide-react";
 import { FormField, FormGrid } from "@/components/ui/FormFields";
 import { FormSuccess } from "@/components/ui/FormSuccess";
 import { SubmitButton } from "@/components/ui/SubmitButton";
@@ -31,28 +32,50 @@ export function DeveloperAccessForm({ className }: { className?: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={cn("space-y-5", className)}>
+    <form onSubmit={handleSubmit} className={cn("space-y-2", className)}>
       <FormGrid>
-        <FormField label="Name" name="name" required />
-        <FormField label="Company" name="company" required />
-        <FormField label="Business Email" name="email" type="email" required />
-        <FormField label="Job Title" name="jobTitle" />
+        <FormField
+          label="Name"
+          name="name"
+          required
+          icon={User}
+          placeholder="Full name"
+        />
+        <FormField
+          label="Company"
+          name="company"
+          required
+          icon={Building2}
+          placeholder="Your company name"
+        />
+        <FormField
+          label="Business Email"
+          name="email"
+          type="email"
+          required
+          icon={Mail}
+          placeholder="name@company.com"
+        />
         <FormField
           label="Integration Type"
           name="role"
           as="select"
+          icon={Cable}
           options={roleOptions}
           required
+          placeholder="Select type"
         />
-        <FormField label="Current Systems" name="systems" />
       </FormGrid>
       <FormField
         label="What do you want to connect?"
         name="message"
         as="textarea"
         required
+        icon={FileText}
+        maxLength={500}
+        placeholder="Tell us what you want to connect..."
       />
-      <SubmitButton>Request Developer Access</SubmitButton>
+      <SubmitButton arrow>Request Developer Access</SubmitButton>
     </form>
   );
 }

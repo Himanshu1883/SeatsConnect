@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import { Lock, Mail } from "lucide-react";
+import { FormField } from "@/components/ui/FormFields";
 import { SubmitButton } from "@/components/ui/SubmitButton";
 import { routes } from "@/lib/constants/routes";
 import { siteConfig } from "@/lib/constants/site";
@@ -14,9 +15,6 @@ export function LoginForm({
   embedded?: boolean;
   className?: string;
 }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     window.location.href = siteConfig.portalUrl;
@@ -26,42 +24,30 @@ export function LoginForm({
     <form
       onSubmit={handleSubmit}
       className={cn(
-        "space-y-5",
+        "space-y-2",
         !embedded &&
-          "mx-auto max-w-md rounded-2xl border border-orange-100 bg-white p-6 sm:p-8 glow-border",
+          "mx-auto max-w-md rounded-2xl border border-orange-100 bg-white p-5 sm:p-6 glow-border",
         className
       )}
     >
-      <div className="space-y-1.5">
-        <label htmlFor="email" className="block text-sm font-medium text-brand-dark">
-          Email
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          className="w-full rounded-lg border border-orange-100 bg-white px-3.5 py-2.5 text-sm text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-orange/30 focus:border-brand-orange/50"
-        />
-      </div>
-      <div className="space-y-1.5">
-        <label htmlFor="password" className="block text-sm font-medium text-brand-dark">
-          Password
-        </label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          required
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          className="w-full rounded-lg border border-orange-100 bg-white px-3.5 py-2.5 text-sm text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-orange/30 focus:border-brand-orange/50"
-        />
-      </div>
-      <SubmitButton className="w-full">Login</SubmitButton>
-      <div className="flex flex-col justify-between gap-2 text-sm sm:flex-row">
+      <FormField
+        label="Email"
+        name="email"
+        type="email"
+        required
+        icon={Mail}
+        placeholder="name@company.com"
+      />
+      <FormField
+        label="Password"
+        name="password"
+        type="password"
+        required
+        icon={Lock}
+        placeholder="••••••••"
+      />
+      <SubmitButton arrow>Login</SubmitButton>
+      <div className="flex flex-col justify-between gap-1.5 text-[12px] sm:flex-row">
         <a
           href={siteConfig.portalUrl}
           className="font-medium text-brand-orange hover:underline"

@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useId, useLayoutEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import type { LucideIcon } from "lucide-react";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -13,17 +14,45 @@ type ModalProps = {
   title: string;
   description?: string;
   eyebrow?: string;
+  eyebrowIcon?: LucideIcon;
   size?: ModalSize;
   footer?: React.ReactNode;
+  trust?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
 };
 
 const sizeClasses: Record<ModalSize, string> = {
-  wide: "max-w-4xl",
-  form: "max-w-2xl",
-  narrow: "max-w-lg",
+  wide: "max-w-[52rem]",
+  form: "max-w-[40rem]",
+  narrow: "max-w-[30rem]",
 };
+
+function ModalTitle({ id, title }: { id: string; title: string }) {
+  const hasPeriod = title.endsWith(".");
+  const body = hasPeriod ? title.slice(0, -1) : title;
+  const words = body.split(" ");
+  const last = words.length > 1 ? words.pop() : null;
+
+  return (
+    <h2
+      id={id}
+      className="heading mt-1 text-[1.5rem] leading-[1.12] tracking-[-0.03em] text-brand-dark sm:text-[1.7rem]"
+    >
+      {last ? (
+        <>
+          {words.join(" ")}{" "}
+          <span className="text-brand-orange">
+            {last}
+            {hasPeriod ? "." : ""}
+          </span>
+        </>
+      ) : (
+        title
+      )}
+    </h2>
+  );
+}
 
 function isInside(root: HTMLElement | null, node: EventTarget | null) {
   return Boolean(root && node instanceof Node && root.contains(node));
@@ -35,8 +64,10 @@ export function Modal({
   title,
   description,
   eyebrow,
+  eyebrowIcon: EyebrowIcon,
   size = "form",
   footer,
+  trust,
   children,
   className,
 }: ModalProps) {
@@ -45,15 +76,17 @@ export function Modal({
   const panelRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!open) return;
 
     const html = document.documentElement;
     const body = document.body;
     const previousFocus = document.activeElement as HTMLElement | null;
+    const previousScrollBehavior = html.style.scrollBehavior;
     const scrollY = window.scrollY;
     const scrollbarWidth = window.innerWidth - html.clientWidth;
 
+    html.style.scrollBehavior = "auto";
     html.setAttribute("data-form-modal-open", "true");
     html.style.overflow = "hidden";
     html.style.overscrollBehavior = "none";
@@ -67,7 +100,7 @@ export function Modal({
       body.style.paddingRight = `${scrollbarWidth}px`;
     }
 
-    panelRef.current?.focus();
+    panelRef.current?.focus({ preventScroll: true });
     window.dispatchEvent(new Event("seatsconnect:modal-open"));
 
     function stopIfOutsideScroll(event: WheelEvent | TouchEvent) {
@@ -112,15 +145,16 @@ export function Modal({
       body.style.right = "";
       body.style.width = "";
       body.style.paddingRight = "";
-      window.scrollTo(0, scrollY);
-      previousFocus?.focus();
+      window.scrollTo({ top: scrollY, left: 0, behavior: "auto" });
+      html.style.scrollBehavior = previousScrollBehavior;
+      previousFocus?.focus({ preventScroll: true });
     };
   }, [open, onClose]);
 
   if (!open || typeof document === "undefined") return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-[80] flex items-end justify-center overflow-hidden overscroll-none p-3 sm:items-center sm:p-6">
+    <div className="fixed inset-0 z-[80] flex items-end justify-center overflow-hidden overscroll-none p-2 sm:items-center sm:p-4">
       <button
         type="button"
         aria-label="Close dialog"
@@ -135,28 +169,26 @@ export function Modal({
         aria-describedby={description ? descId : undefined}
         tabIndex={-1}
         className={cn(
-          "relative z-10 flex max-h-[min(92dvh,52rem)] w-full flex-col overflow-hidden overscroll-none rounded-[1.6rem] border border-orange-100 bg-white shadow-[0_24px_80px_rgba(40,30,20,0.22)] outline-none",
+          "relative z-10 flex max-h-[calc(100dvh-1rem)] w-full flex-col overflow-hidden overscroll-none rounded-[1.25rem] border border-orange-100/80 bg-white shadow-[0_28px_80px_rgba(40,30,20,0.24)] outline-none",
           sizeClasses[size],
           className
         )}
       >
-        <div className="flex items-start justify-between gap-4 border-b border-orange-100/90 px-5 py-4 sm:px-6">
+        <div className="flex shrink-0 items-start justify-between gap-3 px-5 pb-1 pt-4 sm:px-6 sm:pt-5">
           <div className="min-w-0">
             {eyebrow ? (
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-orange">
+              <p className="flex items-center gap-1.5 font-tech text-[10px] font-bold uppercase tracking-[0.16em] text-brand-orange">
+                {EyebrowIcon ? (
+                  <EyebrowIcon className="h-3.5 w-3.5" strokeWidth={2} />
+                ) : null}
                 {eyebrow}
               </p>
             ) : null}
-            <h2
-              id={titleId}
-              className="mt-1 font-tech text-xl font-bold leading-snug text-brand-dark sm:text-2xl"
-            >
-              {title}
-            </h2>
+            <ModalTitle id={titleId} title={title} />
             {description ? (
               <p
                 id={descId}
-                className="mt-1.5 max-w-xl text-sm leading-relaxed text-brand-gray-text"
+                className="mt-1 max-w-md text-[13px] leading-snug text-brand-gray-text"
               >
                 {description}
               </p>
@@ -165,21 +197,29 @@ export function Modal({
           <button
             type="button"
             onClick={onClose}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-orange-100 bg-[#faf7f3] text-brand-dark transition hover:border-brand-orange/40 hover:text-brand-orange"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-orange-100 bg-white text-brand-gray-text transition hover:border-brand-orange/40 hover:text-brand-orange"
             aria-label="Close"
           >
-            <X className="h-4 w-4" strokeWidth={2.2} />
+            <X className="h-3.5 w-3.5" strokeWidth={2.2} />
           </button>
         </div>
         <div
           ref={scrollRef}
-          className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain px-5 py-5 sm:px-6 sm:py-6"
+          className={cn(
+            "min-h-0 flex-1 px-5 py-3 sm:px-6",
+            size === "wide" ? "overflow-y-auto overscroll-y-contain" : "overflow-hidden"
+          )}
         >
           {children}
         </div>
         {footer ? (
-          <div className="border-t border-orange-100/90 bg-[#faf7f3] px-5 py-3 sm:px-6">
+          <div className="shrink-0 border-t border-orange-100/80 bg-[#f7f3ef] px-5 py-2 sm:px-6">
             {footer}
+          </div>
+        ) : null}
+        {trust ? (
+          <div className="shrink-0 border-t border-orange-100/70 bg-[#f4efe9] px-5 py-2 sm:px-6">
+            {trust}
           </div>
         ) : null}
       </div>

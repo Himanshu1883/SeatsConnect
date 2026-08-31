@@ -31,6 +31,9 @@ export const formModalCopy: Record<
     pageHref: string;
     pageLabel: string;
     related: FormModalRelatedLink[];
+    aside: string;
+    asideCta: string;
+    asideHref: string;
   }
 > = {
   join: {
@@ -44,12 +47,15 @@ export const formModalCopy: Record<
       { label: "For Suppliers", href: routes.suppliers },
       { label: "For Partners", href: routes.partners },
     ],
+    aside: "Not sure which path fits?",
+    asideCta: "Talk to Our Team",
+    asideHref: routes.contact,
   },
   joinSupplier: {
     eyebrow: "Supply partners",
     title: "Connect Your Inventory.",
     description:
-      "Connect your event inventory with approved B2B distribution channels through SeatsConnect. Complete the form and our supply team will review your requirements.",
+      "Share a few details. Our supply team will review and get in touch.",
     size: "form",
     pageHref: routes.joinSupplier,
     pageLabel: "View supply page",
@@ -57,12 +63,15 @@ export const formModalCopy: Record<
       { label: "For Suppliers", href: routes.suppliers },
       { label: "Join SeatsConnect", href: routes.join },
     ],
+    aside: "Already working with us?",
+    asideCta: "Contact our team",
+    asideHref: routes.contact,
   },
   joinPartner: {
     eyebrow: "Distribution partners",
     title: "Join Our Network.",
     description:
-      "Access global ticket, hospitality and event supply through one professional B2B connection. Complete the application so we can understand your business and distribution requirements.",
+      "Share a few details so we can understand your business and access needs.",
     size: "form",
     pageHref: routes.joinPartner,
     pageLabel: "View partner page",
@@ -70,12 +79,14 @@ export const formModalCopy: Record<
       { label: "For Partners", href: routes.partners },
       { label: "Join SeatsConnect", href: routes.join },
     ],
+    aside: "Already a partner?",
+    asideCta: "Contact our team",
+    asideHref: routes.contact,
   },
   contact: {
     eyebrow: "Contact",
     title: "Talk to Our Team.",
-    description:
-      "Tell us about your business and how you want to work with SeatsConnect. Our team will be in touch shortly.",
+    description: "Tell us how you want to work with SeatsConnect.",
     size: "form",
     pageHref: routes.contact,
     pageLabel: "View contact page",
@@ -83,12 +94,15 @@ export const formModalCopy: Record<
       { label: "Support", href: routes.support },
       { label: "Join SeatsConnect", href: routes.join },
     ],
+    aside: "Need help first?",
+    asideCta: "Visit Support",
+    asideHref: routes.support,
   },
   request: {
     eyebrow: "Partner requests",
     title: "Submit a Request.",
     description:
-      "Ask the partner team for selected group, hospitality or complex ticket and hospitality requirements.",
+      "Ask the partner team for selected group, hospitality or complex requirements.",
     size: "form",
     pageHref: routes.request,
     pageLabel: "View request page",
@@ -96,12 +110,15 @@ export const formModalCopy: Record<
       { label: "For Partners", href: routes.partners },
       { label: "Contact", href: routes.contact },
     ],
+    aside: "Need something else?",
+    asideCta: "Contact our team",
+    asideHref: routes.contact,
   },
   developers: {
     eyebrow: "Developers",
     title: "Request Developer Access.",
     description:
-      "Tell us what you want to connect. Our integration team will review the request and contact you regarding documentation and next steps.",
+      "Tell us what you want to connect. Our integration team will follow up.",
     size: "form",
     pageHref: routes.developers,
     pageLabel: "View developers page",
@@ -109,6 +126,9 @@ export const formModalCopy: Record<
       { label: "API Overview", href: routes.api },
       { label: "Contact", href: routes.contact },
     ],
+    aside: "Need an overview first?",
+    asideCta: "View API",
+    asideHref: routes.api,
   },
   login: {
     eyebrow: "Partner login",
@@ -122,10 +142,14 @@ export const formModalCopy: Record<
       { label: "Support", href: routes.support },
       { label: "Go to platform", href: siteConfig.portalUrl, external: true },
     ],
+    aside: "Need help signing in?",
+    asideCta: "Visit Support",
+    asideHref: routes.support,
   },
 };
 
 export const FORM_MODAL_PAGE_SKIP_KEY = "seatsconnect:form-page";
+export const FORM_MODAL_OPEN_EVENT = "seatsconnect:open-form-modal";
 
 const pathKinds: Array<[string, FormModalKind]> = [
   [routes.joinSupplier, "joinSupplier"],
@@ -133,7 +157,6 @@ const pathKinds: Array<[string, FormModalKind]> = [
   [routes.join, "join"],
   [routes.contact, "contact"],
   [routes.request, "request"],
-  [routes.developers, "developers"],
   [routes.login, "login"],
 ];
 
@@ -159,10 +182,7 @@ export function parseFormModalUrl(
   if (url.origin !== new URL(currentHref).origin) return null;
 
   if (url.hash === "#access") {
-    const path = url.pathname.replace(/\/$/, "") || "/";
-    if (path === routes.developers) {
-      return { kind: "developers", params: {} };
-    }
+    return { kind: "developers", params: {} };
   }
 
   const kind = matchFormModalPath(url.pathname);

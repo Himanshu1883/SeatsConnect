@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { FORM_MODAL_OPEN_EVENT, parseFormModalUrl } from "@/lib/constants/formModals";
 import { cn } from "@/lib/utils";
 
 type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
@@ -22,6 +25,27 @@ const variantClasses: Record<ButtonVariant, string> = {
     "text-brand-dark hover:text-brand-orange hover:bg-brand-orange-light/60",
 };
 
+function isModifiedClick(event: {
+  button?: number;
+  metaKey?: boolean;
+  ctrlKey?: boolean;
+  shiftKey?: boolean;
+  altKey?: boolean;
+}) {
+  return (
+    (event.button != null && event.button !== 0) ||
+    Boolean(event.metaKey) ||
+    Boolean(event.ctrlKey) ||
+    Boolean(event.shiftKey) ||
+    Boolean(event.altKey)
+  );
+}
+
+function formModalFromHref(href: string) {
+  if (typeof window === "undefined") return null;
+  return parseFormModalUrl(href, window.location.href);
+}
+
 export function Button({
   href,
   children,
@@ -44,7 +68,21 @@ export function Button({
   }
 
   return (
-    <Link href={href} className={classes}>
+    <Link
+      href={href}
+      className={classes}
+      onClick={(event) => {
+        if (isModifiedClick(event)) return;
+        const next = formModalFromHref(href);
+        if (!next) return;
+        event.preventDefault();
+        window.dispatchEvent(new CustomEvent(FORM_MODAL_OPEN_EVENT, { detail: next }));
+      }}
+      onNavigate={(event) => {
+        if (!formModalFromHref(href)) return;
+        event.preventDefault();
+      }}
+    >
       {children}
     </Link>
   );

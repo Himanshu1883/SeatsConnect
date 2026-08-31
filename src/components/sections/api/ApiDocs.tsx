@@ -60,13 +60,14 @@ export function ApiDocs() {
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                   <Link
                     href={routes.developers}
+                    data-form-modal-bypass="true"
                     className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-orange px-5 py-2.5 font-tech text-sm font-semibold text-white shadow-[0_10px_24px_rgba(255,107,0,0.24)] transition hover:bg-brand-orange-hover"
                   >
                     Go to Developers
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link
-                    href={routes.contact}
+                    href={`${routes.developers}#access`}
                     className="inline-flex items-center justify-center gap-2 rounded-xl border border-orange-200 bg-white px-5 py-2.5 font-tech text-sm font-semibold text-brand-dark transition hover:border-brand-orange/40 hover:bg-[#fff7f0]"
                   >
                     Request Developer Access
